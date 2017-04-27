@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="crayondowntown.navalassault.Controller">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -42,7 +42,7 @@
             <AnchorPane layoutY="4.0" />
             <ImageView fitHeight="656.0" fitWidth="1201.0" layoutX="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../assests/Background.jpg" />
+                  <Image url="@../../assests/Background.jpg" />
                </image>
             </ImageView>
       </children>
