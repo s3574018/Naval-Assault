@@ -12,7 +12,8 @@ public class ComputerOpponent {
         setShips();
         printGrid();
 
-        // allows to cycle through turns and is being during development only
+        // allows user to prompt opponent to take another turn through turns and
+        // prints updated board. is being used during development only
         String userInput;
         Scanner sc = new Scanner(System.in);
         do {
@@ -84,6 +85,8 @@ public class ComputerOpponent {
         gameBoard[3][5] = "1";
     }
 
+    // generates random grid co-ordinates and takes a shot. hit/miss status is
+    // updated for the square chosen
     public static void randomShot() {
         int xAxis, yAxis;
         Random randomNum = new Random();
@@ -105,6 +108,5 @@ public class ComputerOpponent {
             System.out.println("xAxis is : " + xAxis);
             System.out.println("yAxis is : " + yAxis);
         } while (tryAgain == true);
-
     }
 }
