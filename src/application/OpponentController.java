@@ -1,6 +1,7 @@
 package application;
 
 import java.util.Scanner;
+import java.lang.Integer;
 
 public class OpponentController {
 
@@ -24,8 +25,13 @@ public class OpponentController {
                 printGrid();
             } else {
                 System.out.println("Game Statistics");
-                double hitStat = Stats.getHitCount() / Stats.getShotCount() * 100;
-                System.out.printf("%f", hitStat);
+                // double hitStat = (double)Stats.getHitCount();
+                System.out.printf("Hit Percentage: %.2f%%",
+                        ((double) Stats.getHitCount() / Stats.getShotCount())
+                                * 100);
+                System.out.printf("\nMiss Percentage: %.2f%%",
+                        ((double) Stats.getMissCount() / Stats.getShotCount())
+                                * 100);
             }
         } while (userInput.charAt(0) != 'X');
         sc.close();

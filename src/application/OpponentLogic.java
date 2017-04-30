@@ -2,6 +2,7 @@ package application;
 
 import java.util.Random;
 
+
 public class OpponentLogic {
 
     // public static void main(String[] args) {
