@@ -23,10 +23,27 @@ public class OpponentController {
                 OpponentLogic.randomShot();
                 printGrid();
             } else {
-                System.out.println("Exiting the program...");
+                System.out.println("Game Statistics");
+                double hitStat = Stats.getHitCount() / Stats.getShotCount() * 100;
+                System.out.printf("%f", hitStat);
             }
         } while (userInput.charAt(0) != 'X');
         sc.close();
+    }
+
+    // gets current state for gameBoard coordinate
+    public static String getState(int yAxis, int xAxis) {
+        return gameBoard[yAxis][xAxis];
+    }
+
+    // sets gameBoard coordinate to hit state
+    public static void setHit(int yAxis, int xAxis) {
+        gameBoard[yAxis][xAxis] = "X";
+    }
+
+    // sets gameBoard coordinate to miss state
+    public static void setMiss(int yAxis, int xAxis) {
+        gameBoard[yAxis][xAxis] = "O";
     }
 
     // resets all fields in array with 0's
@@ -82,21 +99,6 @@ public class OpponentController {
         gameBoard[3][3] = "1";
         gameBoard[3][4] = "1";
         gameBoard[3][5] = "1";
-    }
-
-    // gets current state for gameBoard coordinate
-    public static String getState(int yAxis, int xAxis) {
-        return gameBoard[yAxis][xAxis];
-    }
-
-    // sets gameBoard coordinates to hit state
-    public static void setHit(int yAxis, int xAxis) {
-        gameBoard[yAxis][xAxis] = "X";
-    }
-
-    // sets gameBoard coordinates to miss state
-    public static void setMiss(int yAxis, int xAxis) {
-        gameBoard[yAxis][xAxis] = "O";
     }
 
 }
