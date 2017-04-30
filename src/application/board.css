@@ -2,7 +2,7 @@
  * Sets background image
  */
 .root {
-	-fx-background-image: url("na-background.jpg");
+	-fx-background-image: url("na-background_720.jpg");
 }
 
 /*
@@ -17,7 +17,7 @@
  * Font for status bar
  */	
 #statusBar {
-	-fx-font-size: 36px;
+	-fx-font-size: 28px;
 	-fx-font-weight: bold;
 }
 
@@ -25,7 +25,7 @@
  * loading logo
  */
 #logoPane {
-	-fx-background-image: url("na-logo-nobg.png");
+	-fx-background-image: url("logo.png");
 	-fx-background-position: center;
 }
 
@@ -33,7 +33,7 @@
  * font for menu
  */
 #menuButton {
-	-fx-font-size: 16px;
+	-fx-font-size: 12px;
 	-fx-font-weight: bold;
 }
 /*
