@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BoardViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BoardViewController">
 	<children>
-      <StackPane fx:id="logoPane" layoutX="250.0" layoutY="850.0" prefHeight="200.0" prefWidth="600.0" />
-		<StackPane fx:id="statusPane" layoutX="471.0" layoutY="36.0" prefHeight="62.0" prefWidth="1000.0">
+      <StackPane fx:id="logoPane" layoutX="134.0" layoutY="500.0" prefHeight="200.0" prefWidth="346.0" />
+		<StackPane fx:id="statusPane" layoutX="140.0" layoutY="36.0" prefHeight="40.0" prefWidth="1000.0">
 			<children>
 				<Label fx:id="statusBar" text="" textAlignment="CENTER">
 				</Label>
 			</children>
 		</StackPane>
-      <Button fx:id="menuButton" layoutX="64.0" layoutY="36.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="85.0" text="Menu" />
-      <StackPane fx:id="shipsPane" layoutX="1139.0" layoutY="820.0" prefHeight="220.0" prefWidth="600.0" />
+      <Button fx:id="menuButton" layoutX="30.0" layoutY="36.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="85.0" text="Menu" />
+      <StackPane fx:id="shipsPane" layoutX="740.0" layoutY="500.0" prefHeight="200.0" prefWidth="400.0" />
 	</children>
 </AnchorPane>
