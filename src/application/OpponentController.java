@@ -3,7 +3,7 @@ package application;
 import java.util.Random;
 import java.util.Scanner;
 
-public class ComputerOpponent {
+public class OpponentController {
 
     private static final String[][] gameBoard = new String[10][10];
 
@@ -83,6 +83,21 @@ public class ComputerOpponent {
         gameBoard[3][3] = "1";
         gameBoard[3][4] = "1";
         gameBoard[3][5] = "1";
+    }
+
+    // gets current state for gameBoard coordinate
+    public static String getState(int yAxis, int xAxis) {
+        return gameBoard[yAxis][xAxis];
+    }
+
+    // sets gameBoard coordinates to hit state
+    public static void setHit(int yAxis, int xAxis) {
+        gameBoard[yAxis][xAxis] = "X";
+    }
+
+    // sets gameBoard coordinates to miss state
+    public static void setMiss(int yAxis, int xAxis) {
+        gameBoard[yAxis][xAxis] = "O";
     }
 
     // generates random grid co-ordinates and takes a shot. hit/miss status is
