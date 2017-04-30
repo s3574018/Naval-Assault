@@ -17,7 +17,6 @@ public class Board extends Application {
 			primaryStage.setTitle("Naval Assault");
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			primaryStage.setFullScreen(true);
 			
 		} catch(Exception e) {
 			e.printStackTrace();
