@@ -1,6 +1,5 @@
 package application;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class OpponentController {
@@ -21,7 +20,7 @@ public class OpponentController {
             userInput = sc.nextLine().toUpperCase();
             if (userInput.equals("X") == false) {
                 System.out.println("Next turn\n");
-                randomShot();
+                OpponentLogic.randomShot();
                 printGrid();
             } else {
                 System.out.println("Exiting the program...");
@@ -100,28 +99,4 @@ public class OpponentController {
         gameBoard[yAxis][xAxis] = "O";
     }
 
-    // generates random grid co-ordinates and takes a shot. hit/miss status is
-    // updated for the square chosen
-    public static void randomShot() {
-        int xAxis, yAxis;
-        Random randomNum = new Random();
-        boolean tryAgain = true;
-        do {
-            xAxis = randomNum.nextInt(10);
-            yAxis = randomNum.nextInt(10);
-            if (gameBoard[yAxis][xAxis] == "1") {
-                gameBoard[yAxis][xAxis] = "X";
-                tryAgain = false;
-                System.out.println("Hit!");
-            } else if (gameBoard[yAxis][xAxis] == ".") {
-                gameBoard[yAxis][xAxis] = "O";
-                tryAgain = false;
-                System.out.println("Miss");
-            } else {
-                System.out.println("Trying Again");
-            }
-            System.out.println("xAxis is : " + xAxis);
-            System.out.println("yAxis is : " + yAxis);
-        } while (tryAgain == true);
-    }
 }
