@@ -100,28 +100,4 @@ public class OpponentController {
         gameBoard[yAxis][xAxis] = "O";
     }
 
-    // generates random grid co-ordinates and takes a shot. hit/miss status is
-    // updated for the square chosen
-    public static void randomShot() {
-        int xAxis, yAxis;
-        Random randomNum = new Random();
-        boolean tryAgain = true;
-        do {
-            xAxis = randomNum.nextInt(10);
-            yAxis = randomNum.nextInt(10);
-            if (gameBoard[yAxis][xAxis] == "1") {
-                gameBoard[yAxis][xAxis] = "X";
-                tryAgain = false;
-                System.out.println("Hit!");
-            } else if (gameBoard[yAxis][xAxis] == ".") {
-                gameBoard[yAxis][xAxis] = "O";
-                tryAgain = false;
-                System.out.println("Miss");
-            } else {
-                System.out.println("Trying Again");
-            }
-            System.out.println("xAxis is : " + xAxis);
-            System.out.println("yAxis is : " + yAxis);
-        } while (tryAgain == true);
-    }
 }
