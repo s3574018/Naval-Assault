@@ -1,0 +1,46 @@
+/*
+ * Sets background image
+ */
+.root {
+	-fx-background-image: url("na-background.jpg");
+}
+
+/*
+ * colouring for statusBar
+ */
+#statusPane {
+	-fx-background-color: white;
+	-fx-border-color: black;
+	}
+
+/*
+ * Font for status bar
+ */	
+#statusBar {
+	-fx-font-size: 36px;
+	-fx-font-weight: bold;
+}
+
+/*
+ * loading logo
+ */
+#logoPane {
+	-fx-background-image: url("na-logo-nobg.png");
+	-fx-background-position: center;
+}
+
+/*
+ * font for menu
+ */
+#menuButton {
+	-fx-font-size: 16px;
+	-fx-font-weight: bold;
+}
+/*
+ * shipsPane styling
+ */
+#shipsPane {
+	-fx-background-color: black;
+	-fx-border-color: white;
+	-fx-opacity: 0.5;
+}
