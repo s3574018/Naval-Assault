@@ -2,7 +2,6 @@ package application;
 
 import java.util.Random;
 
-
 public class OpponentLogic {
 
     // public static void main(String[] args) {
@@ -18,13 +17,16 @@ public class OpponentLogic {
         do {
             xAxis = randomNum.nextInt(10);
             yAxis = randomNum.nextInt(10);
-            if (OpponentController.getState(yAxis, xAxis) == "1") {
+            
+            // below code is now broken. still investigating. maybe use switch?
+            if (OpponentController.getState(yAxis, xAxis) == OpponentController.fleet[0]) {
                 OpponentController.setHit(yAxis, xAxis);
                 tryAgain = false;
                 System.out.println("Hit");
                 Stats.increaseHitCount();
                 Stats.increaseShotCount();
-            } else if (OpponentController.getState(yAxis, xAxis) == ".") {
+            } else if (OpponentController.getState(yAxis,
+                    xAxis) == OpponentController.fleet[5]) {
                 OpponentController.setMiss(yAxis, xAxis);
                 tryAgain = false;
                 System.out.println("Miss");
