@@ -6,25 +6,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
-	prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:id="controller">
 	<children>
-		<StackPane fx:id="logoPane" layoutX="180.0" layoutY="500.0"
-			prefHeight="200.0" prefWidth="346.0" />
-		<StackPane fx:id="statusPane" layoutX="140.0" layoutY="36.0"
-			prefHeight="40.0" prefWidth="1000.0">
+		<StackPane fx:id="statusPane" layoutX="140.0" layoutY="36.0" prefHeight="40.0" prefWidth="1000.0">
 			<children>
 				<Label fx:id="statusBar" textAlignment="CENTER">
 				</Label>
 			</children>
 		</StackPane>
-
-		<StackPane fx:id="shipsPane" layoutX="720.0" layoutY="530.0"
-			prefHeight="150.0" prefWidth="400.0" />
-		<BorderPane prefHeight="720.0" prefWidth="1280.0"
-			AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-			AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+		<BorderPane prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<top>
 				<MenuBar BorderPane.alignment="CENTER">
 					<menus>

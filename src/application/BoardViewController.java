@@ -5,8 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.util.ResourceBundle;
 import javafx.scene.layout.StackPane;
-import javafx.scene.control.Label;
-//import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 
 public class BoardViewController implements Initializable {
 	
@@ -14,36 +13,14 @@ public class BoardViewController implements Initializable {
 	private StackPane statusPane;
 	
 	@FXML
-	private StackPane shipsPane;
-	
-	@FXML
-	private StackPane logoPane;
-	
-	@FXML
-	private Label statusBar;
+	private Text statusBar;
 		
 	@Override
-	public void initialize(URL url, ResourceBundle rb) 
-	{
-		/*menuButton.setOnAction(event ->
-	    {
-	    	if (menuClick == false)
-	        {
-	        	menuButton.setText("Clicked");
-	        	menuClick = true;
-	        }
-	        else
-	        {
-	        	menuButton.setText("Menu");
-	        	menuClick = false;
-	        }
-	    	        
-	    });*/
+	public void initialize(URL url, ResourceBundle rb) {
+		setLabelText();
 	}
-	public void setStatus(String status) {
-		statusBar.setText(status);
+	public void setLabelText() {
+		statusBar.setText("This is starting text");
 	}
-	
-	
 }
 
