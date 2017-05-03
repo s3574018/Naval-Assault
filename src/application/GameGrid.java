@@ -1,10 +1,10 @@
 package application;
 
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-
 
 
 /*My GameGrid class has 3 variable:
@@ -35,6 +35,7 @@ public class GameGrid {
         		button[x][y].setPrefSize(buttonSize,buttonSize);
         		button[x][y].setLayoutX(x * buttonSize + startX);
         		button[x][y].setLayoutY(y * buttonSize + startY);
+        		button[x][y].setPadding(new Insets(0,0,0,0));
         	    grid.add(button[x][y], x, y);
         	    grid.setLayoutX(startX);
         	    grid.setLayoutY(startY);
