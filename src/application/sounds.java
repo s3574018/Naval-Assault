@@ -32,7 +32,7 @@ public class sounds extends Application {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Miss!");
-                Media miss = new Media("file:///Users/Andrew/git/Naval-Assault/src/Miss.mp3");
+                Media miss = new Media("file:///Users/subrata/git/Naval-Assault/src/Miss.mp3");
                 MediaPlayer playMiss = new MediaPlayer(miss);
                 playMiss.play();
             }
@@ -48,7 +48,7 @@ public class sounds extends Application {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Hit!");
-                Media hit = new Media("file:///Users/Andrew/git/Naval-Assault/src/Hit.mp3");
+                Media hit = new Media("file:///Users/subrata/git/Naval-Assault/src/Hit.mp3");
                 MediaPlayer playHit = new MediaPlayer(hit);
                 playHit.setStopTime(Duration.seconds(2.5));
                 playHit.play();
@@ -65,7 +65,7 @@ public class sounds extends Application {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Start!");
-                Media start = new Media("file:///Users/Andrew/git/Naval-Assault/src/Start_Game.mp3");
+                Media start = new Media("file:///Users/subrata/git/Naval-Assault/src/Start_Game.mp3");
                 MediaPlayer playStart = new MediaPlayer(start);
                 playStart.play();
             }
@@ -79,7 +79,7 @@ public class sounds extends Application {
         musicOn.setOnAction(new EventHandler<ActionEvent>() {
         Boolean test = false;
         
-        Media music = new Media("file:///Users/Andrew/git/Naval-Assault/src/Background_Music.mp3");
+        Media music = new Media("file:///Users/subrata/git/Naval-Assault/src/Background_Music.mp3");
 		MediaPlayer playMusic = new MediaPlayer(music);
         
             @Override
