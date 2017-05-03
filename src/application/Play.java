@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import java.net.URL;
 
 
 public class Play extends Application {
@@ -25,16 +26,16 @@ public class Play extends Application {
 	}
 	
 	//creates the images for that make up the battleship.
-    Image battleship1Img = new Image("file:///Users/Andrew/git/Naval-Assault/src/application/battleship1.png");
-    Image battleship2Img = new Image("file:///Users/Andrew/git/Naval-Assault/src/application/battleship2.png");
-    Image battleship3Img = new Image("file:///Users/Andrew/git/Naval-Assault/src/application/battleship3.png");
-    Image battleship4Img = new Image("file:///Users/Andrew/git/Naval-Assault/src/application/battleship4.png");
+    Image battleship1Img = new Image("application/battleship1.png");
+    Image battleship2Img = new Image("application/battleship2.png");
+    Image battleship3Img = new Image("application/battleship3.png");
+    Image battleship4Img = new Image("application/battleship4.png");
 
    
     //creates the images for the "hit" "miss" and "Cursor"    
-    Image explosionImg = new Image("file:///Users/Andrew/git/Naval-Assault/src/application/explosion.png");
-    Image waterImg = new Image("file:///Users/Andrew/git/Naval-Assault/src/application/water.png");
-    Image cursorImg = new Image("file:///Users/Andrew/git/Naval-Assault/src/application/crosshairs.png");
+    Image explosionImg = new Image("application/explosion.png");
+    Image waterImg = new Image("application/water.png");
+    Image cursorImg = new Image("application/crosshairs.png");
     
     //creates a 2D array of buttons for the player and computer grid.
     Button[][] player = new Button[10][10];
