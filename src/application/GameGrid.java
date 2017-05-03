@@ -10,7 +10,7 @@ import javafx.scene.layout.GridPane;
 /*My GameGrid class has 3 variable:
   - buttonSize is an integer used to set the size of each grid button
   - startX is the starting X coordinate of the Grid
-  - startY is the starting Y coordinate of the Grid
+  - startY is the starting Y coordinate of the Grid.
 */
 public class GameGrid {
 

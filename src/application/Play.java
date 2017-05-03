@@ -24,7 +24,7 @@ public class Play extends Application {
 		launch(args);
 	}
 	
-	//creates the images for that make up the battleship
+	//creates the images for that make up the battleship.
     Image battleship1Img = new Image("file:///Users/Andrew/git/Naval-Assault/src/application/battleship1.png");
     Image battleship2Img = new Image("file:///Users/Andrew/git/Naval-Assault/src/application/battleship2.png");
     Image battleship3Img = new Image("file:///Users/Andrew/git/Naval-Assault/src/application/battleship3.png");
