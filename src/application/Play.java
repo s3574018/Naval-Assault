@@ -36,7 +36,7 @@ public class Play extends Application {
     Image waterImg = new Image("file:///Users/Andrew/git/Naval-Assault/src/application/water.png");
     Image cursorImg = new Image("file:///Users/Andrew/git/Naval-Assault/src/application/crosshairs.png");
     
-    //creates a 2D array of buttons for the player and computer grid
+    //creates a 2D array of buttons for the player and computer grid.
     Button[][] player = new Button[10][10];
     Button[][] computer = new Button[10][10];
     

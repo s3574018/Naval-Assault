@@ -25,7 +25,7 @@ public class GameGrid {
 	}
 		
 /*This method takes a 2D array of buttons then creates a new GridPane
-  and place them buttons on the GridPane which is then returned.
+  and place them buttons on the GridPane which is then returned
  */
 	public Node createGrid(Button[][] button) {
 		GridPane grid = new GridPane(); 						
