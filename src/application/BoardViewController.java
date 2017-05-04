@@ -6,11 +6,9 @@ import javafx.fxml.Initializable;
 import java.util.ResourceBundle;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.Label;
-import javafx.scene.control.Button;
+//import javafx.scene.control.Button;
 
 public class BoardViewController implements Initializable {
-	
-	private Boolean menuClick = false;
 	
 	@FXML
 	private StackPane statusPane;
@@ -23,15 +21,11 @@ public class BoardViewController implements Initializable {
 	
 	@FXML
 	private Label statusBar;
-	
-	@FXML
-	private Button menuButton;
 		
 	@Override
 	public void initialize(URL url, ResourceBundle rb) 
 	{
-		statusBar.setText("Status Bar");
-		menuButton.setOnAction(event ->
+		/*menuButton.setOnAction(event ->
 	    {
 	    	if (menuClick == false)
 	        {
@@ -44,8 +38,12 @@ public class BoardViewController implements Initializable {
 	        	menuClick = false;
 	        }
 	    	        
-	    });
-
+	    });*/
 	}
+	public void setStatus(String status) {
+		statusBar.setText(status);
+	}
+	
+	
 }
 
