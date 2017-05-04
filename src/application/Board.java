@@ -9,13 +9,10 @@ import java.io.*;
 
 public class Board extends Application {
 	
-	public static String status;
-	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-	
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("BoardView.fxml"));
-		Parent root = loader.load();
+		
+		Parent root = FXMLLoader.load(getClass().getResource("BoardView.fxml"));
 		//BoardViewController controller = (BoardViewController)loader.getController();
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("board.css").toExternalForm());

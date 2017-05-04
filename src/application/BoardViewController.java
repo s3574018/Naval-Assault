@@ -17,9 +17,6 @@ public class BoardViewController implements Initializable {
 		
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		setLabelText();
-	}
-	public void setLabelText() {
 		statusBar.setText("This is starting text");
 	}
 }
