@@ -19,14 +19,18 @@ public class OpponentLogic {
             yAxis = randomNum.nextInt(10);
             
             // below code is now broken. still investigating. maybe use switch?
-            if (OpponentController.getState(yAxis, xAxis) == OpponentController.fleet[0]) {
+            if (OpponentController.getState(yAxis, xAxis) == OpponentController.fleet[0] ||
+                    OpponentController.getState(yAxis, xAxis) == OpponentController.fleet[1] ||
+                    OpponentController.getState(yAxis, xAxis) == OpponentController.fleet[2] ||
+                    OpponentController.getState(yAxis, xAxis) == OpponentController.fleet[3] ||
+                    OpponentController.getState(yAxis, xAxis) == OpponentController.fleet[4]) {
                 OpponentController.setHit(yAxis, xAxis);
                 tryAgain = false;
                 System.out.println("Hit");
                 Stats.increaseHitCount();
                 Stats.increaseShotCount();
             } else if (OpponentController.getState(yAxis,
-                    xAxis) == OpponentController.fleet[5]) {
+                    xAxis) == null) {
                 OpponentController.setMiss(yAxis, xAxis);
                 tryAgain = false;
                 System.out.println("Miss");

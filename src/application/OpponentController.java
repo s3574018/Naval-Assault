@@ -45,12 +45,12 @@ public class OpponentController {
 
     // sets gameBoard coordinate to hit state
     public static void setHit(int yAxis, int xAxis) {
-        gameBoard[yAxis][xAxis] = fleet[6];
+        gameBoard[yAxis][xAxis] = fleet[5];
     }
 
     // sets gameBoard coordinate to miss state
     public static void setMiss(int yAxis, int xAxis) {
-        gameBoard[yAxis][xAxis] = fleet[7];
+        gameBoard[yAxis][xAxis] = fleet[6];
     }
 
     // resets all fields in array with 0's
@@ -62,19 +62,60 @@ public class OpponentController {
         }
     }
 
+    // prints current state of game board (old version)
+//    public static void printGrid() {
+//        System.out.println("   0 1 2 3 4 5 6 7 8 9");
+//        System.out.println("----------------------");
+//        int yAxis = 0;
+//        for (Ship[] i : gameBoard) {
+//            System.out.print(yAxis + "| ");
+//            yAxis++;
+//            for (Ship j : i) {
+//                System.out.print(j + " ");
+//            }
+//            System.out.println();
+//        }
+//    }
+    
     // prints current state of game board
     public static void printGrid() {
         System.out.println("   0 1 2 3 4 5 6 7 8 9");
-        System.out.println("----------------------");
-        int yAxis = 0;
-        for (Ship[] i : gameBoard) {
-            System.out.print(yAxis + "| ");
-            yAxis++;
-            for (Ship j : i) {
-                System.out.print(j + " ");
+        System.out.print("----------------------");
+//        int yAxis = 0;
+//        for (Ship[] i : gameBoard) {
+//            System.out.print(yAxis + "| ");
+//            yAxis++;
+//            for (Ship j : i) {
+                
+//                if (gameBoard[yAxis][xAxis] == null) {
+//                    System.out.print(".");
+//                }
+//                System.out.print(j + " ");
+//            }
+            
+            for (int i = 0; i < gameBoard.length; i++) {
+                System.out.println();
+                System.out.print(i + "| ");
+//                yAxis++;
+                for (int j = 0; j < gameBoard[i].length; j++) {
+                    if (gameBoard[i][j] == null) {
+                        System.out.print(". ");
+                    } 
+                    else if (gameBoard[i][j] == fleet[5]) {
+//                        System.out.print(gameBoard[i][j] + " ");
+                        System.out.print("X ");
+                        
+                    }
+                    else if (gameBoard[i][j] == fleet[6]) {
+                      System.out.print("O ");
+                      
+                  } else {
+                      System.out.print(". ");
+                  }
+                }
             }
-            System.out.println();
-        }
+//            System.out.println();
+//        }
     }
 
     // hard-coding of ship locations
@@ -113,9 +154,9 @@ public class OpponentController {
         fleet[2] = new Ship("cruiser", 3);
         fleet[3] = new Ship("battleship", 4);
         fleet[4] = new Ship("carrier", 5);
-        fleet[5] = new Ship("empty", -1);
-        fleet[6] = new Ship("hit", -1);
-        fleet[7] = new Ship("miss", -1);
+        fleet[5] = new Ship("hit", -1);
+        fleet[6] = new Ship("miss", -1);
+        fleet[7] = new Ship("empty", -1);
         
         
         // destroyer (2)
