@@ -185,6 +185,7 @@ public class Board extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
+		
 		Parent root = FXMLLoader.load(getClass().getResource("BoardView.fxml"));
 		//BoardViewController controller = (BoardViewController)loader.getController();
 		Scene scene = new Scene(root);
@@ -193,6 +194,7 @@ public class Board extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		primaryStage.setResizable(false);
+		
 	}
 	public static void main(String[] args) {
 		launch(args);
