@@ -2,6 +2,11 @@ package application;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
+
+import java.io.FileInputStream;
+
+import javax.print.DocFlavor.URL;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -47,7 +52,14 @@ public class Play extends Application {
     ImageView iv1 = new ImageView();
     HBox box = new HBox();
     
+    // Background Music
     
+    
+    
+
+    
+    Media music = new Media("file:///Users/subrata/git/Naval-Assault/src/Background_Music.mp3");
+	MediaPlayer playMusic = new MediaPlayer(music);
     
 	//creates the images for that make up the battleship.
     Image battleship1Img = new Image("application/battleship1.png");
@@ -158,6 +170,8 @@ public class Play extends Application {
         
         //sets cursor image to crosshairs
         root.setCursor(new ImageCursor(cursorImg));
+        //starts music
+        playMusic.play();
         primaryStage.show();      
         
     } 
