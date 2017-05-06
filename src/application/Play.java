@@ -58,9 +58,14 @@ public class Play extends Application {
 
     
     // Background Music
-    Media music = new Media("file:///Users/subrata/git/Naval-Assault/src/Background_Music.mp3");
-	MediaPlayer playMusic = new MediaPlayer(music);
+
     
+    
+//    
+//    Media music = new Media("application/Background_Music.mp3");
+//   
+//	MediaPlayer playMusic = new MediaPlayer(music);
+  
 	//creates the images for that make up the battleship.
     Image battleship1Img = new Image("application/battleship1.png");
     Image battleship2Img = new Image("application/battleship2.png");
@@ -176,38 +181,39 @@ public class Play extends Application {
         });
         
         
-        // About Menu
-        menuAbout.setOnAction(new EventHandler<ActionEvent>() 
-        {
-            public void handle(ActionEvent t) 
-            {
-        		Parent root;
-				try {
-					root = FXMLLoader.load(getClass().getResource("BoardView.fxml"));
-					Scene scene = new Scene(root);
-					scene.getStylesheets().add(getClass().getResource("board.css").toExternalForm());
-	        		primaryStage.setTitle("Naval Assault");
-	        		primaryStage.setScene(scene);
-	        		primaryStage.show();
-	        		primaryStage.setResizable(false);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-        		
-        		
-        		
-
-            }
-        });
+//        // About Menu
+//        menuAbout.setOnAction(new EventHandler<ActionEvent>() 
+//        {
+//            public void handle(ActionEvent t) 
+//            {
+//        		Parent root;
+//				try {
+//					root = FXMLLoader.load(getClass().getResource("BoardView.fxml"));
+//					Scene scene = new Scene(root);
+//					scene.getStylesheets().add(getClass().getResource("board.css").toExternalForm());
+//	        		primaryStage.setTitle("Naval Assault");
+//	        		primaryStage.setScene(scene);
+//	        		primaryStage.show();
+//	        		primaryStage.setResizable(false);
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//        		
+//        		
+//        		
+//
+//            }
+//        });
               
         
         primaryStage.setScene(new Scene(root, 1280, 720));
         
         //sets cursor image to crosshairs
         root.setCursor(new ImageCursor(cursorImg));
-        //starts music
-        playMusic.play();
+//        //starts music
+//        playMusic.play();
+        
         primaryStage.show();      
         
     } 
