@@ -2,30 +2,66 @@ package application;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import javax.print.DocFlavor.URL;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.ImageCursor;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import java.net.URL;
+
 
 
 public class Play extends Application {
+	
+
+	
+	// Menu
+    MenuBar menuBar = new MenuBar();
+
+    Menu menuGame = new Menu("Game");
+ 
+    MenuItem menuStartGame = new MenuItem("Start Game");
+    MenuItem menuAudioOn = new MenuItem("Audio On");
+    MenuItem menuAudioOff = new MenuItem("Audio Off");
+    MenuItem menuRestartGame = new MenuItem("Restart Game");
+    MenuItem menuExit = new MenuItem("Exit");
+	
+    Menu menuHelp = new Menu("Help");
+    MenuItem menuAbout = new MenuItem("About Naval Assault");
+    MenuItem menuRules = new MenuItem("Game Rules");
     
-    public static void main(String[] args) {
-        launch(args);
-    }
+    //creates the background Image.
+    Image backGroundImg = new Image("application/Background.jpg");
+    ImageView iv1 = new ImageView();
+    HBox box = new HBox();
+ 
+
+
     
-    //creates the images for that make up the battleship.
+    // Background Music
+    Media music = new Media("file:///Users/subrata/git/Naval-Assault/src/Background_Music.mp3");
+	MediaPlayer playMusic = new MediaPlayer(music);
+    
+	//creates the images for that make up the battleship.
     Image battleship1Img = new Image("application/battleship1.png");
     Image battleship2Img = new Image("application/battleship2.png");
     Image battleship3Img = new Image("application/battleship3.png");
@@ -50,27 +86,28 @@ public class Play extends Application {
     GameGrid computerGrid = new GameGrid(40,690,160);
     GridPane computerBoard = (GridPane) computerGrid.createGrid(computer);
    
+    
     //Method to put the "Hit" image on a button  
     public void setHit(Button button) {
-        button.setGraphic(new ImageView(explosionImg));
+    	button.setGraphic(new ImageView(explosionImg));
     }    
     
     //Method to put the "Miss" image on a button  
     public void setMiss(Button button) {
-        button.setGraphic(new ImageView(waterImg));
+    	button.setGraphic(new ImageView(waterImg));
     }    
-    
+	
     //Method to put the images of the battleship together on the grid
     //Also sets Id of button to "hasShip"
     public void setBattleship(int startX, int startY) {
-        player[startX][startY].setGraphic(new ImageView(battleship1Img));
-        player[startX][startY].setId("hasShip");
-        player[startX+1][startY].setGraphic(new ImageView(battleship2Img));
-        player[startX+1][startY].setId("hasShip");
-        player[startX+2][startY].setGraphic(new ImageView(battleship3Img));
-        player[startX+2][startY].setId("hasShip");
-        player[startX+3][startY].setGraphic(new ImageView(battleship4Img));
-        player[startX+3][startY].setId("hasShip");
+    	player[startX][startY].setGraphic(new ImageView(battleship1Img));
+    	player[startX][startY].setId("hasShip");
+    	player[startX+1][startY].setGraphic(new ImageView(battleship2Img));
+    	player[startX+1][startY].setId("hasShip");
+    	player[startX+2][startY].setGraphic(new ImageView(battleship3Img));
+    	player[startX+2][startY].setId("hasShip");
+    	player[startX+3][startY].setGraphic(new ImageView(battleship4Img));
+    	player[startX+3][startY].setId("hasShip");
     }
 
     @Override
@@ -91,36 +128,91 @@ public class Play extends Application {
         //for loop to put Event Handler on each button
         //If button Id is "hasShip" it will set the "Hit" Image
         //Else it will set "Miss" Image
-        for (int x=0; x < player.length; x++) {
-            for (int y=0; y < player.length; y++) {     
-                Button button = player[x][y];
-                if (button.getId() == "hasShip") {
-                    button.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            setHit(button);
-                        }});
-                }
-                else {
-                    button.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            setMiss(button);
-                        }});
-                }
-            }
+		for (int x=0; x < player.length; x++) {
+			for (int y=0; y < player.length; y++) {		
+				Button button = player[x][y];
+				if (button.getId() == "hasShip") {
+					button.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent event) {
+							setHit(button);
+						}});
+				}
+				else {
+					button.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent event) {
+							setMiss(button);
+						}});
+				}
+			}
         }
 
-        //Adds grids to the root node
+		
+
+		//Adds grids to the root node
         root.getChildren().add(computerBoard); 
         root.getChildren().add(playerBoard);
+        // Menu Bar-------------------------
+        menuBar.getMenus().add(menuGame);
+        menuGame.getItems().add(menuStartGame);
+        menuGame.getItems().add(menuAudioOn);
+        menuGame.getItems().add(menuAudioOff);
+        menuGame.getItems().add(menuRestartGame);
+        menuGame.getItems().add(menuExit);
+        menuBar.getMenus().add(menuHelp);
+        menuHelp.getItems().add(menuAbout);
+        menuHelp.getItems().add(menuRules);
+        //---------------
+        root.getChildren().add(menuBar);
+
+        // Exit Menu
+        menuExit.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            public void handle(ActionEvent t) 
+            {
+                System.exit(0);
+            }
+        });
+        
+        
+        // About Menu
+        menuAbout.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            public void handle(ActionEvent t) 
+            {
+        		Parent root;
+				try {
+					root = FXMLLoader.load(getClass().getResource("BoardView.fxml"));
+					Scene scene = new Scene(root);
+					scene.getStylesheets().add(getClass().getResource("board.css").toExternalForm());
+	        		primaryStage.setTitle("Naval Assault");
+	        		primaryStage.setScene(scene);
+	        		primaryStage.show();
+	        		primaryStage.setResizable(false);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        		
+        		
+        		
+
+            }
+        });
+              
         
         primaryStage.setScene(new Scene(root, 1280, 720));
         
         //sets cursor image to crosshairs
         root.setCursor(new ImageCursor(cursorImg));
+        //starts music
+        playMusic.play();
         primaryStage.show();      
         
     } 
-                     
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }
