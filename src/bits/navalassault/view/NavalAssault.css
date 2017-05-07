@@ -1,0 +1,33 @@
+/*
+ * Sets background image
+ */
+.background {
+	-fx-background-image: url("na-background_720.jpg");
+}
+
+/*
+ * colouring for statusBar
+ */
+#statusPane {
+	-fx-background-color: white;
+	-fx-border-color: black;
+	}
+
+/*
+ * Font for status bar
+ */	
+#statusLabel {
+	-fx-font-size: 28px;
+	-fx-font-weight: bold;
+}
+
+/*
+ * color and font for button
+ */
+ #startButton {
+ 	-fx-background-color: gray;
+ 	-fx-font-size: 45px;
+ 	-fx-font-weight: bold;
+ 	-fx-text-fill: white;
+ 	-fx-border-color: black;
+ }
