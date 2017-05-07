@@ -75,13 +75,13 @@ public class Play extends Application {
 
    
     //creates the images for the "hit" "miss" and "Cursor"    
-    Image explosionImg = new Image("application/explosion.png");
-    Image waterImg = new Image("application/water.png");
+    static Image explosionImg = new Image("application/explosion.png");
+    static Image waterImg = new Image("application/water.png");
     Image cursorImg = new Image("application/crosshairs.png");
     
     //creates a 2D array of buttons for the player and computer grid.
     Button[][] player = new Button[10][10];
-    Button[][] computer = new Button[10][10];
+    static Button[][] computer = new Button[10][10];
     
     
     //new GameGrid created for the player
@@ -247,6 +247,46 @@ public class Play extends Application {
 //        playMusic.play();
         
         primaryStage.show();      
+        
+        
+        // calls method to set computer ships locations then runs through the
+        // ship object array and sets buttons to either a hit or miss image
+        OpponentController.setShips();
+        for (int yAxis = 0; yAxis < computer.length; yAxis++) {
+            for (int xAxis = 0; xAxis < computer.length; xAxis++) {
+                Button button = computer[yAxis][xAxis];
+                if (OpponentController.getState(yAxis,
+                        xAxis) == OpponentController.fleet[0]
+                        || OpponentController.getState(yAxis,
+                                xAxis) == OpponentController.fleet[1]
+                        || OpponentController.getState(yAxis,
+                                xAxis) == OpponentController.fleet[2]
+                        || OpponentController.getState(yAxis,
+                                xAxis) == OpponentController.fleet[3]
+                        || OpponentController.getState(yAxis,
+                                xAxis) == OpponentController.fleet[4]) {
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            setHit(button);
+                        }
+                    });
+                } else {
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            setMiss(button);
+                        }
+                    });
+                }
+            }
+        }
+        
+     // loops a random shot. for testing only
+        int numberShots = 5;
+        for (int i = 1; i < numberShots; i++) {
+            OpponentLogic.randomShot();
+        }
         
     } 
 
