@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 public class OpponentController {
 
-//    private static final String[][] gameBoard = new String[10][10];
+    // private static final String[][] gameBoard = new String[10][10];
     private static final Ship[][] gameBoard = new Ship[10][10];
     public static final Ship fleet[] = new Ship[8];
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) 
+    public static void start(){
         clearGrid();
         setShips();
         printGrid();
@@ -26,7 +27,6 @@ public class OpponentController {
                 printGrid();
             } else {
                 System.out.println("Game Statistics");
-                // double hitStat = (double)Stats.getHitCount();
                 System.out.printf("Hit Percentage: %.2f%%",
                         ((double) Stats.getHitCount() / Stats.getShotCount())
                                 * 100);
@@ -35,6 +35,17 @@ public class OpponentController {
                                 * 100);
             }
         } while (userInput.charAt(0) != 'X');
+
+        // for (int i = 0; i < 100; i++) {
+        // try {
+        // Thread.sleep(1000);
+        // } catch (InterruptedException ex) {
+        // }
+        //
+        // OpponentLogic.randomShot();
+        // printGrid();
+        // }
+
         sc.close();
     }
 
@@ -62,93 +73,30 @@ public class OpponentController {
         }
     }
 
-    // prints current state of game board (old version)
-//    public static void printGrid() {
-//        System.out.println("   0 1 2 3 4 5 6 7 8 9");
-//        System.out.println("----------------------");
-//        int yAxis = 0;
-//        for (Ship[] i : gameBoard) {
-//            System.out.print(yAxis + "| ");
-//            yAxis++;
-//            for (Ship j : i) {
-//                System.out.print(j + " ");
-//            }
-//            System.out.println();
-//        }
-//    }
-    
     // prints current state of game board
     public static void printGrid() {
         System.out.println("   0 1 2 3 4 5 6 7 8 9");
         System.out.print("----------------------");
-//        int yAxis = 0;
-//        for (Ship[] i : gameBoard) {
-//            System.out.print(yAxis + "| ");
-//            yAxis++;
-//            for (Ship j : i) {
-                
-//                if (gameBoard[yAxis][xAxis] == null) {
-//                    System.out.print(".");
-//                }
-//                System.out.print(j + " ");
-//            }
-            
-            for (int i = 0; i < gameBoard.length; i++) {
-                System.out.println();
-                System.out.print(i + "| ");
-//                yAxis++;
-                for (int j = 0; j < gameBoard[i].length; j++) {
-                    if (gameBoard[i][j] == null) {
-                        System.out.print(". ");
-                    } 
-                    else if (gameBoard[i][j] == fleet[5]) {
-//                        System.out.print(gameBoard[i][j] + " ");
-                        System.out.print("X ");
-                        
-                    }
-                    else if (gameBoard[i][j] == fleet[6]) {
-                      System.out.print("O ");
-                      
-                  } else {
-                      System.out.print(". ");
-                  }
+        for (int i = 0; i < gameBoard.length; i++) {
+            System.out.println();
+            System.out.print(i + "| ");
+            for (int j = 0; j < gameBoard[i].length; j++) {
+                if (gameBoard[i][j] == null) {
+                    System.out.print(". ");
+                } else if (gameBoard[i][j] == fleet[5]) {
+                    System.out.print("X ");
+                } else if (gameBoard[i][j] == fleet[6]) {
+                    System.out.print("O ");
+
+                } else {
+                    System.out.print(". ");
                 }
             }
-//            System.out.println();
-//        }
+        }
     }
 
     // hard-coding of ship locations
     public static void setShips() {
-
-        // // destroyer (2)
-        // gameBoard[1][0] = "1";
-        // gameBoard[1][1] = "1";
-        //
-        // // submarine (3)
-        // gameBoard[5][6] = "1";
-        // gameBoard[6][6] = "1";
-        // gameBoard[7][6] = "1";
-        //
-        // // cruiser (3)
-        // gameBoard[7][2] = "1";
-        // gameBoard[7][3] = "1";
-        // gameBoard[7][4] = "1";
-        //
-        // // battleship (4)
-        // gameBoard[0][8] = "1";
-        // gameBoard[1][8] = "1";
-        // gameBoard[2][8] = "1";
-        // gameBoard[3][8] = "1";
-        //
-        // // carrier (5)
-        // gameBoard[3][1] = "1";
-        // gameBoard[3][2] = "1";
-        // gameBoard[3][3] = "1";
-        // gameBoard[3][4] = "1";
-        // gameBoard[3][5] = "1";
-
-        
         fleet[0] = new Ship("destroyer", 2);
         fleet[1] = new Ship("submarine", 3);
         fleet[2] = new Ship("cruiser", 3);
@@ -157,8 +105,7 @@ public class OpponentController {
         fleet[5] = new Ship("hit", -1);
         fleet[6] = new Ship("miss", -1);
         fleet[7] = new Ship("empty", -1);
-        
-        
+
         // destroyer (2)
         gameBoard[1][0] = fleet[0];
         gameBoard[1][1] = fleet[0];
