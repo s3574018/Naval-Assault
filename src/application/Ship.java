@@ -1,6 +1,7 @@
 package application;
 
 
+
 public class Ship {
     private String shipID;
     private int health;
