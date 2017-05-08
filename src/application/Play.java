@@ -150,38 +150,6 @@ public class Play extends Application {
             }
         }
 
-        // calls method to set computer ships locations then runs through the
-        // ship object array and sets buttons to either a hit or miss image
-        OpponentController.setShips();
-        for (int yAxis = 0; yAxis < computer.length; yAxis++) {
-            for (int xAxis = 0; xAxis < computer.length; xAxis++) {
-                Button button = computer[yAxis][xAxis];
-                if (OpponentController.getState(yAxis,
-                        xAxis) == OpponentController.fleet[0]
-                        || OpponentController.getState(yAxis,
-                                xAxis) == OpponentController.fleet[1]
-                        || OpponentController.getState(yAxis,
-                                xAxis) == OpponentController.fleet[2]
-                        || OpponentController.getState(yAxis,
-                                xAxis) == OpponentController.fleet[3]
-                        || OpponentController.getState(yAxis,
-                                xAxis) == OpponentController.fleet[4]) {
-                    button.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            setHit(button);
-                        }
-                    });
-                } else {
-                    button.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            setMiss(button);
-                        }
-                    });
-                }
-            }
-        }
 
         // Adds grids to the root node
         root.getChildren().add(computerBoard);
@@ -243,35 +211,35 @@ public class Play extends Application {
         // calls method to set computer ships locations then runs through the
         // ship object array and sets buttons to either a hit or miss image
         OpponentController.setShips();
-        for (int yAxis = 0; yAxis < computer.length; yAxis++) {
-            for (int xAxis = 0; xAxis < computer.length; xAxis++) {
-                Button button = computer[yAxis][xAxis];
-                if (OpponentController.getState(yAxis,
-                        xAxis) == OpponentController.fleet[0]
-                        || OpponentController.getState(yAxis,
-                                xAxis) == OpponentController.fleet[1]
-                        || OpponentController.getState(yAxis,
-                                xAxis) == OpponentController.fleet[2]
-                        || OpponentController.getState(yAxis,
-                                xAxis) == OpponentController.fleet[3]
-                        || OpponentController.getState(yAxis,
-                                xAxis) == OpponentController.fleet[4]) {
-                    button.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            setHit(button);
-                        }
-                    });
-                } else {
-                    button.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            setMiss(button);
-                        }
-                    });
-                }
-            }
-        }
+//        for (int yAxis = 0; yAxis < computer.length; yAxis++) {
+//            for (int xAxis = 0; xAxis < computer.length; xAxis++) {
+//                Button button = computer[yAxis][xAxis];
+//                if (OpponentController.getState(yAxis,
+//                        xAxis) == OpponentController.fleet[0]
+//                        || OpponentController.getState(yAxis,
+//                                xAxis) == OpponentController.fleet[1]
+//                        || OpponentController.getState(yAxis,
+//                                xAxis) == OpponentController.fleet[2]
+//                        || OpponentController.getState(yAxis,
+//                                xAxis) == OpponentController.fleet[3]
+//                        || OpponentController.getState(yAxis,
+//                                xAxis) == OpponentController.fleet[4]) {
+//                    button.setOnAction(new EventHandler<ActionEvent>() {
+//                        @Override
+//                        public void handle(ActionEvent event) {
+//                            setHit(button);
+//                        }
+//                    });
+//                } else {
+//                    button.setOnAction(new EventHandler<ActionEvent>() {
+//                        @Override
+//                        public void handle(ActionEvent event) {
+//                            setMiss(button);
+//                        }
+//                    });
+//                }
+//            }
+//        }
 
         // loops a random shot. for testing only
         // int numberShots = 5;
