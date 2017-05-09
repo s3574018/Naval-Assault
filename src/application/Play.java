@@ -1,9 +1,11 @@
 package application;
 
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -28,6 +30,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class Play extends Application {
 
@@ -37,8 +40,8 @@ public class Play extends Application {
     Menu menuGame = new Menu("Game");
 
     MenuItem menuStartGame = new MenuItem("Start Game");
-    MenuItem menuAudioOn = new MenuItem("Audio On");
-    MenuItem menuAudioOff = new MenuItem("Audio Off");
+    MenuItem menuAudioOn = new MenuItem("Music On");
+    MenuItem menuAudioOff = new MenuItem("Music Off");
     MenuItem menuRestartGame = new MenuItem("Restart Game");
     MenuItem menuExit = new MenuItem("Exit");
 
@@ -46,19 +49,22 @@ public class Play extends Application {
     MenuItem menuAbout = new MenuItem("About Naval Assault");
     MenuItem menuRules = new MenuItem("Game Rules");
 
+    // Play Background Music
+    AudioClip playBgMusic = new AudioClip(getClass().getResource("Background_Music.mp3").toExternalForm());
+    
+    // Play Miss.mp3
+    AudioClip playMiss = new AudioClip(getClass().getResource("Miss.mp3").toExternalForm());
+
+    // Play Hit.mp3
+    AudioClip playHit = new AudioClip(getClass().getResource("Hit.mp3").toExternalForm());
+    
+    
     // creates the background Image.
     Image backGroundImg = new Image("application/Background.jpg");
     ImageView iv1 = new ImageView();
     HBox box = new HBox();
 
-    // Background Music
-
-    //
-    // Media music = new Media("application/Background_Music.mp3");
-    //
-    // MediaPlayer playMusic = new MediaPlayer(music);
-
-    // creates the images for that make up the battleship.
+      // creates the images for that make up the battleship.
     Image battleship1Img = new Image("application/battleship1.png");
     Image battleship2Img = new Image("application/battleship2.png");
     Image battleship3Img = new Image("application/battleship3.png");
@@ -84,11 +90,14 @@ public class Play extends Application {
     // Method to put the "Hit" image on a button
     public void setHit(Button button) {
         button.setGraphic(new ImageView(explosionImg));
+        playHit.play();
     }
 
     // Method to put the "Miss" image on a button
     public void setMiss(Button button) {
         button.setGraphic(new ImageView(waterImg));
+        playMiss.play();
+        
     }
 
     // Method to put the images of the battleship together on the grid
@@ -137,8 +146,7 @@ public class Play extends Application {
                         @Override
                         public void handle(ActionEvent event) {
                             setMiss(button);
-                            
-
+                           
                             // prompts computer to take a random shot once
                             // player misses. will substitute this method call
                             // for the starting point of the computer logic in
@@ -166,46 +174,46 @@ public class Play extends Application {
         menuHelp.getItems().add(menuRules);
         // ---------------
         root.getChildren().add(menuBar);
+        
 
+
+        
+        menuAudioOn.setVisible(false);
         // Exit Menu
         menuExit.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent t) {
                 System.exit(0);
             }
         });
+        menuAudioOn.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent t) {
+            	playBgMusic.play();
+            	menuAudioOn.setVisible(false);
+            	menuAudioOff.setVisible(true);
+            	
+            	
+            }
+        });
+        
+        menuAudioOff.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent t) {
+            	playBgMusic.stop();
+            	menuAudioOff.setVisible(false);
+            	menuAudioOn.setVisible(true);
+            }
+        });
 
-        // // About Menu
-        // menuAbout.setOnAction(new EventHandler<ActionEvent>()
-        // {
-        // public void handle(ActionEvent t)
-        // {
-        // Parent root;
-        // try {
-        // root = FXMLLoader.load(getClass().getResource("BoardView.fxml"));
-        // Scene scene = new Scene(root);
-        // scene.getStylesheets().add(getClass().getResource("board.css").toExternalForm());
-        // primaryStage.setTitle("Naval Assault");
-        // primaryStage.setScene(scene);
-        // primaryStage.show();
-        // primaryStage.setResizable(false);
-        // } catch (IOException e) {
-        // // TODO Auto-generated catch block
-        // e.printStackTrace();
-        // }
-        //
-        //
-        //
-        //
-        // }
-        // });
+
 
         primaryStage.setScene(new Scene(root, 1280, 720));
 
         // sets cursor image to crosshairs
         root.setCursor(new ImageCursor(cursorImg));
-        // //starts music
-        // playMusic.play();
+        
+ 
 
+        playBgMusic.setCycleCount(playBgMusic.INDEFINITE);
+        playBgMusic.play();
         primaryStage.show();
 
         // calls method to set computer ships locations then runs through the
