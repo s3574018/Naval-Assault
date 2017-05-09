@@ -12,7 +12,7 @@
           <Menu mnemonicParsing="false" text="Game">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#handleRestartGameClicked" text="Restart Game" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleToggleSound" text="Toggle Sound" />
+                  <MenuItem fx:id="soundToggle" mnemonicParsing="false" onAction="#handleToggleSound" text="Sound Off (toggle)" />
                   <MenuItem mnemonicParsing="false" onAction="#handleExitClicked" text="Exit" />
             </items>
           </Menu>

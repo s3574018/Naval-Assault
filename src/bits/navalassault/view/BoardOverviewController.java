@@ -11,10 +11,8 @@ public class BoardOverviewController {
 	
 	@FXML 
 	private GridPane playerGrid;
-	
 	@FXML
 	private GridPane computerGrid;
-	
     @FXML
     private Label statusLabel;
     @FXML
@@ -38,6 +36,7 @@ public class BoardOverviewController {
     }
     
     public void showPlayerGrid() {
+    	statusLabel.setText("Let's try some new text, check for Centered");
     	for (int y=0; y < 10; y++) {
 	       	for (int x=0; x < 10; x++) {
 	       		Button button = new Button();
