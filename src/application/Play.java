@@ -49,6 +49,7 @@ public class Play extends Application {
     MenuItem menuAbout = new MenuItem("About Naval Assault");
     MenuItem menuRules = new MenuItem("Game Rules");
 
+    
     // Play Background Music
     AudioClip playBgMusic = new AudioClip(getClass().getResource("Background_Music.mp3").toExternalForm());
     
