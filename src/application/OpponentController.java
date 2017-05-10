@@ -12,7 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
-public class OpponentControllerAndrew {
+public class OpponentController {
 
 
     private static final Ship[][] gameBoard = new Ship[10][10];
