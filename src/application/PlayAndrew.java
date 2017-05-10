@@ -2,6 +2,7 @@ package application;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaPlayer.Status;
 import javafx.scene.text.Font;
 
 import java.io.FileInputStream;
@@ -47,17 +48,13 @@ public class PlayAndrew extends Application {
     MenuItem menuAbout = new MenuItem("About Naval Assault");
     MenuItem menuRules = new MenuItem("Game Rules");
 
-    // creates the background Image.
-    Image backGroundImg = new Image("application/Background.jpg");
-    ImageView iv1 = new ImageView();
-    HBox box = new HBox();
 
     // Background Music
 
     //
-    // Media music = new Media("application/Background_Music.mp3");
+    Media music = new Media("file:///Users/Andrew/git/Naval-Assault/src/application/Background_Music.mp3");
     //
-    // MediaPlayer playMusic = new MediaPlayer(music);
+    MediaPlayer playMusic = new MediaPlayer(music);
 
     // creates the images for that make up the battleship.
     Image battleship1Img = new Image("application/battleship1.png");
@@ -102,27 +99,15 @@ public class PlayAndrew extends Application {
 
 
         
-        // calls method to set computer ships locations then runs through the
+        
         // ship object array and sets buttons to either a hit or miss image
         PlayerController.setShips();
         
+        
+        // calls method to let player place carrier
+        // this method calls the methods to place other ships
         PlayerController.setCarrier();  
 
-        for (int yAxis = 0; yAxis < player.length; yAxis++) {
-            for (int xAxis = 0; xAxis < player.length; xAxis++) {
-                if (PlayerController.getState(yAxis,
-                        xAxis) == PlayerController.fleet[0]
-                        || PlayerController.getState(yAxis,
-                                xAxis) == PlayerController.fleet[1]
-                        || PlayerController.getState(yAxis,
-                                xAxis) == PlayerController.fleet[2]
-                        || PlayerController.getState(yAxis,
-                                xAxis) == PlayerController.fleet[3]
-                        || PlayerController.getState(yAxis,
-                                xAxis) == PlayerController.fleet[4]);                
-            }
-        }
-        
 
         // calls method to set computer ships locations then runs through the
         // ship object array and sets buttons to either a hit or miss image
@@ -153,9 +138,6 @@ public class PlayAndrew extends Application {
                             setMiss(button);
                             
                             // prompts computer to take a random shot once
-                            // player misses. will substitute this method call
-                            // for the starting point of the computer logic in
-                            // final version
                             OpponentLogicAndrew.randomShot();
                         }
                     });
@@ -185,49 +167,31 @@ public class PlayAndrew extends Application {
                 System.exit(0);
             }
         });
+        
+        menuAudioOff.setOnAction(new EventHandler<ActionEvent>() {
+        	public void handle(ActionEvent off) {
+        		playMusic.stop();
+        	}
+        });
+        
+        menuAudioOn.setOnAction(new EventHandler<ActionEvent>() {
+        	public void handle(ActionEvent off) {
+        		playMusic.getStatus();
+				if(Status.STOPPED != null) {
+        		playMusic.play();
+        		}
+        	}
+        });
 
-        // // About Menu
-        // menuAbout.setOnAction(new EventHandler<ActionEvent>()
-        // {
-        // public void handle(ActionEvent t)
-        // {
-        // Parent root;
-        // try {
-        // root = FXMLLoader.load(getClass().getResource("BoardView.fxml"));
-        // Scene scene = new Scene(root);
-        // scene.getStylesheets().add(getClass().getResource("board.css").toExternalForm());
-        // primaryStage.setTitle("Naval Assault");
-        // primaryStage.setScene(scene);
-        // primaryStage.show();
-        // primaryStage.setResizable(false);
-        // } catch (IOException e) {
-        // // TODO Auto-generated catch block
-        // e.printStackTrace();
-        // }
-        //
-        //
-        //
-        //
-        // }
-        // });
         primaryStage.setScene(new Scene(root, 1280, 720));
 
         // sets cursor image to crosshairs
         root.setCursor(new ImageCursor(cursorImg));
         // //starts music
-        // playMusic.play();
+        playMusic.play();
         
         primaryStage.show();
         
-        
-
-
-        // loops a random shot. for testing only
-        // int numberShots = 5;
-        // for (int i = 1; i < numberShots; i++) {
-        // OpponentLogic.randomShot();
-        // }
-
     }
 
     public static void main(String[] args) {
