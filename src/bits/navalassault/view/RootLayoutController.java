@@ -10,7 +10,7 @@ public class RootLayoutController {
 
 	// Reference to the main application.
 	private MainApp mainApp;
-	AudioClip playBGM = new AudioClip(getClass().getResource("Background_Music.mp3").toExternalForm());
+	AudioClip playBGM = new AudioClip(getClass().getResource("../resources/Background_Music.mp3").toExternalForm());
 	public Boolean soundEnabled = true;
 
 	// constructor
