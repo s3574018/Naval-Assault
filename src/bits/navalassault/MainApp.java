@@ -19,8 +19,8 @@ public class MainApp extends Application {
 	
     private Stage primaryStage;
     private BorderPane rootLayout;
-
-	@Override
+    
+   @Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Naval Assault");
@@ -66,7 +66,7 @@ public class MainApp extends Application {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("view/BoardOverview.fxml"));
-			AnchorPane boardScreen = (AnchorPane) loader.load();
+			AnchorPane boardScreen = (AnchorPane) loader.load();			
 			
 			rootLayout.setCenter(boardScreen);
 			
