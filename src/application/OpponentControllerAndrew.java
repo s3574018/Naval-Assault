@@ -1,6 +1,16 @@
 package application;
 
+import java.util.Random;
 import java.util.Scanner;
+
+import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 public class OpponentControllerAndrew {
 
@@ -8,34 +18,6 @@ public class OpponentControllerAndrew {
     private static final Ship[][] gameBoard = new Ship[10][10];
     public static final Ship fleet[] = new Ship[8];
 
-//    public static void main(String[] args) { 
-//        clearGrid();
-//        setShips();
-//        printGrid();
-//
-//        // allows user to prompt opponent to take another turn through turns and
-//        // prints updated board. is being used during development only
-//        String userInput;
-//        Scanner sc = new Scanner(System.in);
-//        do {
-//            System.out.print("\nN for next turn or X to stop: ");
-//            userInput = sc.nextLine().toUpperCase();
-//            if (userInput.equals("X") == false) {
-//                System.out.println("Next turn\n");
-//                OpponentLogic.randomShot();
-//                printGrid();
-//            } else {
-//                System.out.println("Game Statistics");
-//                System.out.printf("Hit Percentage: %.2f%%",
-//                        ((double) Stats.getHitCount() / Stats.getShotCount())
-//                                * 100);
-//                System.out.printf("\nMiss Percentage: %.2f%%",
-//                        ((double) Stats.getMissCount() / Stats.getShotCount())
-//                                * 100);
-//            }
-//        } while (userInput.charAt(0) != 'X');
-//        sc.close();
-//    }
 
     // gets current state for gameBoard coordinate
     public static Ship getState(int xAxis, int yAxis) {
@@ -60,28 +42,74 @@ public class OpponentControllerAndrew {
             }
         }
     }
+    
+    public static boolean checkOverlap(int x, int y) {
+    	if (getState(x,y) == fleet[0]) {
+    		return true;
+    	}
+    	else if (getState(x,y) == fleet[1]) {
+    		return true;
+    	}
+    	else if (getState(x,y) == fleet[2]) {
+    		return true;
+    	}
+    	else if (getState(x,y) == fleet[3]) {
+    		return true;
+    	}
+    	else if (getState(x,y) == fleet[4]) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
 
-    // prints current state of game board
-//    public static void printGrid() {
-//        System.out.println("   0 1 2 3 4 5 6 7 8 9");
-//        System.out.print("----------------------");
-//        for (int i = 0; i < gameBoard.length; i++) {
-//            System.out.println();
-//            System.out.print(i + "| ");
-//            for (int j = 0; j < gameBoard[i].length; j++) {
-//                if (gameBoard[i][j] == null) {
-//                    System.out.print(". ");
-//                } else if (gameBoard[i][j] == fleet[5]) {
-//                    System.out.print("X ");
-//                } else if (gameBoard[i][j] == fleet[6]) {
-//                    System.out.print("O ");
-//
-//                } else {
-//                    System.out.print(". ");
-//                }
-//            }
-//        }
-//    }
+    static Image carrier1Img = new Image("application/carrier1.png");
+    static Image carrier2Img = new Image("application/carrier2.png");
+    static Image carrier3Img = new Image("application/carrier3.png");
+    static Image carrier4Img = new Image("application/carrier4.png");
+    static Image carrier5Img = new Image("application/carrier5.png");
+    
+    static Image carrier6Img = new Image("application/carrier6.png");
+    static Image carrier7Img = new Image("application/carrier7.png");
+    static Image carrier8Img = new Image("application/carrier8.png");
+    static Image carrier9Img = new Image("application/carrier9.png");
+    static Image carrier10Img = new Image("application/carrier10.png");
+    
+    static Image battleship1Img = new Image("application/battleship1.png");
+    static Image battleship2Img = new Image("application/battleship2.png");
+    static Image battleship3Img = new Image("application/battleship3.png");
+    static Image battleship4Img = new Image("application/battleship4.png");
+    
+    static Image battleship5Img = new Image("application/battleship5.png");
+    static Image battleship6Img = new Image("application/battleship6.png");
+    static Image battleship7Img = new Image("application/battleship7.png");
+    static Image battleship8Img = new Image("application/battleship8.png");
+    
+    static Image sub1Img = new Image("application/sub1.png");
+    static Image sub2Img = new Image("application/sub2.png");
+    static Image sub3Img = new Image("application/sub3.png");
+    
+    static Image sub4Img = new Image("application/sub4.png");
+    static Image sub5Img = new Image("application/sub5.png");
+    static Image sub6Img = new Image("application/sub6.png");
+    
+    
+    static Image cruiser1Img = new Image("application/cruiser1.png");
+    static Image cruiser2Img = new Image("application/cruiser2.png");
+    static Image cruiser3Img = new Image("application/cruiser3.png");
+    
+    static Image cruiser4Img = new Image("application/cruiser4.png");
+    static Image cruiser5Img = new Image("application/cruiser5.png");
+    static Image cruiser6Img = new Image("application/cruiser6.png");
+    
+    
+    static Image destroyer1Img = new Image("application/destroyer1.png");
+    static Image destroyer2Img = new Image("application/destroyer2.png");
+    
+    static Image destroyer3Img = new Image("application/destroyer3.png");
+    static Image destroyer4Img = new Image("application/destroyer4.png");
+
 
     // hard-coding of ship locations
     public static void setShips() {
@@ -94,32 +122,238 @@ public class OpponentControllerAndrew {
         fleet[6] = new Ship("miss", -1);
         fleet[7] = new Ship("empty", -1);
 
-        // destroyer (2)
-        gameBoard[1][0] = fleet[0];
-        gameBoard[1][1] = fleet[0];
+    }   
+    
+    public static void setCarrier() {
+    	int xAxis, yAxis, alignment;
+    	Random randomNum = new Random();
+    	alignment = randomNum.nextInt(2);
+    	yAxis = randomNum.nextInt(10);
+        xAxis = randomNum.nextInt(10);
+        if (alignment == 0) {
+        	placeCarrier(xAxis,yAxis);
+        }
+        else {
+        	placeCarrierVertical(xAxis,yAxis);
+        }
+ 	 }
+    
+    public static void setBattleship() {
+    	int xAxis, yAxis, alignment;
+    	Random randomNum = new Random();
+    	alignment = randomNum.nextInt(2);
+    	yAxis = randomNum.nextInt(10);
+        xAxis = randomNum.nextInt(10);
+        if (alignment == 0) {
+        	placeBattleship(xAxis,yAxis);
+        }
+        else {
+        	placeBattleshipVertical(xAxis,yAxis);
+        }
+ 	 }
+    
+     public static void setSub() {
+    	int xAxis, yAxis, alignment;
+    	Random randomNum = new Random();
+    	alignment = randomNum.nextInt(2);
+    	yAxis = randomNum.nextInt(10);
+        xAxis = randomNum.nextInt(10);
+        if (alignment == 0) {
+        	placeSub(xAxis,yAxis);
+        }
+        else {
+        	placeSubVertical(xAxis,yAxis);
+        }
+ 	 }
+     
+     public static void setCruiser() {
+     	int xAxis, yAxis, alignment;
+     	Random randomNum = new Random();
+     	alignment = randomNum.nextInt(2);
+     	yAxis = randomNum.nextInt(10);
+         xAxis = randomNum.nextInt(10);
+         if (alignment == 0) {
+         	placeCruiser(xAxis,yAxis);
+         }
+         else {
+         	placeCruiserVertical(xAxis,yAxis);
+         }
+  	 }
+     
+     public static void setDestroyer() {
+      	int xAxis, yAxis, alignment;
+      	Random randomNum = new Random();
+      	alignment = randomNum.nextInt(2);
+      	yAxis = randomNum.nextInt(10);
+          xAxis = randomNum.nextInt(10);
+          if (alignment == 0) {
+          	placeDestroyer(xAxis,yAxis);
+          }
+          else {
+          	placeDestroyerVertical(xAxis,yAxis);
+          }
+   	 }
+    
+    public static void placeCarrier(int x, int y) {
+ 	   if (x + 4 > 9) {
+ 		   setCarrier();
+ 	   }
+ 	   else {
+ 		   gameBoard[x][y] = fleet[4];
+ 		   gameBoard[x + 1][y] = fleet[4];
+ 		   gameBoard[x + 2][y] = fleet[4];
+ 		   gameBoard[x + 3][y] = fleet[4];
+ 		   gameBoard[x + 4][y] = fleet[4];
+ 		   setBattleship();
+ 	   }
+    }  
+    
+    public static void placeCarrierVertical(int x, int y) {
+ 	   if (y + 4 > 9) {
+ 		   setCarrier();
+ 	   }
+ 	   else {
+ 		   gameBoard[x][y] = fleet[4];
+ 		   gameBoard[x][y + 1] = fleet[4];
+ 		   gameBoard[x][y + 2] = fleet[4];
+ 		   gameBoard[x][y + 3] = fleet[4];
+ 		   gameBoard[x][y + 4] = fleet[4];
+ 		   setBattleship();
+ 	   }
+    }  
+    
+    public static void placeBattleship(int x, int y) {
+ 	   if (x + 3 > 9) {
+ 		   	setBattleship();
+ 	   }
+ 	   else if (checkOverlap(x,y) == true ||
+ 			    checkOverlap(x + 1, y) == true ||
+ 			    checkOverlap(x + 2, y) == true ||
+ 			    checkOverlap(x + 3, y) == true) {
+ 		   			setBattleship();
+ 	   }
+ 	   else {
+ 	   		gameBoard[x][y] = fleet[3];
+ 	   		gameBoard[x + 1][y] = fleet[3];
+ 	   		gameBoard[x + 2][y] = fleet[3];
+ 	   		gameBoard[x + 3][y] = fleet[3];
+ 	   		setSub();
+ 	   }
+     }
+    
+    public static void placeBattleshipVertical(int x, int y) {
+ 	   if (y + 3 > 9) {
+ 		   	setBattleship();
+ 	   }
+ 	   else if (checkOverlap(x,y) == true ||
+ 			    checkOverlap(x, y + 1) == true ||
+ 			    checkOverlap(x, y + 2) == true ||
+ 			    checkOverlap(x, y + 3) == true) { 
+ 		   			setBattleship();
+ 	   }
+ 	 	else {
+ 	   		gameBoard[x][y] = fleet[3];
+ 	   		gameBoard[x][y + 1] = fleet[3];
+ 	   		gameBoard[x][y + 2] = fleet[3];
+ 	   		gameBoard[x][y + 3] = fleet[3];
+ 	   		setSub();
+ 	   }
+     }
+    
+    public static void placeSub(int x, int y) {
+ 	   if (x + 2 > 9) {
+ 		   	setSub();
+ 	   }
+ 	   else if (checkOverlap(x,y) == true ||
+ 			    checkOverlap(x + 1, y) == true ||
+ 			    checkOverlap(x + 2, y) == true) {
+ 		   			setSub();
+ 	   }
+ 	   else {
+ 		   gameBoard[x][y] = fleet[1];
+ 		   gameBoard[x + 1][y] = fleet[1];
+ 		   gameBoard[x + 2][y] = fleet[1];
+ 		   setCruiser();
+ 	   }
+    }
+    
+    public static void placeSubVertical(int x, int y) {
+ 	   if (y + 2 > 9) {
+ 		   	setSub();
+ 	   }
+ 	   else if (checkOverlap(x,y) == true ||
+ 			    checkOverlap(x, y + 1) == true ||
+ 			    checkOverlap(x, y + 2) == true) { 
+ 		   			setSub();
+ 	   }
+ 	   else {
+ 		   gameBoard[x][y] = fleet[1];
+ 		   gameBoard[x][y + 1] = fleet[1];
+ 		   gameBoard[x][y + 2] = fleet[1];
+ 		   setCruiser();
+ 	   }
+    }
 
-        // submarine (3)
-        gameBoard[5][6] = fleet[1];
-        gameBoard[6][6] = fleet[1];
-        gameBoard[7][6] = fleet[1];
-
-        // cruiser (3)
-        gameBoard[7][2] = fleet[2];
-        gameBoard[7][3] = fleet[2];
-        gameBoard[7][4] = fleet[2];
-
-        // battleship (4)
-        gameBoard[0][8] = fleet[3];
-        gameBoard[1][8] = fleet[3];
-        gameBoard[2][8] = fleet[3];
-        gameBoard[3][8] = fleet[3];
-
-        // carrier (5)
-        gameBoard[3][1] = fleet[4];
-        gameBoard[3][2] = fleet[4];
-        gameBoard[3][3] = fleet[4];
-        gameBoard[3][4] = fleet[4];
-        gameBoard[3][5] = fleet[4];
+    public static void placeCruiser(int x, int y) {
+ 	   if (x + 2 > 9) {
+ 		   	setCruiser();
+ 	   }
+ 	   else if (checkOverlap(x,y) == true ||
+ 			    checkOverlap(x + 1, y) == true ||
+ 			    checkOverlap(x + 2, y) == true) {
+ 		   			setCruiser();
+ 	   }
+ 	   else {
+ 		   gameBoard[x][y] = fleet[2];
+ 		   gameBoard[x + 1][y] = fleet[2];
+ 		   gameBoard[x + 2][y] = fleet[2];
+ 		   setDestroyer();
+ 	   }
+    }
+    
+    public static void placeCruiserVertical(int x, int y) {
+ 	   if (y + 2 > 9) { 
+ 		   	setCruiser();
+ 	   }
+ 	   else if (checkOverlap(x,y) == true ||
+ 			    checkOverlap(x, y + 1) == true ||
+ 			    checkOverlap(x, y + 2) == true) { 
+ 		   			setCruiser();
+ 	   }
+ 	   else {
+ 		   gameBoard[x][y] = fleet[2];
+ 		   gameBoard[x][y + 1] = fleet[2];
+ 		   gameBoard[x][y + 2] = fleet[2];
+ 		   setDestroyer();
+ 	   }
+    }
+    
+    public static void placeDestroyer(int x, int y) {
+ 	   if (x + 1 > 9) {
+ 		   	setDestroyer();
+ 	   }
+ 	   else if (checkOverlap(x,y) == true ||
+ 			    checkOverlap(x + 1, y) == true) {
+ 		   			setDestroyer();
+ 	   }
+ 	   else {
+ 		   gameBoard[x][y] = fleet[0];
+ 		   gameBoard[x + 1][y] = fleet[0];
+ 	   }
+    }
+    
+    public static void placeDestroyerVertical(int x, int y) {
+ 	   if (y + 1 > 9) {
+ 		   	setDestroyer();
+ 	   }
+ 	   else if (checkOverlap(x,y) == true ||
+ 			    checkOverlap(x, y + 1) == true) { 
+ 		   			setDestroyer();
+ 	   }
+ 	   else {
+ 		   gameBoard[x][y] = fleet[0];
+ 		   gameBoard[x][y + 1] = fleet[0];
+ 	   }
     }
 
 }

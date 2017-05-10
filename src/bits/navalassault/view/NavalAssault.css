@@ -2,7 +2,7 @@
  * Sets background image
  */
 .background {
-	-fx-background-image: url("na-background_720.jpg");
+	-fx-background-image: url("../resources/na-background_720.jpg");
 }
 
 /*

@@ -32,7 +32,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Play extends Application {
+public class PlayOld extends Application {
 
     // Menu
     MenuBar menuBar = new MenuBar();
@@ -152,7 +152,7 @@ public class Play extends Application {
                             // player misses. will substitute this method call
                             // for the starting point of the computer logic in
                             // final version
-                            OpponentLogic.randomShot();
+                            OpponentLogicOld.randomShot();
                         }
                     });
                 }
@@ -219,7 +219,7 @@ public class Play extends Application {
 
         // calls method to set computer ships locations then runs through the
         // ship object array and sets buttons to either a hit or miss image
-        OpponentController.setShips();
+        OpponentControllerOld.setShips();
 //        for (int yAxis = 0; yAxis < computer.length; yAxis++) {
 //            for (int xAxis = 0; xAxis < computer.length; xAxis++) {
 //                Button button = computer[yAxis][xAxis];

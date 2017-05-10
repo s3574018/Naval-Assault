@@ -19,6 +19,7 @@ public class MainApp extends Application {
 	
     private Stage primaryStage;
     private BorderPane rootLayout;
+    public Scene scene;
     
    @Override
 	public void start(Stage primaryStage) {
@@ -35,7 +36,7 @@ public class MainApp extends Application {
 			loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
 			rootLayout = (BorderPane) loader.load();
 			
-			Scene scene = new Scene(rootLayout);
+			scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 			
 			RootLayoutController controller = loader.getController();

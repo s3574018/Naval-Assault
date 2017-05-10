@@ -3,7 +3,7 @@ package application;
 import java.util.Random;
 import javafx.scene.image.ImageView;
 
-public class OpponentLogic {
+public class OpponentLogicOld {
 
     // generates random grid coordinates and takes a shot. hit/miss status is
     // updated for the square chosen
@@ -14,25 +14,25 @@ public class OpponentLogic {
         do {
             yAxis = randomNum.nextInt(10);
             xAxis = randomNum.nextInt(10);
-            if (OpponentController.getState(xAxis,
-                    yAxis) == OpponentController.fleet[0]
-                    || OpponentController.getState(xAxis,
-                            yAxis) == OpponentController.fleet[1]
-                    || OpponentController.getState(xAxis,
-                            yAxis) == OpponentController.fleet[2]
-                    || OpponentController.getState(xAxis,
-                            yAxis) == OpponentController.fleet[3]
-                    || OpponentController.getState(xAxis,
-                            yAxis) == OpponentController.fleet[4]) {
-                OpponentController.setHit(xAxis, yAxis);
-                Play.computer[xAxis][yAxis].setGraphic(new ImageView(Play.explosionImg));
+            if (OpponentControllerOld.getState(xAxis,
+                    yAxis) == OpponentControllerOld.fleet[0]
+                    || OpponentControllerOld.getState(xAxis,
+                            yAxis) == OpponentControllerOld.fleet[1]
+                    || OpponentControllerOld.getState(xAxis,
+                            yAxis) == OpponentControllerOld.fleet[2]
+                    || OpponentControllerOld.getState(xAxis,
+                            yAxis) == OpponentControllerOld.fleet[3]
+                    || OpponentControllerOld.getState(xAxis,
+                            yAxis) == OpponentControllerOld.fleet[4]) {
+                OpponentControllerOld.setHit(xAxis, yAxis);
+                PlayOld.computer[xAxis][yAxis].setGraphic(new ImageView(PlayOld.explosionImg));
                 tryAgain = false;
                 // System.out.println("Hit");
                  Stats.increaseHitCount();
                  Stats.increaseShotCount();
-            } else if (OpponentController.getState(xAxis, yAxis) == null) {
-                OpponentController.setMiss(xAxis, yAxis);
-                Play.computer[xAxis][yAxis].setGraphic(new ImageView(Play.waterImg));
+            } else if (OpponentControllerOld.getState(xAxis, yAxis) == null) {
+                OpponentControllerOld.setMiss(xAxis, yAxis);
+                PlayOld.computer[xAxis][yAxis].setGraphic(new ImageView(PlayOld.waterImg));
                 tryAgain = false;
                 // System.out.println("Miss");
                  Stats.increaseMissCount();
