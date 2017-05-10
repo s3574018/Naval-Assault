@@ -1,5 +1,6 @@
 package application;
 
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
@@ -52,7 +53,7 @@ public class PlayAndrew extends Application {
     // Background Music
 
     //
-    Media music = new Media("file:///Users/Andrew/git/Naval-Assault/src/application/Background_Music.mp3");
+    Media music = new Media(getClass().getResource("Background_Music.mp3").toExternalForm());
     //
     MediaPlayer playMusic = new MediaPlayer(music);
 
