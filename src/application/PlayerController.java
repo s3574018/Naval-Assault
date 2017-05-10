@@ -110,7 +110,6 @@ public class PlayerController {
     static Image destroyer4Img = new Image("application/destroyer4.png");
     
 
-    // hard-coding of ship locations
     public static void setShips() {
         fleet[0] = new Ship("destroyer", 2);
         fleet[1] = new Ship("submarine", 3);

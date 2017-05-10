@@ -1,6 +1,5 @@
 package application;
 
-import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
@@ -113,6 +112,9 @@ public class PlayAndrew extends Application {
         // calls method to set computer ships locations then runs through the
         // ship object array and sets buttons to either a hit or miss image
         OpponentControllerAndrew.setShips();
+        
+        OpponentControllerAndrew.setCarrier();
+        
         for (int yAxis = 0; yAxis < computer.length; yAxis++) {
             for (int xAxis = 0; xAxis < computer.length; xAxis++) {
                 Button button = computer[yAxis][xAxis];
