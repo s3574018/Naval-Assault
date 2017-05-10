@@ -2,7 +2,7 @@ package application;
 
 import java.util.Scanner;
 
-public class OpponentController {
+public class OpponentControllerOld {
 
 
     private static final Ship[][] gameBoard = new Ship[10][10];
