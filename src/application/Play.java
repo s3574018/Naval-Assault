@@ -31,7 +31,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class PlayAndrew extends Application {
+public class Play extends Application {
 
     // Menu
     MenuBar menuBar = new MenuBar();
@@ -111,23 +111,23 @@ public class PlayAndrew extends Application {
 
         // calls method to set computer ships locations then runs through the
         // ship object array and sets buttons to either a hit or miss image
-        OpponentControllerAndrew.setShips();
+        OpponentController.setShips();
         
-        OpponentControllerAndrew.setCarrier();
+        OpponentController.setCarrier();
         
         for (int yAxis = 0; yAxis < computer.length; yAxis++) {
             for (int xAxis = 0; xAxis < computer.length; xAxis++) {
                 Button button = computer[yAxis][xAxis];
-                if (OpponentControllerAndrew.getState(yAxis,
-                        xAxis) == OpponentControllerAndrew.fleet[0]
-                        || OpponentControllerAndrew.getState(yAxis,
-                                xAxis) == OpponentControllerAndrew.fleet[1]
-                        || OpponentControllerAndrew.getState(yAxis,
-                                xAxis) == OpponentControllerAndrew.fleet[2]
-                        || OpponentControllerAndrew.getState(yAxis,
-                                xAxis) == OpponentControllerAndrew.fleet[3]
-                        || OpponentControllerAndrew.getState(yAxis,
-                                xAxis) == OpponentControllerAndrew.fleet[4]) {
+                if (OpponentController.getState(yAxis,
+                        xAxis) == OpponentController.fleet[0]
+                        || OpponentController.getState(yAxis,
+                                xAxis) == OpponentController.fleet[1]
+                        || OpponentController.getState(yAxis,
+                                xAxis) == OpponentController.fleet[2]
+                        || OpponentController.getState(yAxis,
+                                xAxis) == OpponentController.fleet[3]
+                        || OpponentController.getState(yAxis,
+                                xAxis) == OpponentController.fleet[4]) {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
@@ -141,7 +141,7 @@ public class PlayAndrew extends Application {
                             setMiss(button);
                             
                             // prompts computer to take a random shot once
-                            OpponentLogicAndrew.randomShot();
+                            OpponentLogic.randomShot();
                         }
                     });
                 }

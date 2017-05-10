@@ -122,9 +122,9 @@ public class PlayerController {
     }
 
     public static void setCarrier() {
-    	   for (int yAxis = 0; yAxis < PlayAndrew.player.length; yAxis++) {
-    	       	for (int xAxis = 0; xAxis < PlayAndrew.player.length; xAxis++) {
-    	       	Button button = PlayAndrew.player[xAxis][yAxis];
+    	   for (int yAxis = 0; yAxis < Play.player.length; yAxis++) {
+    	       	for (int xAxis = 0; xAxis < Play.player.length; xAxis++) {
+    	       	Button button = Play.player[xAxis][yAxis];
     	       	button.setOnMouseClicked(new EventHandler<MouseEvent>() {
     	            @Override
     	            public void handle(MouseEvent event) {
@@ -145,9 +145,9 @@ public class PlayerController {
     	   }    
     
     public static void setBattleship() {
-    for (int yAxis = 0; yAxis < PlayAndrew.player.length; yAxis++) {
-        for (int xAxis = 0; xAxis < PlayAndrew.player.length; xAxis++) {
-        	Button button = PlayAndrew.player[xAxis][yAxis];
+    for (int yAxis = 0; yAxis < Play.player.length; yAxis++) {
+        for (int xAxis = 0; xAxis < Play.player.length; xAxis++) {
+        	Button button = Play.player[xAxis][yAxis];
         	button.setOnMouseClicked(new EventHandler<MouseEvent>() {
 	            @Override
 	            public void handle(MouseEvent event) {
@@ -168,9 +168,9 @@ public class PlayerController {
     }
 
     public static void setSub() {
-        for (int yAxis = 0; yAxis < PlayAndrew.player.length; yAxis++) {
-            for (int xAxis = 0; xAxis < PlayAndrew.player.length; xAxis++) {
-            	Button button = PlayAndrew.player[xAxis][yAxis];
+        for (int yAxis = 0; yAxis < Play.player.length; yAxis++) {
+            for (int xAxis = 0; xAxis < Play.player.length; xAxis++) {
+            	Button button = Play.player[xAxis][yAxis];
             	button.setOnMouseClicked(new EventHandler<MouseEvent>() {
     	            @Override
     	            public void handle(MouseEvent event) {
@@ -191,9 +191,9 @@ public class PlayerController {
         }
     
     public static void setCruiser() {
-        for (int yAxis = 0; yAxis < PlayAndrew.player.length; yAxis++) {
-            for (int xAxis = 0; xAxis < PlayAndrew.player.length; xAxis++) {
-            	Button button = PlayAndrew.player[xAxis][yAxis];
+        for (int yAxis = 0; yAxis < Play.player.length; yAxis++) {
+            for (int xAxis = 0; xAxis < Play.player.length; xAxis++) {
+            	Button button = Play.player[xAxis][yAxis];
             	button.setOnMouseClicked(new EventHandler<MouseEvent>() {
     	            @Override
     	            public void handle(MouseEvent event) {
@@ -214,9 +214,9 @@ public class PlayerController {
         }
 
     public static void setDestroyer() {
-        for (int yAxis = 0; yAxis < PlayAndrew.player.length; yAxis++) {
-            for (int xAxis = 0; xAxis < PlayAndrew.player.length; xAxis++) {
-            	Button button = PlayAndrew.player[xAxis][yAxis];
+        for (int yAxis = 0; yAxis < Play.player.length; yAxis++) {
+            for (int xAxis = 0; xAxis < Play.player.length; xAxis++) {
+            	Button button = Play.player[xAxis][yAxis];
             	button.setOnMouseClicked(new EventHandler<MouseEvent>() {
     	            @Override
     	            public void handle(MouseEvent event) {
@@ -237,9 +237,9 @@ public class PlayerController {
         }
     
     public static void allPlaced() {
-        for (int yAxis = 0; yAxis < PlayAndrew.player.length; yAxis++) {
-            for (int xAxis = 0; xAxis < PlayAndrew.player.length; xAxis++) {
-            	Button button = PlayAndrew.player[xAxis][yAxis];
+        for (int yAxis = 0; yAxis < Play.player.length; yAxis++) {
+            for (int xAxis = 0; xAxis < Play.player.length; xAxis++) {
+            	Button button = Play.player[xAxis][yAxis];
          	    button.setOnMouseClicked(new EventHandler<MouseEvent>() {
          		   @Override
          		   public void handle(MouseEvent event) {
@@ -264,15 +264,15 @@ public class PlayerController {
 	   }
 	   else {
 		   gameBoard[x][y] = fleet[4];
-		   PlayAndrew.player[x][y].setGraphic(new ImageView(carrier1Img));
+		   Play.player[x][y].setGraphic(new ImageView(carrier1Img));
 		   gameBoard[x + 1][y] = fleet[4];
-		   PlayAndrew.player[x + 1][y].setGraphic(new ImageView(carrier2Img));
+		   Play.player[x + 1][y].setGraphic(new ImageView(carrier2Img));
 		   gameBoard[x + 2][y] = fleet[4];
-		   PlayAndrew.player[x + 2][y].setGraphic(new ImageView(carrier3Img));
+		   Play.player[x + 2][y].setGraphic(new ImageView(carrier3Img));
 		   gameBoard[x + 3][y] = fleet[4];
-		   PlayAndrew.player[x + 3][y].setGraphic(new ImageView(carrier4Img));
+		   Play.player[x + 3][y].setGraphic(new ImageView(carrier4Img));
 		   gameBoard[x + 4][y] = fleet[4];
-		   PlayAndrew.player[x + 4][y].setGraphic(new ImageView(carrier5Img));
+		   Play.player[x + 4][y].setGraphic(new ImageView(carrier5Img));
 		   setBattleship();
 	   }
    }  
@@ -287,15 +287,15 @@ public class PlayerController {
 	   }
 	   else {
 		   gameBoard[x][y] = fleet[4];
-		   PlayAndrew.player[x][y].setGraphic(new ImageView(carrier6Img));
+		   Play.player[x][y].setGraphic(new ImageView(carrier6Img));
 		   gameBoard[x][y + 1] = fleet[4];
-		   PlayAndrew.player[x][y + 1].setGraphic(new ImageView(carrier7Img));
+		   Play.player[x][y + 1].setGraphic(new ImageView(carrier7Img));
 		   gameBoard[x][y + 2] = fleet[4];
-		   PlayAndrew.player[x][y + 2].setGraphic(new ImageView(carrier8Img));
+		   Play.player[x][y + 2].setGraphic(new ImageView(carrier8Img));
 		   gameBoard[x][y + 3] = fleet[4];
-		   PlayAndrew.player[x][y + 3].setGraphic(new ImageView(carrier9Img));
+		   Play.player[x][y + 3].setGraphic(new ImageView(carrier9Img));
 		   gameBoard[x][y + 4] = fleet[4];
-		   PlayAndrew.player[x][y + 4].setGraphic(new ImageView(carrier10Img));
+		   Play.player[x][y + 4].setGraphic(new ImageView(carrier10Img));
 		   setBattleship();
 	   }
    }  
@@ -320,13 +320,13 @@ public class PlayerController {
 	   }
 	   else {
 	   		gameBoard[x][y] = fleet[3];
-	   		PlayAndrew.player[x][y].setGraphic(new ImageView(battleship1Img));
+	   		Play.player[x][y].setGraphic(new ImageView(battleship1Img));
 	   		gameBoard[x + 1][y] = fleet[3];
-	   		PlayAndrew.player[x + 1][y].setGraphic(new ImageView(battleship2Img));
+	   		Play.player[x + 1][y].setGraphic(new ImageView(battleship2Img));
 	   		gameBoard[x + 2][y] = fleet[3];
-	   		PlayAndrew.player[x + 2][y].setGraphic(new ImageView(battleship3Img));
+	   		Play.player[x + 2][y].setGraphic(new ImageView(battleship3Img));
 	   		gameBoard[x + 3][y] = fleet[3];
-	   		PlayAndrew.player[x + 3][y].setGraphic(new ImageView(battleship4Img));
+	   		Play.player[x + 3][y].setGraphic(new ImageView(battleship4Img));
 	   		setSub();
 	   }
     }
@@ -351,13 +351,13 @@ public class PlayerController {
 	   }
 	 	else {
 	   		gameBoard[x][y] = fleet[3];
-	   		PlayAndrew.player[x][y].setGraphic(new ImageView(battleship5Img));
+	   		Play.player[x][y].setGraphic(new ImageView(battleship5Img));
 	   		gameBoard[x][y + 1] = fleet[3];
-	   		PlayAndrew.player[x][y + 1].setGraphic(new ImageView(battleship6Img));
+	   		Play.player[x][y + 1].setGraphic(new ImageView(battleship6Img));
 	   		gameBoard[x][y + 2] = fleet[3];
-	   		PlayAndrew.player[x][y + 2].setGraphic(new ImageView(battleship7Img));
+	   		Play.player[x][y + 2].setGraphic(new ImageView(battleship7Img));
 	   		gameBoard[x][y + 3] = fleet[3];
-	   		PlayAndrew.player[x][y + 3].setGraphic(new ImageView(battleship8Img));
+	   		Play.player[x][y + 3].setGraphic(new ImageView(battleship8Img));
 	   		setSub();
 	   }
     }
@@ -382,11 +382,11 @@ public class PlayerController {
 	   }
 	   else {
 		   gameBoard[x][y] = fleet[1];
-		   PlayAndrew.player[x][y].setGraphic(new ImageView(sub1Img));
+		   Play.player[x][y].setGraphic(new ImageView(sub1Img));
 		   gameBoard[x + 1][y] = fleet[1];
-		   PlayAndrew.player[x + 1][y].setGraphic(new ImageView(sub2Img));
+		   Play.player[x + 1][y].setGraphic(new ImageView(sub2Img));
 		   gameBoard[x + 2][y] = fleet[1];
-		   PlayAndrew.player[x + 2][y].setGraphic(new ImageView(sub3Img));
+		   Play.player[x + 2][y].setGraphic(new ImageView(sub3Img));
 		   setCruiser();
 	   }
    }
@@ -410,11 +410,11 @@ public class PlayerController {
 	   }
 	   else {
 		   gameBoard[x][y] = fleet[1];
-		   PlayAndrew.player[x][y].setGraphic(new ImageView(sub4Img));
+		   Play.player[x][y].setGraphic(new ImageView(sub4Img));
 		   gameBoard[x][y + 1] = fleet[1];
-		   PlayAndrew.player[x][y + 1].setGraphic(new ImageView(sub5Img));
+		   Play.player[x][y + 1].setGraphic(new ImageView(sub5Img));
 		   gameBoard[x][y + 2] = fleet[1];
-		   PlayAndrew.player[x][y + 2].setGraphic(new ImageView(sub6Img));
+		   Play.player[x][y + 2].setGraphic(new ImageView(sub6Img));
 		   setCruiser();
 	   }
    }
@@ -438,11 +438,11 @@ public class PlayerController {
 	   }
 	   else {
 		   gameBoard[x][y] = fleet[2];
-		   PlayAndrew.player[x][y].setGraphic(new ImageView(cruiser1Img));
+		   Play.player[x][y].setGraphic(new ImageView(cruiser1Img));
 		   gameBoard[x + 1][y] = fleet[2];
-		   PlayAndrew.player[x + 1][y].setGraphic(new ImageView(cruiser2Img));
+		   Play.player[x + 1][y].setGraphic(new ImageView(cruiser2Img));
 		   gameBoard[x + 2][y] = fleet[2];
-		   PlayAndrew.player[x + 2][y].setGraphic(new ImageView(cruiser3Img));
+		   Play.player[x + 2][y].setGraphic(new ImageView(cruiser3Img));
 		   setDestroyer();
 	   }
    }
@@ -466,11 +466,11 @@ public class PlayerController {
 	   }
 	   else {
 		   gameBoard[x][y] = fleet[2];
-		   PlayAndrew.player[x][y].setGraphic(new ImageView(cruiser4Img));
+		   Play.player[x][y].setGraphic(new ImageView(cruiser4Img));
 		   gameBoard[x][y + 1] = fleet[2];
-		   PlayAndrew.player[x][y + 1].setGraphic(new ImageView(cruiser5Img));
+		   Play.player[x][y + 1].setGraphic(new ImageView(cruiser5Img));
 		   gameBoard[x][y + 2] = fleet[2];
-		   PlayAndrew.player[x][y + 2].setGraphic(new ImageView(cruiser6Img));
+		   Play.player[x][y + 2].setGraphic(new ImageView(cruiser6Img));
 		   setDestroyer();
 	   }
    }
@@ -493,9 +493,9 @@ public class PlayerController {
 	   }
 	   else {
 		   gameBoard[x][y] = fleet[0];
-		   PlayAndrew.player[x][y].setGraphic(new ImageView(destroyer1Img));
+		   Play.player[x][y].setGraphic(new ImageView(destroyer1Img));
 		   gameBoard[x + 1][y] = fleet[0];
-		   PlayAndrew.player[x + 1][y].setGraphic(new ImageView(destroyer2Img));
+		   Play.player[x + 1][y].setGraphic(new ImageView(destroyer2Img));
 		   allPlaced();
 	   }
    }
@@ -518,9 +518,9 @@ public class PlayerController {
 	   }
 	   else {
 		   gameBoard[x][y] = fleet[0];
-		   PlayAndrew.player[x][y].setGraphic(new ImageView(destroyer3Img));
+		   Play.player[x][y].setGraphic(new ImageView(destroyer3Img));
 		   gameBoard[x][y + 1] = fleet[0];
-		   PlayAndrew.player[x][y + 1].setGraphic(new ImageView(destroyer4Img));
+		   Play.player[x][y + 1].setGraphic(new ImageView(destroyer4Img));
 		   allPlaced();
 	   }
    }
