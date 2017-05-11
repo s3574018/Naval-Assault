@@ -19,14 +19,14 @@ public class StartTurns {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
-                        	PlayerController.setHit(button);
+                        	BoardOverviewController.setHit(button);
                         }
                     });
                 } else {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                     	public void handle(ActionEvent event) {
-                        	PlayerController.setMiss(button);
+                        	BoardOverviewController.setMiss(button);
                             
                             // prompts computer to take a random shot once
                             OpponentLogic.randomShot();
