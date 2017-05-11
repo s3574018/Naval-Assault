@@ -130,14 +130,14 @@ public class PlayerController extends BoardOverviewController {
     	            @Override
     	            public void handle(MouseEvent event) {
     	            	if (event.getButton() == MouseButton.PRIMARY) {
-    	            		int x = (int) button.getLayoutX()/40;
-    	            		int y = (int) button.getLayoutY()/40;
+    	            		int x = (int) button.getLayoutX()/50;
+    	            		int y = (int) button.getLayoutY()/50;
     	            		System.out.println("Button Clicked");
     	            		placeCarrier(x,y);
     	            	}
     	            	if (event.getButton() == MouseButton.SECONDARY) {
-    	            		int x = (int) button.getLayoutX()/40;
-    	            		int y = (int) button.getLayoutY()/40;
+    	            		int x = (int) button.getLayoutX()/50;
+    	            		int y = (int) button.getLayoutY()/50;
     	            		placeCarrierVertical(x,y);
     	            	}
     	   			}
@@ -154,13 +154,13 @@ public class PlayerController extends BoardOverviewController {
 	            @Override
 	            public void handle(MouseEvent event) {
 	            	if (event.getButton() == MouseButton.PRIMARY) {
-	            		int x = (int) button.getLayoutX()/40;
-	            		int y = (int) button.getLayoutY()/40;
+	            		int x = (int) button.getLayoutX()/50;
+	            		int y = (int) button.getLayoutY()/50;
 	            		placeBattleship(x,y);
 	            	}
 	            	if (event.getButton() == MouseButton.SECONDARY) {
-	            		int x = (int) button.getLayoutX()/40;
-	            		int y = (int) button.getLayoutY()/40;
+	            		int x = (int) button.getLayoutX()/50;
+	            		int y = (int) button.getLayoutY()/50;
 	            		placeBattleshipVertical(x,y);
 	            	}
 	   			}
@@ -177,13 +177,13 @@ public class PlayerController extends BoardOverviewController {
     	            @Override
     	            public void handle(MouseEvent event) {
     	            	if (event.getButton() == MouseButton.PRIMARY) {
-    	            		int x = (int) button.getLayoutX()/40;
-    	            		int y = (int) button.getLayoutY()/40;
+    	            		int x = (int) button.getLayoutX()/50;
+    	            		int y = (int) button.getLayoutY()/50;
     	            		placeSub(x,y);
     	            	}
     	            	if (event.getButton() == MouseButton.SECONDARY) {
-    	            		int x = (int) button.getLayoutX()/40;
-    	            		int y = (int) button.getLayoutY()/40;
+    	            		int x = (int) button.getLayoutX()/50;
+    	            		int y = (int) button.getLayoutY()/50;
     	            		placeSubVertical(x,y);
     	            	}
     	   			}
@@ -200,13 +200,13 @@ public class PlayerController extends BoardOverviewController {
     	            @Override
     	            public void handle(MouseEvent event) {
     	            	if (event.getButton() == MouseButton.PRIMARY) {
-    	            		int x = (int) button.getLayoutX()/40;
-    	            		int y = (int) button.getLayoutY()/40;
+    	            		int x = (int) button.getLayoutX()/50;
+    	            		int y = (int) button.getLayoutY()/50;
     	            		placeCruiser(x,y);
     	            	}
     	            	if (event.getButton() == MouseButton.SECONDARY) {
-    	            		int x = (int) button.getLayoutX()/40;
-    	            		int y = (int) button.getLayoutY()/40;
+    	            		int x = (int) button.getLayoutX()/50;
+    	            		int y = (int) button.getLayoutY()/50;
     	            		placeCruiserVertical(x,y);
     	            	}
     	   			}
@@ -223,13 +223,13 @@ public class PlayerController extends BoardOverviewController {
     	            @Override
     	            public void handle(MouseEvent event) {
     	            	if (event.getButton() == MouseButton.PRIMARY) {
-    	            		int x = (int) button.getLayoutX()/40;
-    	            		int y = (int) button.getLayoutY()/40;
+    	            		int x = (int) button.getLayoutX()/50;
+    	            		int y = (int) button.getLayoutY()/50;
     	            		placeDestroyer(x,y);
     	            	}
     	            	if (event.getButton() == MouseButton.SECONDARY) {
-    	            		int x = (int) button.getLayoutX()/40;
-    	            		int y = (int) button.getLayoutY()/40;
+    	            		int x = (int) button.getLayoutX()/50;
+    	            		int y = (int) button.getLayoutY()/50;
     	            		placeDestroyerVertical(x,y);
     	            	}
     	   			}
