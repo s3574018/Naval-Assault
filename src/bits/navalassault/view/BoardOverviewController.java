@@ -38,11 +38,11 @@ public class BoardOverviewController {
 
 	@FXML
 	private void initialize() {
-	    Grid cGrid = new Grid(50, 90, 150);
-	    GridPane computerBoard = (GridPane) cGrid.createGrid(player);
-				
-	    Grid pGrid = new Grid(50, 690, 150);
+	    Grid pGrid = new Grid(50, 90, 150);
 	    GridPane playerBoard = (GridPane) pGrid.createGrid(player);
+				
+	    Grid cGrid = new Grid(50, 690, 150);
+	    GridPane computerBoard = (GridPane) cGrid.createGrid(computer);
 		
 		boardPane.getChildren().addAll(playerBoard);
 		boardPane.getChildren().addAll(computerBoard);
