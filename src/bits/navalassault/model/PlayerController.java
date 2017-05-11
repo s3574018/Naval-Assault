@@ -132,7 +132,6 @@ public class PlayerController extends BoardOverviewController {
     	            	if (event.getButton() == MouseButton.PRIMARY) {
     	            		int x = (int) button.getLayoutX()/50;
     	            		int y = (int) button.getLayoutY()/50;
-    	            		System.out.println("Button Clicked");
     	            		placeCarrier(x,y);
     	            	}
     	            	if (event.getButton() == MouseButton.SECONDARY) {

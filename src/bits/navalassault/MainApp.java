@@ -38,18 +38,11 @@ public class MainApp extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
 			rootLayout = (BorderPane) loader.load();
-			/*FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/BoardOverview.fxml"));
-			AnchorPane boardScreen = (AnchorPane) loader.load();*/
-			/*Group root = new Group(); 
-			AnchorPane startScreen = (AnchorPane) FXMLLoader.load(getClass().getResource("view/BoardOverview.fxml"));
 			
-			root.getChildren().addAll(startScreen);*/
 			scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 			
 			RootLayoutController controller = loader.getController();
-			//BoardOverviewController controller = loader.getController();
 			controller.setMainApp(this);
 			
 			primaryStage.show();
