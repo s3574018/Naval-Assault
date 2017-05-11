@@ -2,6 +2,7 @@ package bits.navalassault;
 
 import java.io.IOException;
 
+import bits.navalassault.model.OpponentController;
 import bits.navalassault.model.PlayerController;
 import bits.navalassault.model.StartTurns;
 import bits.navalassault.view.AboutScreenController;
@@ -82,6 +83,9 @@ public class MainApp extends Application {
 			
 			PlayerController.setShips();
 			PlayerController.setCarrier();
+			
+			OpponentController.setShips();
+			OpponentController.setCarrier();
 			
 			StartTurns.takeTurns();
 			
