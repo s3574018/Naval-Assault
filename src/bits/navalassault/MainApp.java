@@ -2,6 +2,8 @@ package bits.navalassault;
 
 import java.io.IOException;
 
+import bits.navalassault.model.PlayerController;
+import bits.navalassault.model.StartTurns;
 import bits.navalassault.view.AboutScreenController;
 import bits.navalassault.view.BoardOverviewController;
 import bits.navalassault.view.RootLayoutController;
@@ -35,11 +37,18 @@ public class MainApp extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
 			rootLayout = (BorderPane) loader.load();
+			/*FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("view/BoardOverview.fxml"));
+			AnchorPane boardScreen = (AnchorPane) loader.load();*/
+			/*Group root = new Group(); 
+			AnchorPane startScreen = (AnchorPane) FXMLLoader.load(getClass().getResource("view/BoardOverview.fxml"));
 			
+			root.getChildren().addAll(startScreen);*/
 			scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 			
 			RootLayoutController controller = loader.getController();
+			//BoardOverviewController controller = loader.getController();
 			controller.setMainApp(this);
 			
 			primaryStage.show();
@@ -70,6 +79,11 @@ public class MainApp extends Application {
 			AnchorPane boardScreen = (AnchorPane) loader.load();			
 			
 			rootLayout.setCenter(boardScreen);
+			
+			PlayerController.setShips();
+			PlayerController.setCarrier();
+			
+			StartTurns.takeTurns();
 			
 			BoardOverviewController controller = loader.getController();
 			controller.setMainApp(this);
