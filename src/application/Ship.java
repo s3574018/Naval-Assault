@@ -3,9 +3,10 @@ package application;
 public class Ship {
     private String shipID;
     private int health;
-    private boolean shipHit;
+    private boolean shipHit; // this is not yet used
     private int hitCount;
-    private boolean isAShip;
+    private boolean isAShip; // this is not yet used
+    private boolean shipVertical;
 
     public Ship(String shipID, int health, boolean shipHit, int hitCount,
             boolean isAShip) {
@@ -14,6 +15,7 @@ public class Ship {
         this.shipHit = shipHit;
         this.hitCount = hitCount;
         this.isAShip = isAShip;
+        this.shipVertical = false;
     }
 
     public Ship(String shipID, int health) {
@@ -50,15 +52,23 @@ public class Ship {
     }
 
     public void deacreaseHealth() {
-        health--;
+        this.health--;
     }
 
     public void setShipHit() {
-        shipHit = true;
+        this.shipHit = true;
     }
 
     public void increaseHitCount() {
-        hitCount++;
+        this.hitCount++;
+    }
+
+    public boolean getShipVertical() {
+        return shipVertical;
+    }
+
+    public void setShipVertical(boolean shipVertical) {
+        this.shipVertical = shipVertical;
     }
 
 }

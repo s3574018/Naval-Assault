@@ -16,7 +16,7 @@ public class OpponentLogic {
                     
                     // start of single hit to ship logic
                     // proceeds only if ship on square has been hit just once
-                    if (PlayerController.getHitMiss(i, j) == PlayerController.fleet[5] && currentSquare.getHealth() > 0 ) {
+                    if (PlayerController.getHitMiss(i, j) == PlayerController.fleet[5] && currentSquare.getHitCount() == 1 ) {
                         Point[] shotOptions = new Point[4];
                         int shotOptionsCount = 0;
 
@@ -52,8 +52,45 @@ public class OpponentLogic {
                             lastTurn = takeShot((int) chosenShot.getX(),(int) chosenShot.getY());
                             takeRandomShot = false;
                         }
-
                     }
+                    
+                    
+                    // start of two or more hit to ship logic
+                    // proceeds only if ship on square has been hit more than 
+                    // once and if ship health not 0
+                    if (PlayerController.getHitMiss(i, j) == PlayerController.fleet[5] && currentSquare.getHitCount() > 1 && currentSquare.getHealth() != 0) {
+                        if (currentSquare.getShipVertical() == true) {
+                            boolean tryAgain = true;
+                            int counter = 0;
+                            do {
+                                counter++;             
+                                if (j - counter >= 0) {
+                                    if (PlayerController.getHitMiss(i, j - counter) == PlayerController.fleet[7]) {
+                                        takeShot(i, j - counter);
+                                        tryAgain = false;
+                                    }
+                                }
+                                 else if (j - counter >= 0 && PlayerController.getHitMiss(i, j - counter) == PlayerController.fleet[6]) {
+                                     counter = 0;
+                                     do {
+                                         counter++;
+                                         if (j + counter <= 9) {
+                                             if (PlayerController.getHitMiss(i, j + counter) == PlayerController.fleet[7]) {
+                                                 takeShot(i, j + counter);
+                                                 tryAgain = false;
+                                             }
+                                         }
+                                     } while (tryAgain == true);
+                                 }
+                                
+                            } while (tryAgain == true);
+                        }
+                    }
+                    
+                    
+                    
+                    
+                    
                     if (takeRandomShot == false) {
                         break;
                     }
