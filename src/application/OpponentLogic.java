@@ -15,37 +15,60 @@ public class OpponentLogic {
 
                     // start of single hit to ship logic
                     // proceeds only if ship on square has been hit just once
-                    if (PlayerController.getState(i, j) == PlayerController.fleet[5]) {
+                    if (PlayerController.getState(i,
+                            j) == PlayerController.fleet[5]) {
                         Point[] shotOptions = new Point[4];
                         int shotOptionsCount = 0;
 
-                        if (PlayerController.getState(i-1, j) != PlayerController.fleet[5]
-                                && PlayerController.getState(i-1, j) != PlayerController.fleet[6]) {
-                            shotOptions[shotOptionsCount] = new Point(i-1, j);
-                            shotOptionsCount++;
+                        if (i - 1 >= 0) {
+                            if (PlayerController.getState(i - 1,
+                                    j) != PlayerController.fleet[5]
+                                    && PlayerController.getState(i - 1,
+                                            j) != PlayerController.fleet[6]) {
+                                shotOptions[shotOptionsCount] = new Point(i - 1, j);
+                                shotOptionsCount++;
+                            }
                         }
-                        if (PlayerController.getState(i+1, j) != PlayerController.fleet[5]
-                                && PlayerController.getState(i+1, j) != PlayerController.fleet[6]) {
-                            shotOptions[shotOptionsCount] = new Point(i+1, j);
-                            shotOptionsCount++;
+
+                        if (i + 1 <= 9) {
+                            if (PlayerController.getState(i + 1,
+                                    j) != PlayerController.fleet[5]
+                                    && PlayerController.getState(i + 1,
+                                            j) != PlayerController.fleet[6]) {
+
+                                shotOptions[shotOptionsCount] = new Point(i + 1, j);
+                                shotOptionsCount++;
+                            }
                         }
-                        if (PlayerController.getState(i, j-1) != PlayerController.fleet[5]
-                                && PlayerController.getState(i, j-1) != PlayerController.fleet[6]) {
-                            shotOptions[shotOptionsCount] = new Point(i, j-1);
-                            shotOptionsCount++;
+                        if (j - 1 >= 0) {
+                            if (PlayerController.getState(i,
+                                    j - 1) != PlayerController.fleet[5]
+                                    && PlayerController.getState(i,
+                                            j - 1) != PlayerController.fleet[6]) {
+
+                                shotOptions[shotOptionsCount] = new Point(i, j - 1);
+                                shotOptionsCount++;
+                            }
                         }
-                        if (PlayerController.getState(i, j+1) != PlayerController.fleet[5]
-                                && PlayerController.getState(i, j+1) != PlayerController.fleet[6]) {
-                            shotOptions[shotOptionsCount] = new Point(i, j+1);
-                            shotOptionsCount++;
+                        if (i + 1 <= 9) {
+                            if (PlayerController.getState(i,
+                                    j + 1) != PlayerController.fleet[5]
+                                    && PlayerController.getState(i,
+                                            j + 1) != PlayerController.fleet[6]) {
+
+                                shotOptions[shotOptionsCount] = new Point(i, j + 1);
+                                shotOptionsCount++;
+                            }
                         }
                         Random randomNum = new Random();
                         if (shotOptionsCount != 0) {
-                            Point chosenShot = shotOptions[randomNum.nextInt(shotOptionsCount)];
-                            takeShot((int) chosenShot.getX(), (int) chosenShot.getY());
+                            Point chosenShot = shotOptions[randomNum
+                                    .nextInt(shotOptionsCount)];
+                            takeShot((int) chosenShot.getX(),
+                                    (int) chosenShot.getY());
                             takeRandomShot = false;
-                        } 
-                        
+                        }
+
                     }
                     if (takeRandomShot == false) {
                         break;
@@ -55,10 +78,8 @@ public class OpponentLogic {
             if (takeRandomShot == true) {
                 randomShot();
             }
-            
-        } while (lastTurn == PlayerController.fleet[5]);
-        
 
+        } while (lastTurn == PlayerController.fleet[5]);
 
     }
 
@@ -87,35 +108,35 @@ public class OpponentLogic {
                         yAxis) == PlayerController.fleet[4]) {
             PlayerController.setHit(xAxis, yAxis);
             Play.player[xAxis][yAxis].setGraphic(new ImageView(Play.explosionImg));
-            
+
             // remove stats call for computer after testing
             Stats.increaseHitCount();
             Stats.increaseShotCount();
-            
+
             pause(400);
-            
+
             return false;
         } else if (PlayerController.getState(xAxis, yAxis) == null) {
             PlayerController.setMiss(xAxis, yAxis);
             Play.player[xAxis][yAxis].setGraphic(new ImageView(Play.waterImg));
-            
+
             // remove stats call for computer after testing
             Stats.increaseMissCount();
             Stats.increaseShotCount();
-            
+
             pause(400);
-            
+
             return false;
         } else {
             return true;
         }
     }
-    
-    //adds delay
+
+    // adds delay
     public static void pause(int time) {
-        try{
+        try {
             Thread.sleep(time);
-          }catch(InterruptedException ex){
-          }
+        } catch (InterruptedException ex) {
+        }
     }
 }
