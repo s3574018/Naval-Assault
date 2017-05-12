@@ -103,6 +103,7 @@ public class Play extends Application {
         // ship object array and sets buttons to either a hit or miss image
         PlayerController.setShips();
         
+        PlayerController.setHitGridEmpty();
         
         // calls method to let player place carrier
         // this method calls the methods to place other ships

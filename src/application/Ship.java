@@ -49,16 +49,16 @@ public class Ship {
         return isAShip;
     }
 
-    public void deacreaseHealth(int health) {
-        this.health -= health;
+    public void deacreaseHealth() {
+        health--;
     }
 
-    public void setShipHit(int health) {
-        this.shipHit = true;
+    public void setShipHit() {
+        shipHit = true;
     }
 
-    public void increaseHitCount(int hitCount) {
-        this.hitCount += hitCount;
+    public void increaseHitCount() {
+        hitCount++;
     }
 
 }

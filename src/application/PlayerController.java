@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 public class PlayerController {
 
     private static final Ship[][] gameBoard = new Ship[10][10];
+    private static final Ship[][] hitMissBoard = new Ship[10][10];
     public static final Ship fleet[] = new Ship[8];
 
 
@@ -20,25 +21,30 @@ public class PlayerController {
         return gameBoard[xAxis][yAxis];
     }
     
+    // gets current state for hitMissBoard coordinate
+    public static Ship getHitMiss(int xAxis, int yAxis) {
+        return hitMissBoard[xAxis][yAxis];
+    }
+    
     public static int getArrayLength() {
-        return gameBoard.length;
+        return hitMissBoard.length;
     }
     
     // sets gameBoard coordinate to hit state
     public static void setHit(int xAxis, int yAxis) {
-        gameBoard[xAxis][yAxis] = fleet[5];
+        hitMissBoard[xAxis][yAxis] = fleet[5];
     }
 
     // sets gameBoard coordinate to miss state
     public static void setMiss(int xAxis, int yAxis) {
-        gameBoard[xAxis][yAxis] = fleet[6];
+        hitMissBoard[xAxis][yAxis] = fleet[6];
     }
 
     // resets all fields in array with empty ship object
-    public static void clearGrid() {
-        for (int i = 0; i < gameBoard.length; i++) {
-            for (int j = 0; j < gameBoard[i].length; j++) {
-                gameBoard[i][j] = fleet[7];
+    public static void setHitGridEmpty() {
+        for (int i = 0; i < hitMissBoard.length; i++) {
+            for (int j = 0; j < hitMissBoard[i].length; j++) {
+                hitMissBoard[i][j] = fleet[7];
             }
         }
     }
