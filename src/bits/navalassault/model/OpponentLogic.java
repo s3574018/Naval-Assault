@@ -1,9 +1,11 @@
-package application;
+package bits.navalassault.model;
 
 import java.util.Random;
+
+import bits.navalassault.view.BoardOverviewController;
 import javafx.scene.image.ImageView;
 
-public class OpponentLogicAndrew {
+public class OpponentLogic {
 
     // generates random grid coordinates and takes a shot. hit/miss status is
     // updated for the square chosen
@@ -25,14 +27,14 @@ public class OpponentLogicAndrew {
                     || PlayerController.getState(xAxis,
                             yAxis) == PlayerController.fleet[4]) {
             	PlayerController.setHit(xAxis, yAxis);
-                PlayAndrew.player[xAxis][yAxis].setGraphic(new ImageView(Play.explosionImg));
+                BoardOverviewController.player[xAxis][yAxis].setGraphic(new ImageView(BoardOverviewController.explosionImg));
                 tryAgain = false;
                 // System.out.println("Hit");
                  Stats.increaseHitCount();
                  Stats.increaseShotCount();
             } else if (PlayerController.getState(xAxis, yAxis) == null) {
             	PlayerController.setMiss(xAxis, yAxis);
-                PlayAndrew.player[xAxis][yAxis].setGraphic(new ImageView(Play.waterImg));
+            	BoardOverviewController.player[xAxis][yAxis].setGraphic(new ImageView(BoardOverviewController.waterImg));
                 tryAgain = false;
                 // System.out.println("Miss");
                  Stats.increaseMissCount();

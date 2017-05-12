@@ -2,6 +2,9 @@ package bits.navalassault;
 
 import java.io.IOException;
 
+import bits.navalassault.model.OpponentController;
+import bits.navalassault.model.PlayerController;
+import bits.navalassault.model.StartTurns;
 import bits.navalassault.view.AboutScreenController;
 import bits.navalassault.view.BoardOverviewController;
 import bits.navalassault.view.RootLayoutController;
@@ -71,6 +74,14 @@ public class MainApp extends Application {
 			
 			rootLayout.setCenter(boardScreen);
 			
+			PlayerController.setShips();
+			PlayerController.setCarrier();
+			
+			OpponentController.setShips();
+			OpponentController.setCarrier();
+			
+			StartTurns.takeTurns();
+			
 			BoardOverviewController controller = loader.getController();
 			controller.setMainApp(this);
 			
@@ -121,7 +132,7 @@ public class MainApp extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}	
 	
     public Stage getPrimaryStage() {
         return primaryStage;

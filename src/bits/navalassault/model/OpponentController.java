@@ -1,18 +1,9 @@
-package application;
+package bits.navalassault.model;
 
 import java.util.Random;
-import java.util.Scanner;
-
-import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 
-public class OpponentControllerAndrew {
+public class OpponentController {
 
 
     private static final Ship[][] gameBoard = new Ship[10][10];
@@ -64,52 +55,54 @@ public class OpponentControllerAndrew {
     	}
     }
 
-    static Image carrier1Img = new Image("application/carrier1.png");
-    static Image carrier2Img = new Image("application/carrier2.png");
-    static Image carrier3Img = new Image("application/carrier3.png");
-    static Image carrier4Img = new Image("application/carrier4.png");
-    static Image carrier5Img = new Image("application/carrier5.png");
+ // creates the images for that make up the ships
+    static Image battleship1Img = new Image("bits/navalassault/resources/ships/battleship1.png");
+    static Image battleship2Img = new Image("bits/navalassault/resources/ships/battleship2.png");
+    static Image battleship3Img = new Image("bits/navalassault/resources/ships/battleship3.png");
+    static Image battleship4Img = new Image("bits/navalassault/resources/ships/battleship4.png");
     
-    static Image carrier6Img = new Image("application/carrier6.png");
-    static Image carrier7Img = new Image("application/carrier7.png");
-    static Image carrier8Img = new Image("application/carrier8.png");
-    static Image carrier9Img = new Image("application/carrier9.png");
-    static Image carrier10Img = new Image("application/carrier10.png");
-    
-    static Image battleship1Img = new Image("application/battleship1.png");
-    static Image battleship2Img = new Image("application/battleship2.png");
-    static Image battleship3Img = new Image("application/battleship3.png");
-    static Image battleship4Img = new Image("application/battleship4.png");
-    
-    static Image battleship5Img = new Image("application/battleship5.png");
-    static Image battleship6Img = new Image("application/battleship6.png");
-    static Image battleship7Img = new Image("application/battleship7.png");
-    static Image battleship8Img = new Image("application/battleship8.png");
-    
-    static Image sub1Img = new Image("application/sub1.png");
-    static Image sub2Img = new Image("application/sub2.png");
-    static Image sub3Img = new Image("application/sub3.png");
-    
-    static Image sub4Img = new Image("application/sub4.png");
-    static Image sub5Img = new Image("application/sub5.png");
-    static Image sub6Img = new Image("application/sub6.png");
+    static Image battleship5Img = new Image("bits/navalassault/resources/ships/battleship5.png");
+    static Image battleship6Img = new Image("bits/navalassault/resources/ships/battleship6.png");
+    static Image battleship7Img = new Image("bits/navalassault/resources/ships/battleship7.png");
+    static Image battleship8Img = new Image("bits/navalassault/resources/ships/battleship8.png");
     
     
-    static Image cruiser1Img = new Image("application/cruiser1.png");
-    static Image cruiser2Img = new Image("application/cruiser2.png");
-    static Image cruiser3Img = new Image("application/cruiser3.png");
+    static Image carrier1Img = new Image("bits/navalassault/resources/ships/carrier1.png");
+    static Image carrier2Img = new Image("bits/navalassault/resources/ships/carrier2.png");
+    static Image carrier3Img = new Image("bits/navalassault/resources/ships/carrier3.png");
+    static Image carrier4Img = new Image("bits/navalassault/resources/ships/carrier4.png");
+    static Image carrier5Img = new Image("bits/navalassault/resources/ships/carrier5.png");
     
-    static Image cruiser4Img = new Image("application/cruiser4.png");
-    static Image cruiser5Img = new Image("application/cruiser5.png");
-    static Image cruiser6Img = new Image("application/cruiser6.png");
+    static Image carrier6Img = new Image("bits/navalassault/resources/ships/carrier6.png");
+    static Image carrier7Img = new Image("bits/navalassault/resources/ships/carrier7.png");
+    static Image carrier8Img = new Image("bits/navalassault/resources/ships/carrier8.png");
+    static Image carrier9Img = new Image("bits/navalassault/resources/ships/carrier9.png");
+    static Image carrier10Img = new Image("bits/navalassault/resources/ships/carrier10.png");
+       
+    
+    static Image sub1Img = new Image("bits/navalassault/resources/ships/sub1.png");
+    static Image sub2Img = new Image("bits/navalassault/resources/ships/sub2.png");
+    static Image sub3Img = new Image("bits/navalassault/resources/ships/sub3.png");
+    
+    static Image sub4Img = new Image("bits/navalassault/resources/ships/sub4.png");
+    static Image sub5Img = new Image("bits/navalassault/resources/ships/sub5.png");
+    static Image sub6Img = new Image("bits/navalassault/resources/ships/sub6.png");
     
     
-    static Image destroyer1Img = new Image("application/destroyer1.png");
-    static Image destroyer2Img = new Image("application/destroyer2.png");
+    static Image cruiser1Img = new Image("bits/navalassault/resources/ships/cruiser1.png");
+    static Image cruiser2Img = new Image("bits/navalassault/resources/ships/cruiser2.png");
+    static Image cruiser3Img = new Image("bits/navalassault/resources/ships/cruiser3.png");
     
-    static Image destroyer3Img = new Image("application/destroyer3.png");
-    static Image destroyer4Img = new Image("application/destroyer4.png");
-
+    static Image cruiser4Img = new Image("bits/navalassault/resources/ships/cruiser4.png");
+    static Image cruiser5Img = new Image("bits/navalassault/resources/ships/cruiser5.png");
+    static Image cruiser6Img = new Image("bits/navalassault/resources/ships/cruiser6.png");
+    
+    
+    static Image destroyer1Img = new Image("bits/navalassault/resources/ships/destroyer1.png");
+    static Image destroyer2Img = new Image("bits/navalassault/resources/ships/destroyer2.png");
+    
+    static Image destroyer3Img = new Image("bits/navalassault/resources/ships/destroyer3.png");
+    static Image destroyer4Img = new Image("bits/navalassault/resources/ships/destroyer4.png");
 
     // hard-coding of ship locations
     public static void setShips() {
