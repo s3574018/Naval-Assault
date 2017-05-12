@@ -23,7 +23,11 @@ public class OpponentController {
     public static Ship getState(int xAxis, int yAxis) {
         return gameBoard[xAxis][yAxis];
     }
-
+    
+    public static int getArrayLength() {
+        return gameBoard.length;
+    }
+    
     // sets gameBoard coordinate to hit state
     public static void setHit(int xAxis, int yAxis) {
         gameBoard[xAxis][yAxis] = fleet[5];
@@ -113,14 +117,14 @@ public class OpponentController {
 
     // hard-coding of ship locations
     public static void setShips() {
-        fleet[0] = new Ship("destroyer", 2);
-        fleet[1] = new Ship("submarine", 3);
-        fleet[2] = new Ship("cruiser", 3);
-        fleet[3] = new Ship("battleship", 4);
-        fleet[4] = new Ship("carrier", 5);
-        fleet[5] = new Ship("hit", -1);
-        fleet[6] = new Ship("miss", -1);
-        fleet[7] = new Ship("empty", -1);
+        fleet[0] = new Ship("destroyer", 2, false, 0, true);
+        fleet[1] = new Ship("submarine", 3, false, 0, true);
+        fleet[2] = new Ship("cruiser", 3, false, 0, true);
+        fleet[3] = new Ship("battleship", 4, false, 0, true);
+        fleet[4] = new Ship("carrier", 5, false, 0, true);
+        fleet[5] = new Ship("hit");
+        fleet[6] = new Ship("miss");
+        fleet[7] = new Ship("empty");
 
     }   
     

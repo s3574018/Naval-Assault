@@ -141,7 +141,8 @@ public class Play extends Application {
                             setMiss(button);
                             
                             // prompts computer to take a random shot once
-                            OpponentLogic.randomShot();
+//                            OpponentLogic.randomShot();
+                            OpponentLogic.computerStart();
                         }
                     });
                 }
