@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 public class PlayerController {
 
     private static final Ship[][] gameBoard = new Ship[10][10];
+    private static final Ship[][] hitMissBoard = new Ship[10][10];
     public static final Ship fleet[] = new Ship[8];
 
 
@@ -20,25 +21,30 @@ public class PlayerController {
         return gameBoard[xAxis][yAxis];
     }
     
+    // gets current state for hitMissBoard coordinate
+    public static Ship getHitMiss(int xAxis, int yAxis) {
+        return hitMissBoard[xAxis][yAxis];
+    }
+    
     public static int getArrayLength() {
-        return gameBoard.length;
+        return hitMissBoard.length;
     }
     
     // sets gameBoard coordinate to hit state
     public static void setHit(int xAxis, int yAxis) {
-        gameBoard[xAxis][yAxis] = fleet[5];
+        hitMissBoard[xAxis][yAxis] = fleet[5];
     }
 
     // sets gameBoard coordinate to miss state
     public static void setMiss(int xAxis, int yAxis) {
-        gameBoard[xAxis][yAxis] = fleet[6];
+        hitMissBoard[xAxis][yAxis] = fleet[6];
     }
 
     // resets all fields in array with empty ship object
-    public static void clearGrid() {
-        for (int i = 0; i < gameBoard.length; i++) {
-            for (int j = 0; j < gameBoard[i].length; j++) {
-                gameBoard[i][j] = fleet[7];
+    public static void setHitGridEmpty() {
+        for (int i = 0; i < hitMissBoard.length; i++) {
+            for (int j = 0; j < hitMissBoard[i].length; j++) {
+                hitMissBoard[i][j] = fleet[7];
             }
         }
     }
@@ -277,6 +283,7 @@ public class PlayerController {
 		   Play.player[x + 3][y].setGraphic(new ImageView(carrier4Img));
 		   gameBoard[x + 4][y] = fleet[4];
 		   Play.player[x + 4][y].setGraphic(new ImageView(carrier5Img));
+		   fleet[4].setShipVertical(false);
 		   setBattleship();
 	   }
    }  
@@ -300,6 +307,7 @@ public class PlayerController {
 		   Play.player[x][y + 3].setGraphic(new ImageView(carrier9Img));
 		   gameBoard[x][y + 4] = fleet[4];
 		   Play.player[x][y + 4].setGraphic(new ImageView(carrier10Img));
+		   fleet[4].setShipVertical(true);
 		   setBattleship();
 	   }
    }  
@@ -331,6 +339,7 @@ public class PlayerController {
 	   		Play.player[x + 2][y].setGraphic(new ImageView(battleship3Img));
 	   		gameBoard[x + 3][y] = fleet[3];
 	   		Play.player[x + 3][y].setGraphic(new ImageView(battleship4Img));
+	   		fleet[3].setShipVertical(false);
 	   		setSub();
 	   }
     }
@@ -362,6 +371,7 @@ public class PlayerController {
 	   		Play.player[x][y + 2].setGraphic(new ImageView(battleship7Img));
 	   		gameBoard[x][y + 3] = fleet[3];
 	   		Play.player[x][y + 3].setGraphic(new ImageView(battleship8Img));
+	   		fleet[3].setShipVertical(true);
 	   		setSub();
 	   }
     }
@@ -391,6 +401,7 @@ public class PlayerController {
 		   Play.player[x + 1][y].setGraphic(new ImageView(sub2Img));
 		   gameBoard[x + 2][y] = fleet[1];
 		   Play.player[x + 2][y].setGraphic(new ImageView(sub3Img));
+		   fleet[1].setShipVertical(false);
 		   setCruiser();
 	   }
    }
@@ -419,6 +430,7 @@ public class PlayerController {
 		   Play.player[x][y + 1].setGraphic(new ImageView(sub5Img));
 		   gameBoard[x][y + 2] = fleet[1];
 		   Play.player[x][y + 2].setGraphic(new ImageView(sub6Img));
+		   fleet[1].setShipVertical(true);
 		   setCruiser();
 	   }
    }
@@ -447,6 +459,7 @@ public class PlayerController {
 		   Play.player[x + 1][y].setGraphic(new ImageView(cruiser2Img));
 		   gameBoard[x + 2][y] = fleet[2];
 		   Play.player[x + 2][y].setGraphic(new ImageView(cruiser3Img));
+		   fleet[2].setShipVertical(false);
 		   setDestroyer();
 	   }
    }
@@ -475,6 +488,7 @@ public class PlayerController {
 		   Play.player[x][y + 1].setGraphic(new ImageView(cruiser5Img));
 		   gameBoard[x][y + 2] = fleet[2];
 		   Play.player[x][y + 2].setGraphic(new ImageView(cruiser6Img));
+		   fleet[2].setShipVertical(true);
 		   setDestroyer();
 	   }
    }
@@ -500,6 +514,7 @@ public class PlayerController {
 		   Play.player[x][y].setGraphic(new ImageView(destroyer1Img));
 		   gameBoard[x + 1][y] = fleet[0];
 		   Play.player[x + 1][y].setGraphic(new ImageView(destroyer2Img));
+		   fleet[0].setShipVertical(false);
 		   allPlaced();
 	   }
    }
@@ -525,6 +540,7 @@ public class PlayerController {
 		   Play.player[x][y].setGraphic(new ImageView(destroyer3Img));
 		   gameBoard[x][y + 1] = fleet[0];
 		   Play.player[x][y + 1].setGraphic(new ImageView(destroyer4Img));
+		   fleet[0].setShipVertical(true);
 		   allPlaced();
 	   }
    }

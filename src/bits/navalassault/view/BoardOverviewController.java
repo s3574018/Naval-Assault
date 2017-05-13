@@ -31,11 +31,11 @@ public class BoardOverviewController {
 	static AudioClip miss = new AudioClip(BoardOverviewController.class.getResource("../resources/sounds/Miss.mp3").toExternalForm());
 	
 	@FXML
+	public static Label statusLabel;
+	@FXML
 	private AnchorPane boardPane;
 	@FXML
-	private Label statusLabel;
-	@FXML
-	private Pane statusPane;
+	public static Pane statusPane;
 
 	// Reference to the main application.
 	private MainApp mainApp;
@@ -46,7 +46,7 @@ public class BoardOverviewController {
 
 	@FXML
 	private void initialize() {
-	    Grid pGrid = new Grid(50, 90, 150);
+		Grid pGrid = new Grid(50, 90, 150);
 	    GridPane playerBoard = (GridPane) pGrid.createGrid(player);
 				
 	    Grid cGrid = new Grid(50, 690, 150);
@@ -98,5 +98,8 @@ public class BoardOverviewController {
 		if (SoundPlayer.getSoundEnabled() == true) {
 			miss.play();
 		}
+	}
+	public void setStatus() {
+		statusLabel.setText("new test");
 	}
 }

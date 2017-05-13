@@ -103,6 +103,7 @@ public class Play extends Application {
         // ship object array and sets buttons to either a hit or miss image
         PlayerController.setShips();
         
+        PlayerController.setHitGridEmpty();
         
         // calls method to let player place carrier
         // this method calls the methods to place other ships
@@ -195,6 +196,13 @@ public class Play extends Application {
         playMusic.play();
         
         primaryStage.show();
+        
+        for (int i = 0; i < 8; i++) {            
+            System.out.println(PlayerController.fleet[i].getShipID());
+            System.out.println("HitCount: " + PlayerController.fleet[i].getHitCount());
+            System.out.println("Health: " + PlayerController.fleet[i].getHealth());
+            System.out.println();
+        }
         
     }
 

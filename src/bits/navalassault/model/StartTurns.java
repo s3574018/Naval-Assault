@@ -29,7 +29,8 @@ public class StartTurns {
                         	BoardOverviewController.setMiss(button);
                             
                             // prompts computer to take a random shot once
-                            OpponentLogic.randomShot();
+                        	//OpponentLogic.setTryAgain(true);
+                            OpponentLogic.takeShot();
                         }
                     });
                 }
