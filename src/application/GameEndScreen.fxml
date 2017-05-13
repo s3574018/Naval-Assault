@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@NavalAssault.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bits.navalassault.application.GameEndScreenController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Pane layoutX="427.0" layoutY="266.0" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="291.0" AnchorPane.rightAnchor="390.0">
+      <children>
+        <Label layoutX="150.0" layoutY="-2.0" prefHeight="103.0" prefWidth="304.0" text="YOU WIN!">
+          <font>
+            <Font size="67.0" />
+          </font>
+        </Label>
+        <Label layoutX="139.0" layoutY="240.0" text="Play again?">
+          <font>
+            <Font size="33.0" />
+          </font>
+        </Label>
+        <Button fx:id="btnYes" layoutX="389.0" layoutY="252.0" mnemonicParsing="false" prefWidth="50.0" text="Yes" />
+        <Button fx:id="btnNo" layoutX="326.0" layoutY="252.0" mnemonicParsing="false" prefWidth="50.0" text="No" />
+            <Button layoutX="265.0" layoutY="107.0" mnemonicParsing="false" text="Play review" />
+      </children>
+         <effect>
+            <InnerShadow color="#250b7ce8" />
+         </effect>
+    </Pane>
+  </children>
+</AnchorPane>
