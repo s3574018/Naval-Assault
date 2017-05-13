@@ -65,9 +65,10 @@ public class OpponentLogic {
                     // start of two or more hit to ship logic
                     // proceeds only if ship on square has been hit more than 
                     // once and if ship health not 0
-                    if (PlayerController.getHitMiss(i, j) == PlayerController.fleet[5] && currentSquare.getHitCount() > 1 && currentSquare.getHealth() != 0) {
-                        if (currentSquare.getShipVertical() == true) {    
-                            boolean otherEnd = true;
+                    boolean otherEnd = true;
+                    if (PlayerController.getHitMiss(i, j) == PlayerController.fleet[5] && currentSquare.getHitCount() > 1 && currentSquare.getHealth() > 0) {
+                        if (currentSquare.getShipVertical() == true) {  
+//                            boolean otherEnd = true;
                                 if (j - 1 >= 0) {
                                     if (PlayerController.getHitMiss(i, j - 1) == PlayerController.fleet[7]) {
                                         takeShot(i, j - 1);
@@ -80,6 +81,22 @@ public class OpponentLogic {
                                        }
                                }
                         }
+                        if (currentSquare.getShipVertical() == false) {    
+                            
+//                            boolean otherEnd = true;
+                                if (i - 1 >= 0) {
+                                    if (PlayerController.getHitMiss(i - 1, j) == PlayerController.fleet[7]) {
+                                        takeShot(i - 1, j);
+                                        otherEnd = false;
+                                    }
+                                }
+                                 if (i + 1 <= 9 && otherEnd == true) {
+                                       if (PlayerController.getHitMiss(i + 1, j) == PlayerController.fleet[7]) {
+                                               takeShot(i + 1, j);
+                                       }
+                               }
+                        }
+                        
                     }
                 }
             }
@@ -91,16 +108,29 @@ public class OpponentLogic {
 
     // generates random grid coordinates and takes a shot. hit/miss status is
     // updated for the square chosen
-    public static Ship randomShot() {
+    public static void randomShot() {
         int yAxis, xAxis;
         Random randomNum = new Random();
-        Ship tryAgain;
+//        Ship tryAgain = PlayerController.fleet[5];
+//        Ship currentSquare = PlayerController.getState(xAxis, yAxis);
+//        while ((tryAgain == PlayerController.fleet[5] || tryAgain == PlayerController.fleet[6]) 
+//                && currentSquare.getHealth() > 0) {
+//            yAxis = randomNum.nextInt(10);
+//            xAxis = randomNum.nextInt(10);
+//            tryAgain = takeShot(xAxis, yAxis);
+//        }
+        boolean anotherShot = true;
         do {
             yAxis = randomNum.nextInt(10);
             xAxis = randomNum.nextInt(10);
-            tryAgain = takeShot(xAxis, yAxis);
-        } while (tryAgain == PlayerController.fleet[5]);
-        return tryAgain;
+//            Ship currentSquare = PlayerController.getState(xAxis, yAxis);
+            if (PlayerController.getHitMiss(xAxis, yAxis) == PlayerController.fleet[7]) {
+                takeShot(xAxis, yAxis);
+                anotherShot = false;
+            }            
+//        } while (tryAgain == PlayerController.fleet[5] || tryAgain == PlayerController.fleet[6]);
+        } while (anotherShot == true);
+//        return tryAgain;
     }
 
     public static Ship takeShot(int xAxis, int yAxis) {

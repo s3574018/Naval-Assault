@@ -197,10 +197,10 @@ public class Play extends Application {
         
         primaryStage.show();
         
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {            
             System.out.println(PlayerController.fleet[i].getShipID());
-            System.out.println(PlayerController.fleet[i].getHitCount());
-            System.out.println(PlayerController.fleet[i].getHealth());
+            System.out.println("HitCount: " + PlayerController.fleet[i].getHitCount());
+            System.out.println("Health: " + PlayerController.fleet[i].getHealth());
             System.out.println();
         }
         
