@@ -1,7 +1,6 @@
 package bits.navalassault;
 
 import java.io.IOException;
-
 import bits.navalassault.model.OpponentController;
 import bits.navalassault.model.PlayerController;
 import bits.navalassault.model.StartTurns;
