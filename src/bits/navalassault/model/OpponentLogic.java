@@ -63,7 +63,7 @@ public class OpponentLogic {
 						Point chosenShot = shotOptions[randomNum.nextInt(shotOptionsCount)];
 						takeShot((int) chosenShot.getX(), (int) chosenShot.getY());
 						takeRandomShot = false;
-						break;
+						//break;
 					}
 				}
 
@@ -194,7 +194,11 @@ public class OpponentLogic {
             if (PlayerController.getShipsRemaining() == 0) {
 				PlayerController.setAllShipsSunk(true);
 				Stats.showLose();
+			} else {
+				computerStart();
 			}
+            
+            
 //            for (int i = 0; i < PlayerController.fleet.length; i++) {
 //                if (PlayerController.fleet[i].getHealth() != 0 && PlayerController.fleet[i].getIsAShip()) {
 //                    PlayerController.setAllShipsSunk(true);
