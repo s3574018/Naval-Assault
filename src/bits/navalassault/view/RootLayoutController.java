@@ -2,7 +2,10 @@ package bits.navalassault.view;
 
 import javafx.application.Platform;
 import bits.navalassault.MainApp;
+import bits.navalassault.model.OpponentController;
+import bits.navalassault.model.PlayerController;
 import bits.navalassault.model.SoundPlayer;
+import bits.navalassault.model.Stats;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.media.AudioClip;
@@ -28,6 +31,9 @@ public class RootLayoutController {
 
 	@FXML
 	private void handleRestartGameClicked() {
+		Stats.resetStats();
+		PlayerController.resetGame();
+		OpponentController.resetGame();
 		mainApp.showStartScreen();
 	}
 

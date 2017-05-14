@@ -13,6 +13,10 @@ public class OpponentController {
     private static boolean allShipsSunk = false;
     private static int shipsRemaining = 5;
     
+    public static void resetGame() {
+    	allShipsSunk = true;
+    	shipsRemaining = 5;
+    }
 
     public static int getShipsRemaining() {
         return shipsRemaining;
