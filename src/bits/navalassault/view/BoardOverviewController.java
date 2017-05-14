@@ -13,7 +13,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 
 public class BoardOverviewController {
@@ -25,17 +24,18 @@ public class BoardOverviewController {
 	public static Image explosionImg = new Image("bits/navalassault/resources/explosion.png");
 	public static Image waterImg = new Image("bits/navalassault/resources/water.png");
 	public static Image cursorImg = new Image("bits/navalassault/resources/crosshairs.png");
-	
-	//sound files required
-	static AudioClip hit = new AudioClip(BoardOverviewController.class.getResource("../resources/sounds/Hit.mp3").toExternalForm());
-	static AudioClip miss = new AudioClip(BoardOverviewController.class.getResource("../resources/sounds/Miss.mp3").toExternalForm());
-	
-	@FXML
-	public static Label statusLabel;
+
+	// sound files required
+	static AudioClip hit = new AudioClip(
+			BoardOverviewController.class.getResource("../resources/sounds/Hit.mp3").toExternalForm());
+	static AudioClip miss = new AudioClip(
+			BoardOverviewController.class.getResource("../resources/sounds/Miss.mp3").toExternalForm());
+
 	@FXML
 	private AnchorPane boardPane;
+
 	@FXML
-	public static Pane statusPane;
+	private AnchorPane statusPane;
 
 	// Reference to the main application.
 	private MainApp mainApp;
@@ -46,30 +46,31 @@ public class BoardOverviewController {
 
 	@FXML
 	private void initialize() {
-		Grid pGrid = new Grid(50, 90, 150);
-	    GridPane playerBoard = (GridPane) pGrid.createGrid(player);
-				
-	    Grid cGrid = new Grid(50, 690, 150);
-	    GridPane computerBoard = (GridPane) cGrid.createGrid(computer);
 		
-	    computerBoard.setOnMouseEntered(new EventHandler<MouseEvent>() {
+		Grid pGrid = new Grid(50, 90, 150);
+		GridPane playerBoard = (GridPane) pGrid.createGrid(player);
+
+		Grid cGrid = new Grid(50, 690, 150);
+		GridPane computerBoard = (GridPane) cGrid.createGrid(computer);
+
+		computerBoard.setOnMouseEntered(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
 				mainApp.scene.setCursor(new ImageCursor(cursorImg));
-				}
+			}
 		});
-		
-	    computerBoard.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+		computerBoard.setOnMouseExited(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
 				mainApp.scene.setCursor(new ImageCursor(null));
-				}
+			}
 		});
-	    
+
 		boardPane.getChildren().addAll(playerBoard);
 		boardPane.getChildren().addAll(computerBoard);
 	}
-	
+
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
 	}
@@ -98,8 +99,5 @@ public class BoardOverviewController {
 		if (SoundPlayer.getSoundEnabled() == true) {
 			miss.play();
 		}
-	}
-	public void setStatus() {
-		statusLabel.setText("new test");
 	}
 }

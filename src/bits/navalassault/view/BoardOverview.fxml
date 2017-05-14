@@ -5,11 +5,4 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="boardPane" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@NavalAssault.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bits.navalassault.view.BoardOverviewController">
-   <children>
-      <Pane fx:id="statusPane" layoutX="140.0" layoutY="46.0" prefHeight="50.0" prefWidth="1000.0" stylesheets="@NavalAssault.css" AnchorPane.topAnchor="20.0">
-         <children>
-            <Label fx:id="statusLabel" alignment="CENTER" layoutX="-1.0" layoutY="5.0" prefHeight="40.0" prefWidth="1000.0" text="StartText" textAlignment="CENTER" />
-         </children></Pane>
-   </children>
-</AnchorPane>
+<AnchorPane fx:id="boardPane" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@NavalAssault.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bits.navalassault.view.BoardOverviewController" />

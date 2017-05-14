@@ -17,7 +17,7 @@ public class OpponentLogic {
 
 	public static void shipHit() {
 		Point[] shotSelect = new Point[4];
-
+		
 	}
 
 	public static void takeShot() {

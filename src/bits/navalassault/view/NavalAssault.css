@@ -19,6 +19,8 @@
 #statusLabel {
 	-fx-font-size: 28px;
 	-fx-font-weight: bold;
+	-fx-alignment: center;
+ 	-fx-text-alignment: center;
 }
 
 /*

@@ -112,8 +112,6 @@ public class PlayerController extends BoardOverviewController {
 	}
 
 	public static void setCarrier() {
-		//String updateString = "Place your Carrier Ship: LMB Horizontal RMB Vertical";
-		//StatusBar.setStatus(updateString);
 		for (int yAxis = 0; yAxis < BoardOverviewController.player.length; yAxis++) {
 			for (int xAxis = 0; xAxis < BoardOverviewController.player.length; xAxis++) {
 				Button button = BoardOverviewController.player[xAxis][yAxis];
@@ -484,5 +482,4 @@ public class PlayerController extends BoardOverviewController {
 			allPlaced();
 		}
 	}
-
 }
