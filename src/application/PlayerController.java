@@ -14,16 +14,16 @@ public class PlayerController {
     private static final Ship[][] gameBoard = new Ship[10][10];
     private static final Ship[][] hitMissBoard = new Ship[10][10];
     public static final Ship fleet[] = new Ship[8];
-    private static boolean allShipsSunk = false;
+//    private static boolean allShipsSunk = false;
 
 
-    public static boolean isAllShipsSunk() {
-        return allShipsSunk;
-    }
-
-    public static void setAllShipsSunk(boolean allShipsSunk) {
-        PlayerController.allShipsSunk = allShipsSunk;
-    }
+//    public static boolean isAllShipsSunk() {
+//        return allShipsSunk;
+//    }
+//
+//    public static void setAllShipsSunk(boolean allShipsSunk) {
+//        PlayerController.allShipsSunk = allShipsSunk;
+//    }
 
     // gets current state for gameBoard coordinate
     public static Ship getState(int xAxis, int yAxis) {

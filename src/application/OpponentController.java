@@ -14,11 +14,33 @@ import javafx.scene.input.MouseEvent;
 
 public class OpponentController {
 
-
+    
     private static final Ship[][] gameBoard = new Ship[10][10];
     public static final Ship fleet[] = new Ship[8];
+    private static boolean allShipsSunk = false;
+    private static int shipsRemaining = 5;
+    
 
+    public static int getShipsRemaining() {
+        return shipsRemaining;
+    }
 
+    public static void decreaseShipsRemaining() {
+        shipsRemaining -= 1;
+    }
+    
+//    public static void resetShipsRemaining() {
+//        OpponentController.shipsRemaining = 5;
+//    }
+
+    public static boolean isAllShipsSunk() {
+        return allShipsSunk;
+    }
+
+    public static void setAllShipsSunk(boolean allShipsSunk) {
+        OpponentController.allShipsSunk = allShipsSunk;
+    }
+    
     // gets current state for gameBoard coordinate
     public static Ship getState(int xAxis, int yAxis) {
         return gameBoard[xAxis][yAxis];

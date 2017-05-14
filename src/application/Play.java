@@ -116,8 +116,10 @@ public class Play extends Application {
         
         OpponentController.setCarrier();
         
+        
         for (int yAxis = 0; yAxis < computer.length; yAxis++) {
             for (int xAxis = 0; xAxis < computer.length; xAxis++) {
+                Ship currentSquare = OpponentController.getState(yAxis, xAxis);
                 Button button = computer[yAxis][xAxis];
                 if (OpponentController.getState(yAxis,
                         xAxis) == OpponentController.fleet[0]
@@ -136,6 +138,45 @@ public class Play extends Application {
                             Stats.increaseHitCount();
                             Stats.increaseShotCount();
                             Stats.addHitValue();
+                            
+                            // test code
+                            if (currentSquare != null) {
+                                if (currentSquare.getHealth() == 0) {
+                                    if (currentSquare.getShipID() == "destroyer") {
+                                        
+                                    }
+                                    if (currentSquare.getShipID() == "submarine") {
+                                        
+                                    }
+                                    if (currentSquare.getShipID() == "cruiser") {
+                                        
+                                    }
+                                    if (currentSquare.getShipID() == "battleship") {
+                                        
+                                    }
+                                    if (currentSquare.getShipID() == "carrier") {
+                                        
+                                    }
+                                    System.out.println("Ship sunk is: " + currentSquare.getShipID());
+                                    currentSquare.setSinkStatusSent(true);
+                                }
+                            }
+                            if (currentSquare != null) {
+                                if (currentSquare.getHealth() == 0 && currentSquare.getIsAShip()) {
+                                    OpponentController.decreaseShipsRemaining();
+                                }
+                            }
+                            if (OpponentController.getShipsRemaining() == 0) {
+                                OpponentController.setAllShipsSunk(true);
+                            }
+                            
+                            
+                            System.out.println("getShipID: " + currentSquare.getShipID());
+                            System.out.println("getHealth: " + currentSquare.getHealth());
+                            System.out.println("getHitCount: " + currentSquare.getHitCount());
+                            System.out.println("getShipsRemaining: " + OpponentController.getShipsRemaining());
+                            System.out.println("allShipsSunk: " + OpponentController.isAllShipsSunk());
+                            System.out.println();
                             
                           //test code only. to be removed before final
 //                            System.out.println("Hit Count: " + Stats.getHitCount());
@@ -230,7 +271,8 @@ public class Play extends Application {
             System.out.println("Health: " + PlayerController.fleet[i].getHealth());
             System.out.println();
         }
-
+        
+//        OpponentController.resetShipsRemaining();
     }
 
     public static void main(String[] args) {
