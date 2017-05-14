@@ -81,6 +81,7 @@ public class MainApp extends Application {
 			rootLayout.setCenter(boardScreen);
 			
 			PlayerController.setShips();
+			PlayerController.setHitGridEmpty();
 			PlayerController.setCarrier();
 			
 			OpponentController.setShips();
@@ -184,7 +185,7 @@ public class MainApp extends Application {
 		}
 	}
 	
-	public void showCrusierSunk() {
+	public void showCruiserSunk() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("view/CarrierSunk.fxml"));

@@ -1,5 +1,6 @@
 package bits.navalassault.model;
 
+import bits.navalassault.model.Ship;
 import bits.navalassault.view.BoardOverviewController;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
@@ -14,31 +15,40 @@ public class PlayerController extends BoardOverviewController {
 
 	private static final Ship[][] gameBoard = new Ship[10][10];
 	public static final Ship fleet[] = new Ship[8];
+	private static final Ship[][] hitMissBoard = new Ship[10][10];
+	
+	// gets current state for hitMissBoard coordinate
+    public static Ship getHitMiss(int xAxis, int yAxis) {
+        return hitMissBoard[xAxis][yAxis];
+    }
+    
+    public static int getArrayLength() {
+        return hitMissBoard.length;
+    }
+    
+    // sets gameBoard coordinate to hit state
+    public static void setHit(int xAxis, int yAxis) {
+        hitMissBoard[xAxis][yAxis] = fleet[5];
+    }
 
+    // sets gameBoard coordinate to miss state
+    public static void setMiss(int xAxis, int yAxis) {
+        hitMissBoard[xAxis][yAxis] = fleet[6];
+    }
+
+    // resets all fields in array with empty ship object
+    public static void setHitGridEmpty() {
+        for (int i = 0; i < hitMissBoard.length; i++) {
+            for (int j = 0; j < hitMissBoard[i].length; j++) {
+                hitMissBoard[i][j] = fleet[7];
+            }
+        }
+    }
 	// gets current state for gameBoard coordinate
 	public static Ship getState(int xAxis, int yAxis) {
 		return gameBoard[xAxis][yAxis];
 	}
-
-	// sets gameBoard coordinate to hit state
-	public static void setHit(int xAxis, int yAxis) {
-		gameBoard[xAxis][yAxis] = fleet[5];
-	}
-
-	// sets gameBoard coordinate to miss state
-	public static void setMiss(int xAxis, int yAxis) {
-		gameBoard[xAxis][yAxis] = fleet[6];
-	}
-
-	// resets all fields in array with empty ship object
-	public static void clearGrid() {
-		for (int i = 0; i < gameBoard.length; i++) {
-			for (int j = 0; j < gameBoard[i].length; j++) {
-				gameBoard[i][j] = fleet[7];
-			}
-		}
-	}
-
+	
 	public static boolean checkOverlap(int x, int y) {
 		if (getState(x, y) == fleet[0]) {
 			return true;
@@ -100,16 +110,17 @@ public class PlayerController extends BoardOverviewController {
 	static Image destroyer3Img = new Image("bits/navalassault/resources/ships/destroyer3.png");
 	static Image destroyer4Img = new Image("bits/navalassault/resources/ships/destroyer4.png");
 
-	public static void setShips() {
-		fleet[0] = new Ship("destroyer", 2);
-		fleet[1] = new Ship("submarine", 3);
-		fleet[2] = new Ship("cruiser", 3);
-		fleet[3] = new Ship("battleship", 4);
-		fleet[4] = new Ship("carrier", 5);
-		fleet[5] = new Ship("hit", -1);
-		fleet[6] = new Ship("miss", -1);
-		fleet[7] = new Ship("empty", -1);
-	}
+    public static void setShips() {
+        fleet[0] = new Ship("destroyer", 2, false, 0, true);
+        fleet[1] = new Ship("submarine", 3, false, 0, true);
+        fleet[2] = new Ship("cruiser", 3, false, 0, true);
+        fleet[3] = new Ship("battleship", 4, false, 0, true);
+        fleet[4] = new Ship("carrier", 5, false, 0, true);
+        fleet[5] = new Ship("hit");
+        fleet[6] = new Ship("miss");
+        fleet[7] = new Ship("empty");
+    }
+
 
 	public static void setCarrier() {
 		for (int yAxis = 0; yAxis < BoardOverviewController.player.length; yAxis++) {
