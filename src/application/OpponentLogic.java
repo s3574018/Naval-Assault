@@ -145,17 +145,29 @@ public class OpponentLogic {
 //            currentSquare.setShipHit();
             currentSquare.increaseHitCount();
             
-            //test code only
+            
+         // remove stats call for computer after testing
+//            Stats.increaseHitCount();
+//            Stats.increaseShotCount();
+//            Stats.addHitValue();
+            
+//            //test code only. to be removed before final
             System.out.println(currentSquare.getShipID());
             System.out.println("HitCount: " + currentSquare.getHitCount());
             System.out.println("Health: " + currentSquare.getHealth());
-            System.out.println();
+//            System.out.println();
+//            System.out.println("Hit Count: " + Stats.getHitCount());
+//            System.out.println("Miss Count: " + Stats.getMissCount());
+//            System.out.println("Shot Count: " + Stats.getShotCount());
+//            System.out.printf("Hit Percentage: %.2f%%\n", ((double) Stats.getHitCount() / Stats.getShotCount()) * 100);
+//            System.out.printf("Miss Percentage: %.2f%%\n", ((double) Stats.getMissCount() / Stats.getShotCount()) * 100);
+//            System.out.println("Consecutive Misses : " + Stats.countConsecutiveMisses());
+//            System.out.println("Consecutive Hits : " + Stats.countConsecutiveHits());
+//            Stats.printArray();
             
             Play.player[xAxis][yAxis].setGraphic(new ImageView(Play.explosionImg));
 
-            // remove stats call for computer after testing
-            Stats.increaseHitCount();
-            Stats.increaseShotCount();
+            
 
 //            pause(400);
 
@@ -165,8 +177,9 @@ public class OpponentLogic {
             Play.player[xAxis][yAxis].setGraphic(new ImageView(Play.waterImg));
 
             // remove stats call for computer after testing
-            Stats.increaseMissCount();
-            Stats.increaseShotCount();
+//            Stats.increaseMissCount();
+//            Stats.increaseShotCount();
+//            Stats.addMissValue();
 
 //            pause(400);
 

@@ -133,6 +133,19 @@ public class Play extends Application {
                         @Override
                         public void handle(ActionEvent event) {
                             setHit(button);
+                            Stats.increaseHitCount();
+                            Stats.increaseShotCount();
+                            Stats.addHitValue();
+                            
+                          //test code only. to be removed before final
+                            System.out.println("Hit Count: " + Stats.getHitCount());
+                            System.out.println("Miss Count: " + Stats.getMissCount());
+                            System.out.println("Shot Count: " + Stats.getShotCount());
+                            System.out.printf("Hit Percentage: %.2f%%\n", ((double) Stats.getHitCount() / Stats.getShotCount()) * 100);
+                            System.out.printf("Miss Percentage: %.2f%%\n", ((double) Stats.getMissCount() / Stats.getShotCount()) * 100);
+                            System.out.println("Consecutive Misses : " + Stats.countConsecutiveMisses());
+                            System.out.println("Consecutive Hits : " + Stats.countConsecutiveHits());
+                            Stats.printArray();
                         }
                     });
                 } else {
@@ -140,9 +153,21 @@ public class Play extends Application {
                         @Override
                         public void handle(ActionEvent event) {
                             setMiss(button);
+                            Stats.increaseMissCount();
+                            Stats.increaseShotCount();
+                            Stats.addMissValue();
                             
-                            // prompts computer to take a random shot once
-//                            OpponentLogic.randomShot();
+                          //test code only. to be removed before final
+                            System.out.println("Hit Count: " + Stats.getHitCount());
+                            System.out.println("Miss Count: " + Stats.getMissCount());
+                            System.out.println("Shot Count: " + Stats.getShotCount());
+                            System.out.printf("Hit Percentage: %.2f%%\n", ((double) Stats.getHitCount() / Stats.getShotCount()) * 100);
+                            System.out.printf("Miss Percentage: %.2f%%\n", ((double) Stats.getMissCount() / Stats.getShotCount()) * 100);
+                            System.out.println("Consecutive Misses : " + Stats.countConsecutiveMisses());
+                            System.out.println("Consecutive Hits : " + Stats.countConsecutiveHits());
+                            Stats.printArray();
+                            
+                            // starts the computers turn
                             OpponentLogic.computerStart();
                         }
                     });
@@ -197,13 +222,15 @@ public class Play extends Application {
         
         primaryStage.show();
         
+        
+        // test code for ship object can be removed before final
         for (int i = 0; i < 8; i++) {            
             System.out.println(PlayerController.fleet[i].getShipID());
             System.out.println("HitCount: " + PlayerController.fleet[i].getHitCount());
             System.out.println("Health: " + PlayerController.fleet[i].getHealth());
             System.out.println();
         }
-        
+
     }
 
     public static void main(String[] args) {
