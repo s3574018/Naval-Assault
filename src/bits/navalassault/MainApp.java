@@ -10,10 +10,12 @@ import bits.navalassault.view.BoardOverviewController;
 import bits.navalassault.view.CarrierSunkController;
 import bits.navalassault.view.CruiserSunkController;
 import bits.navalassault.view.DestroyerSunkController;
+import bits.navalassault.view.LoseScreenController;
 import bits.navalassault.view.RootLayoutController;
 import bits.navalassault.view.RulesScreenController;
 import bits.navalassault.view.StartScreenController;
 import bits.navalassault.view.SubSunkController;
+import bits.navalassault.view.WinScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -243,6 +245,50 @@ public class MainApp extends Application {
 	        controller.setSubStage(subStage);
 	        
 	        subStage.showAndWait();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void showWinScreen() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("view/WinScreen.fxml"));
+			AnchorPane winScreen = (AnchorPane) loader.load();
+			
+			Stage winStage = new Stage();
+			winStage.setTitle("Alert");
+			winStage.initModality(Modality.WINDOW_MODAL);
+			winStage.initOwner(primaryStage);
+	        Scene scene = new Scene(winScreen);
+	        winStage.setScene(scene);
+	        
+	        WinScreenController controller = loader.getController();
+	        controller.setWinStage(winStage);
+	        
+	        winStage.showAndWait();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void showLoseScreen() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("view/WinScreen.fxml"));
+			AnchorPane loseScreen = (AnchorPane) loader.load();
+			
+			Stage loseStage = new Stage();
+			loseStage.setTitle("Alert");
+			loseStage.initModality(Modality.WINDOW_MODAL);
+			loseStage.initOwner(primaryStage);
+	        Scene scene = new Scene(loseScreen);
+	        loseStage.setScene(scene);
+	        
+	        LoseScreenController controller = loader.getController();
+	        controller.setLoseStage(loseStage);
+	        
+	        loseStage.showAndWait();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
