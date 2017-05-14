@@ -270,8 +270,8 @@ public class PlayerController extends BoardOverviewController {
 					public void handle(MouseEvent event) {
 						Alert alert = new Alert(AlertType.INFORMATION);
 						alert.setTitle("All Ships Placed");
-						alert.setContentText("All your ships have been successfully placed"
-								+ " on the board!  Please choose your next shot on the opponents board.");
+						alert.setHeaderText("All your ships have been successfully placed on the board.");
+						alert.setContentText("Please choose your next shot on the opponents board.");
 						alert.showAndWait();
 					}
 				});

@@ -1,35 +1,17 @@
 package bits.navalassault.model;
 
-import java.io.IOException;
-
-import bits.navalassault.MainApp;
 import bits.navalassault.model.OpponentController;
 import bits.navalassault.model.OpponentLogic;
 import bits.navalassault.model.Ship;
 import bits.navalassault.model.Stats;
-import bits.navalassault.view.BattleshipSunkController;
 import bits.navalassault.view.BoardOverviewController;
-import bits.navalassault.view.WinScreenController;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
 public class StartTurns {
-
-	// Reference to the main application.
-	private static MainApp mainApp;
-
-	public void setMainApp(MainApp mainApp) {
-		this.mainApp = mainApp;
-	}
 
 	public static void takeTurns() {
 
@@ -42,11 +24,14 @@ public class StartTurns {
 						|| OpponentController.getState(yAxis, xAxis) == OpponentController.fleet[2]
 						|| OpponentController.getState(yAxis, xAxis) == OpponentController.fleet[3]
 						|| OpponentController.getState(yAxis, xAxis) == OpponentController.fleet[4]) {
+
 					button.setOnAction(new EventHandler<ActionEvent>() {
 						@Override
 						public void handle(ActionEvent event) {
 							BoardOverviewController.setHit(button);
 							currentSquare.decreaseHealth();
+							button.setDisable(true);
+							button.setOpacity(1);
 							Stats.increaseHitCount();
 							Stats.increaseShotCount();
 							Stats.addHitValue();
@@ -73,7 +58,7 @@ public class StartTurns {
 										alert.setTitle("Ship Sunk");
 										alert.setHeaderText("You have sunk the enemy Cruiser!");
 										alert.setContentText("Take another shot!");
-										alert.showAndWait();								
+										alert.showAndWait();
 									}
 									if (currentSquare.getShipID() == "battleship") {
 										Alert alert = new Alert(AlertType.INFORMATION);
@@ -102,28 +87,27 @@ public class StartTurns {
 								OpponentController.setAllShipsSunk(true);
 								Stats.showWin();
 							}
-								
-								/*try {
-										FXMLLoader loader = new FXMLLoader();
-										loader.setLocation(MainApp.class.getResource("view/WinScreen.fxml"));
-										AnchorPane winScreen = (AnchorPane) loader.load();
-										
-										Stage winStage = new Stage();
-										winStage.setTitle("Alert");
-										winStage.initModality(Modality.WINDOW_MODAL);
-										winStage.initOwner(MainApp.primaryStage);
-								        Scene scene = new Scene(winScreen);
-								        winStage.setScene(scene);
-								        
-								        WinScreenController controller = loader.getController();
-								        controller.setWinStage(winStage);
-								        
-								        winStage.showAndWait();
-									} catch (IOException e) {
-										e.printStackTrace();
-									}
-								}*/
-							
+
+							/*
+							 * try { FXMLLoader loader = new FXMLLoader();
+							 * loader.setLocation(MainApp.class.getResource(
+							 * "view/WinScreen.fxml")); AnchorPane winScreen =
+							 * (AnchorPane) loader.load();
+							 * 
+							 * Stage winStage = new Stage();
+							 * winStage.setTitle("Alert");
+							 * winStage.initModality(Modality.WINDOW_MODAL);
+							 * winStage.initOwner(MainApp.primaryStage); Scene
+							 * scene = new Scene(winScreen);
+							 * winStage.setScene(scene);
+							 * 
+							 * WinScreenController controller =
+							 * loader.getController();
+							 * controller.setWinStage(winStage);
+							 * 
+							 * winStage.showAndWait(); } catch (IOException e) {
+							 * e.printStackTrace(); } }
+							 */
 
 							System.out.println("getShipID: " + currentSquare.getShipID());
 							System.out.println("getHealth: " + currentSquare.getHealth());
@@ -157,7 +141,8 @@ public class StartTurns {
 						@Override
 						public void handle(ActionEvent event) {
 							BoardOverviewController.setMiss(button);
-							// OpponentController.setMiss(xAxis, yAxis);
+							button.setDisable(true);
+							button.setOpacity(1);
 							Stats.increaseMissCount();
 							Stats.increaseShotCount();
 							Stats.addMissValue();
