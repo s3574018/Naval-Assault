@@ -154,7 +154,7 @@ public class MainApp extends Application {
 	        BattleshipSunkController controller = loader.getController();
 	        controller.setBattleshipStage(battleshipStage);
 	        
-	        battleshipStage.show();
+	        battleshipStage.showAndWait();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -176,7 +176,7 @@ public class MainApp extends Application {
 	        CarrierSunkController controller = loader.getController();
 	        controller.setCarrierStage(carrierStage);
 	        
-	        carrierStage.show();
+	        carrierStage.showAndWait();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -198,7 +198,7 @@ public class MainApp extends Application {
 	        CruiserSunkController controller = loader.getController();
 	        controller.setCruiserStage(cruiserStage);
 	        
-	        cruiserStage.show();
+	        cruiserStage.showAndWait();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -220,7 +220,7 @@ public class MainApp extends Application {
 	        DestroyerSunkController controller = loader.getController();
 	        controller.setDestroyerStage(destroyerStage);
 	        
-	        destroyerStage.show();
+	        destroyerStage.showAndWait();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -242,7 +242,7 @@ public class MainApp extends Application {
 	        SubSunkController controller = loader.getController();
 	        controller.setSubStage(subStage);
 	        
-	        subStage.show();
+	        subStage.showAndWait();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
