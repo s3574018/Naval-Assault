@@ -156,18 +156,34 @@ public class OpponentLogic {
             System.out.println("Health: " + currentSquare.getHealth());
             
             
-                      //test code
+             //test code
             if (currentSquare.getHealth() == 0) {
+                if (currentSquare.getShipID() == "destroyer") {
+                    
+                }
+                if (currentSquare.getShipID() == "submarine") {
+                    
+                }
+                if (currentSquare.getShipID() == "cruiser") {
+                    
+                }
+                if (currentSquare.getShipID() == "battleship") {
+                    
+                }
+                if (currentSquare.getShipID() == "carrier") {
+                    
+                }
                 System.out.println("Ship sunk is: " + currentSquare.getShipID());
                 currentSquare.setSinkStatusSent(true);
             }
-            boolean allShipsSunk = true;
+//            boolean allShipsSunk = true;
             for (int i = 0; i < PlayerController.fleet.length; i++) {
                 if (PlayerController.fleet[i].getHealth() != 0 && PlayerController.fleet[i].getIsAShip()) {
-                    allShipsSunk = false;
+                    PlayerController.setAllShipsSunk(true);
+//                    allShipsSunk = false;
                 }
             }
-            System.out.println("allShipsSunk: " + allShipsSunk);
+            System.out.println("allShipsSunk: " + PlayerController.isAllShipsSunk());
             System.out.println();
             
             Play.player[xAxis][yAxis].setGraphic(new ImageView(Play.explosionImg));

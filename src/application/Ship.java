@@ -7,7 +7,7 @@ public class Ship {
     private boolean isAShip;
     private boolean shipVertical;
     private boolean sinkStatusSent;
-    private static boolean allShipsSunk;
+//    private static boolean allShipsSunk;
 
     public Ship(String shipID, int health, boolean shipHit, int hitCount,
             boolean isAShip) {
@@ -77,12 +77,12 @@ public class Ship {
         this.sinkStatusSent = sinkStatusSent;
     }
 
-    public static boolean isAllShipsSunk() {
-        return allShipsSunk;
-    }
-
-    public static void setAllShipsSunk(boolean allShipsSunk) {
-        Ship.allShipsSunk = allShipsSunk;
-    }
+//    public static boolean isAllShipsSunk() {
+//        return allShipsSunk;
+//    }
+//
+//    public static void setAllShipsSunk(boolean allShipsSunk) {
+//        Ship.allShipsSunk = allShipsSunk;
+//    }
 
 }

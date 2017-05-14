@@ -132,7 +132,7 @@ public class Play extends Application {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
-                                                        setHit(button);
+                            setHit(button);
                             Stats.increaseHitCount();
                             Stats.increaseShotCount();
                             Stats.addHitValue();
