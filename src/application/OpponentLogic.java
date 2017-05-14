@@ -144,7 +144,7 @@ public class OpponentLogic {
                 || PlayerController.getState(xAxis,yAxis) == PlayerController.fleet[4]) {
             PlayerController.setHit(xAxis, yAxis);
             
-            currentSquare.deacreaseHealth();
+            currentSquare.decreaseHealth();
             currentSquare.increaseHitCount();
             
          // remove stats call for computer after testing

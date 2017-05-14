@@ -49,7 +49,7 @@ public class Ship {
         return isAShip;
     }
 
-    public void deacreaseHealth() {
+    public void decreaseHealth() {
         this.health--;
     }
 

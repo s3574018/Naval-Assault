@@ -135,6 +135,7 @@ public class Play extends Application {
                         @Override
                         public void handle(ActionEvent event) {
                             setHit(button);
+                            currentSquare.decreaseHealth();
                             Stats.increaseHitCount();
                             Stats.increaseShotCount();
                             Stats.addHitValue();
