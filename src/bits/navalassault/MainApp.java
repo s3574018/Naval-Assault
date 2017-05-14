@@ -26,14 +26,14 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
 	
-    private Stage primaryStage;
+    public static Stage primaryStage;
     private BorderPane rootLayout;
     public Scene scene;
     
    @Override
 	public void start(Stage primaryStage) {
-		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("Naval Assault");
+		MainApp.primaryStage = primaryStage;
+		MainApp.primaryStage.setTitle("Naval Assault");
 		
 		initRootLayout();
 		showStartScreen();
@@ -157,7 +157,7 @@ public class MainApp extends Application {
 	        BattleshipSunkController controller = loader.getController();
 	        controller.setBattleshipStage(battleshipStage);
 	        
-	        battleshipStage.showAndWait();
+	        battleshipStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

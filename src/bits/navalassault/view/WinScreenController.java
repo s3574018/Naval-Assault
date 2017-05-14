@@ -1,9 +1,11 @@
 package bits.navalassault.view;
 
 import bits.navalassault.MainApp;
+import bits.navalassault.model.Stats;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class WinScreenController {
@@ -15,6 +17,9 @@ public class WinScreenController {
 	
 	@FXML
 	private Button quitButton;
+	
+	@FXML
+	private Label shotFired;
 	
 	private MainApp mainApp;
 	

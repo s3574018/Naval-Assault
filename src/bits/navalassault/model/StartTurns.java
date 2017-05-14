@@ -1,23 +1,32 @@
 package bits.navalassault.model;
 
+import java.io.IOException;
+
 import bits.navalassault.MainApp;
 import bits.navalassault.model.OpponentController;
 import bits.navalassault.model.OpponentLogic;
 import bits.navalassault.model.Ship;
 import bits.navalassault.model.Stats;
+import bits.navalassault.view.BattleshipSunkController;
 import bits.navalassault.view.BoardOverviewController;
+import bits.navalassault.view.WinScreenController;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
 public class StartTurns {
-	
+
 	// Reference to the main application.
 	private static MainApp mainApp;
-	
+
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
 	}
@@ -48,31 +57,36 @@ public class StartTurns {
 									if (currentSquare.getShipID() == "destroyer") {
 										Alert alert = new Alert(AlertType.INFORMATION);
 										alert.setTitle("Ship Sunk");
-										alert.setContentText("You have sunk the enemy Destroyer, take another shot!");
+										alert.setHeaderText("You have sunk the enemy Destroyer!");
+										alert.setContentText("Take another shot!");
 										alert.showAndWait();
 									}
 									if (currentSquare.getShipID() == "submarine") {
 										Alert alert = new Alert(AlertType.INFORMATION);
 										alert.setTitle("Ship Sunk");
-										alert.setContentText("You have sunk the enemy Submarine, take another shot!");
+										alert.setHeaderText("You have sunk the enemy Submarine!");
+										alert.setContentText("Take another shot!");
 										alert.showAndWait();
 									}
 									if (currentSquare.getShipID() == "cruiser") {
 										Alert alert = new Alert(AlertType.INFORMATION);
 										alert.setTitle("Ship Sunk");
-										alert.setContentText("You have sunk the enemy Cruiser, take another shot!");
+										alert.setHeaderText("You have sunk the enemy Cruiser!");
+										alert.setContentText("Take another shot!");
 										alert.showAndWait();								
 									}
 									if (currentSquare.getShipID() == "battleship") {
 										Alert alert = new Alert(AlertType.INFORMATION);
 										alert.setTitle("Ship Sunk");
-										alert.setContentText("You have sunk the enemy Battleship, take another shot!");
+										alert.setHeaderText("You have sunk the enemy Battleship!");
+										alert.setContentText("Take another shot!");
 										alert.showAndWait();
 									}
 									if (currentSquare.getShipID() == "carrier") {
 										Alert alert = new Alert(AlertType.INFORMATION);
 										alert.setTitle("Ship Sunk");
-										alert.setContentText("You have sunk the enemy Carrier, take another shot!");
+										alert.setHeaderText("You have sunk the enemy Carrier!");
+										alert.setContentText("Take another shot!");
 										alert.showAndWait();
 									}
 									System.out.println("Ship sunk is: " + currentSquare.getShipID());
@@ -86,7 +100,30 @@ public class StartTurns {
 							}
 							if (OpponentController.getShipsRemaining() == 0) {
 								OpponentController.setAllShipsSunk(true);
+								Stats.showWin();
 							}
+								
+								/*try {
+										FXMLLoader loader = new FXMLLoader();
+										loader.setLocation(MainApp.class.getResource("view/WinScreen.fxml"));
+										AnchorPane winScreen = (AnchorPane) loader.load();
+										
+										Stage winStage = new Stage();
+										winStage.setTitle("Alert");
+										winStage.initModality(Modality.WINDOW_MODAL);
+										winStage.initOwner(MainApp.primaryStage);
+								        Scene scene = new Scene(winScreen);
+								        winStage.setScene(scene);
+								        
+								        WinScreenController controller = loader.getController();
+								        controller.setWinStage(winStage);
+								        
+								        winStage.showAndWait();
+									} catch (IOException e) {
+										e.printStackTrace();
+									}
+								}*/
+							
 
 							System.out.println("getShipID: " + currentSquare.getShipID());
 							System.out.println("getHealth: " + currentSquare.getHealth());

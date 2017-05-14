@@ -2,6 +2,7 @@ package bits.navalassault.view;
 
 import bits.navalassault.MainApp;
 import bits.navalassault.model.Grid;
+import bits.navalassault.model.OpponentController;
 import bits.navalassault.model.SoundPlayer;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

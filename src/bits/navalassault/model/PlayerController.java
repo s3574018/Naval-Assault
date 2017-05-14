@@ -16,6 +16,29 @@ public class PlayerController extends BoardOverviewController {
 	private static final Ship[][] gameBoard = new Ship[10][10];
 	public static final Ship fleet[] = new Ship[8];
 	private static final Ship[][] hitMissBoard = new Ship[10][10];
+	private static boolean allShipsSunk = false;
+    private static int shipsRemaining = 5;
+    
+
+    public static int getShipsRemaining() {
+        return shipsRemaining;
+    }
+
+    public static void decreaseShipsRemaining() {
+        shipsRemaining--;
+    }
+    
+//    public static void resetShipsRemaining() {
+//        OpponentController.shipsRemaining = 5;
+//    }
+
+    public static boolean isAllShipsSunk() {
+        return allShipsSunk;
+    }
+
+    public static void setAllShipsSunk(boolean allShipsSunk) {
+        PlayerController.allShipsSunk = allShipsSunk;
+    }
 	
 	// gets current state for hitMissBoard coordinate
     public static Ship getHitMiss(int xAxis, int yAxis) {

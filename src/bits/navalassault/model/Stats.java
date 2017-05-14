@@ -1,5 +1,8 @@
 package bits.navalassault.model;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class Stats {
     private static int hitCount;
     private static int missCount;
@@ -107,5 +110,39 @@ public class Stats {
                 System.out.println();
             }
         }
+    }
+    
+    public static void showWin() {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Game Over");
+		alert.setHeaderText("You have defeated the enemy! Congratulations!");
+		alert.setContentText("Game Stats: \n"
+				+ "\nShots Fired: " + getShotCount()
+				+ "\nShots Hit: " + getHitCount()
+				+ "\nShots Missed: " + getMissCount()
+				+ "\n"
+				+ "\nLargest Hit Streak: " + countConsecutiveHits()
+				+ "\nLargest Miss Streak: " + countConsecutiveMisses()
+				+ "\n"
+				+ "\nUse the game menu to restart or quit the game"
+				+ "\nThanks for playing!");
+		alert.showAndWait();
+    }
+    
+    public static void showLose() {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Game Over");
+		alert.setHeaderText("You have been defeated by the enemy!");
+		alert.setContentText("Game Stats: \n"
+				+ "\nShots Fired: " + getShotCount()
+				+ "\nShots Hit: " + getHitCount()
+				+ "\nShots Missed: " + getMissCount()
+				+ "\n"
+				+ "\nLargest Hit Streak: " + countConsecutiveHits()
+				+ "\nLargest Miss Streak: " + countConsecutiveMisses()
+				+ "\n"
+				+ "\nUse the game menu to restart or quit the game"
+				+ "\nThanks for playing!");
+		alert.showAndWait();
     }
 }
