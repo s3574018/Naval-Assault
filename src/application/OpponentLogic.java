@@ -141,10 +141,9 @@ public class OpponentLogic {
                 || PlayerController.getState(xAxis,yAxis) == PlayerController.fleet[3]
                 || PlayerController.getState(xAxis,yAxis) == PlayerController.fleet[4]) {
             PlayerController.setHit(xAxis, yAxis);
-            currentSquare.deacreaseHealth();
-//            currentSquare.setShipHit();
-            currentSquare.increaseHitCount();
             
+            currentSquare.deacreaseHealth();
+            currentSquare.increaseHitCount();
             
          // remove stats call for computer after testing
 //            Stats.increaseHitCount();
@@ -155,15 +154,21 @@ public class OpponentLogic {
             System.out.println(currentSquare.getShipID());
             System.out.println("HitCount: " + currentSquare.getHitCount());
             System.out.println("Health: " + currentSquare.getHealth());
-//            System.out.println();
-//            System.out.println("Hit Count: " + Stats.getHitCount());
-//            System.out.println("Miss Count: " + Stats.getMissCount());
-//            System.out.println("Shot Count: " + Stats.getShotCount());
-//            System.out.printf("Hit Percentage: %.2f%%\n", ((double) Stats.getHitCount() / Stats.getShotCount()) * 100);
-//            System.out.printf("Miss Percentage: %.2f%%\n", ((double) Stats.getMissCount() / Stats.getShotCount()) * 100);
-//            System.out.println("Consecutive Misses : " + Stats.countConsecutiveMisses());
-//            System.out.println("Consecutive Hits : " + Stats.countConsecutiveHits());
-//            Stats.printArray();
+            
+            
+                      //test code
+            if (currentSquare.getHealth() == 0) {
+                System.out.println("Ship sunk is: " + currentSquare.getShipID());
+                currentSquare.setSinkStatusSent(true);
+            }
+            boolean allShipsSunk = true;
+            for (int i = 0; i < PlayerController.fleet.length; i++) {
+                if (PlayerController.fleet[i].getHealth() != 0 && PlayerController.fleet[i].getIsAShip()) {
+                    allShipsSunk = false;
+                }
+            }
+            System.out.println("allShipsSunk: " + allShipsSunk);
+            System.out.println();
             
             Play.player[xAxis][yAxis].setGraphic(new ImageView(Play.explosionImg));
 

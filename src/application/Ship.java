@@ -3,19 +3,19 @@ package application;
 public class Ship {
     private String shipID;
     private int health;
-//    private boolean shipHit;
     private int hitCount;
-//    private boolean isAShip;
+    private boolean isAShip;
     private boolean shipVertical;
+    private boolean sinkStatusSent;
+    private static boolean allShipsSunk;
 
     public Ship(String shipID, int health, boolean shipHit, int hitCount,
             boolean isAShip) {
         this.shipID = shipID;
         this.health = health;
-//        this.shipHit = shipHit;
         this.hitCount = hitCount;
-//        this.isAShip = isAShip;
         this.shipVertical = false;
+        this.isAShip = isAShip;
     }
 
     public Ship(String shipID, int health) {
@@ -26,9 +26,7 @@ public class Ship {
     public Ship(String shipID) {
         this.shipID = shipID;
         this.health = -1;
-//        this.shipHit = false;
         this.hitCount = -1;
-//        this.isAShip = false;
     }
 
     public String getShipID() {
@@ -47,9 +45,9 @@ public class Ship {
         return hitCount;
     }
     
-//    public boolean getIsAShip() {
-//        return isAShip;
-//    }
+    public boolean getIsAShip() {
+        return isAShip;
+    }
 
     public void deacreaseHealth() {
         this.health--;
@@ -69,6 +67,22 @@ public class Ship {
 
     public void setShipVertical(boolean shipVertical) {
         this.shipVertical = shipVertical;
+    }
+
+    public boolean isSinkStatusSent() {
+        return sinkStatusSent;
+    }
+
+    public void setSinkStatusSent(boolean sinkStatusSent) {
+        this.sinkStatusSent = sinkStatusSent;
+    }
+
+    public static boolean isAllShipsSunk() {
+        return allShipsSunk;
+    }
+
+    public static void setAllShipsSunk(boolean allShipsSunk) {
+        Ship.allShipsSunk = allShipsSunk;
     }
 
 }

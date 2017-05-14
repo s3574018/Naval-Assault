@@ -132,20 +132,20 @@ public class Play extends Application {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
-                            setHit(button);
+                                                        setHit(button);
                             Stats.increaseHitCount();
                             Stats.increaseShotCount();
                             Stats.addHitValue();
                             
                           //test code only. to be removed before final
-                            System.out.println("Hit Count: " + Stats.getHitCount());
-                            System.out.println("Miss Count: " + Stats.getMissCount());
-                            System.out.println("Shot Count: " + Stats.getShotCount());
-                            System.out.printf("Hit Percentage: %.2f%%\n", ((double) Stats.getHitCount() / Stats.getShotCount()) * 100);
-                            System.out.printf("Miss Percentage: %.2f%%\n", ((double) Stats.getMissCount() / Stats.getShotCount()) * 100);
-                            System.out.println("Consecutive Misses : " + Stats.countConsecutiveMisses());
-                            System.out.println("Consecutive Hits : " + Stats.countConsecutiveHits());
-                            Stats.printArray();
+//                            System.out.println("Hit Count: " + Stats.getHitCount());
+//                            System.out.println("Miss Count: " + Stats.getMissCount());
+//                            System.out.println("Shot Count: " + Stats.getShotCount());
+//                            System.out.printf("Hit Percentage: %.2f%%\n", ((double) Stats.getHitCount() / Stats.getShotCount()) * 100);
+//                            System.out.printf("Miss Percentage: %.2f%%\n", ((double) Stats.getMissCount() / Stats.getShotCount()) * 100);
+//                            System.out.println("Consecutive Misses : " + Stats.countConsecutiveMisses());
+//                            System.out.println("Consecutive Hits : " + Stats.countConsecutiveHits());
+//                            Stats.printArray();
                         }
                     });
                 } else {
@@ -158,14 +158,14 @@ public class Play extends Application {
                             Stats.addMissValue();
                             
                           //test code only. to be removed before final
-                            System.out.println("Hit Count: " + Stats.getHitCount());
-                            System.out.println("Miss Count: " + Stats.getMissCount());
-                            System.out.println("Shot Count: " + Stats.getShotCount());
-                            System.out.printf("Hit Percentage: %.2f%%\n", ((double) Stats.getHitCount() / Stats.getShotCount()) * 100);
-                            System.out.printf("Miss Percentage: %.2f%%\n", ((double) Stats.getMissCount() / Stats.getShotCount()) * 100);
-                            System.out.println("Consecutive Misses : " + Stats.countConsecutiveMisses());
-                            System.out.println("Consecutive Hits : " + Stats.countConsecutiveHits());
-                            Stats.printArray();
+//                            System.out.println("Hit Count: " + Stats.getHitCount());
+//                            System.out.println("Miss Count: " + Stats.getMissCount());
+//                            System.out.println("Shot Count: " + Stats.getShotCount());
+//                            System.out.printf("Hit Percentage: %.2f%%\n", ((double) Stats.getHitCount() / Stats.getShotCount()) * 100);
+//                            System.out.printf("Miss Percentage: %.2f%%\n", ((double) Stats.getMissCount() / Stats.getShotCount()) * 100);
+//                            System.out.println("Consecutive Misses : " + Stats.countConsecutiveMisses());
+//                            System.out.println("Consecutive Hits : " + Stats.countConsecutiveHits());
+//                            Stats.printArray();
                             
                             // starts the computers turn
                             OpponentLogic.computerStart();
