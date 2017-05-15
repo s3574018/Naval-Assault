@@ -192,7 +192,7 @@ public class OpponentLogic {
 				PlayerController.setAllShipsSunk(true);
 				Stats.showLose();
             }
-            if ((currentSquare.getHitCount() > 0) && (currentSquare.getHealth() > 0)) {
+            if (currentSquare.getHitCount() > 0) {
             	computerStart();
             }
             
