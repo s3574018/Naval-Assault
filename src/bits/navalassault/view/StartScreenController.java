@@ -4,6 +4,7 @@ import bits.navalassault.MainApp;
 import bits.navalassault.model.SoundPlayer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.AudioClip;
 
 public class StartScreenController {
@@ -12,6 +13,9 @@ public class StartScreenController {
 	
 	@FXML
 	private Button startButton;
+	
+	@FXML 
+	private AnchorPane logoPane;
 	
 	@FXML
 	private void handleStartClicked() {

@@ -5,6 +5,13 @@
 	-fx-background-image: url("../resources/na-background_720.jpg");
 }
 
+#logoPane {
+	-fx-background-image: url("../resources/Logo_no_bg.png");
+}
+
+#boardLogo {
+	-fx-background-image: url("../resources/Logo.png");
+}
 /*
  * colouring for statusBar
  */

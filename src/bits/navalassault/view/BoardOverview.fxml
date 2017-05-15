@@ -5,4 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="boardPane" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@NavalAssault.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bits.navalassault.view.BoardOverviewController" />
+<AnchorPane fx:id="boardPane" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@NavalAssault.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bits.navalassault.view.BoardOverviewController">
+   <children>
+      <AnchorPane fx:id="boardLogo" layoutX="484.0" layoutY="14.0" prefHeight="131.0" prefWidth="312.0" AnchorPane.topAnchor="5.0" />
+   </children>
+</AnchorPane>

@@ -2,7 +2,6 @@ package bits.navalassault.view;
 
 import bits.navalassault.MainApp;
 import bits.navalassault.model.Grid;
-import bits.navalassault.model.OpponentController;
 import bits.navalassault.model.SoundPlayer;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -33,9 +32,9 @@ public class BoardOverviewController {
 
 	@FXML
 	private AnchorPane boardPane;
-
-	@FXML
-	private AnchorPane statusPane;
+	
+	@FXML 
+	private AnchorPane boardLogo;
 
 	// Reference to the main application.
 	private MainApp mainApp;
