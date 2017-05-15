@@ -63,7 +63,7 @@ public class OpponentLogic {
 						Point chosenShot = shotOptions[randomNum.nextInt(shotOptionsCount)];
 						takeShot((int) chosenShot.getX(), (int) chosenShot.getY());
 						takeRandomShot = false;
-						//break;
+						break;
 					}
 				}
 
