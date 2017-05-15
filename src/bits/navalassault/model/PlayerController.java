@@ -146,6 +146,13 @@ public class PlayerController extends BoardOverviewController {
         fleet[5] = new Ship("hit");
         fleet[6] = new Ship("miss");
         fleet[7] = new Ship("empty");
+        
+        Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Welcome to Naval Assault");
+		alert.setHeaderText("Place your ships on the left side board.");
+		alert.setContentText("Left Mouse Button = Horizontal Placement"
+				+ "\nRight Mouse Button = Vertical Placement");
+		alert.showAndWait();
     }
 
 
