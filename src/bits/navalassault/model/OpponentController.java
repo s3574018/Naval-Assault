@@ -14,7 +14,7 @@ public class OpponentController {
     private static int shipsRemaining = 5;
     
     public static void resetGame() {
-    	allShipsSunk = true;
+    	allShipsSunk = false;
     	shipsRemaining = 5;
     }
 

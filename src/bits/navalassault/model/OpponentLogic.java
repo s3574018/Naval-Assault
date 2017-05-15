@@ -2,7 +2,6 @@ package bits.navalassault.model;
 
 import java.awt.Point;
 import java.util.Random;
-
 import bits.navalassault.view.BoardOverviewController;
 import javafx.scene.image.ImageView;
 
@@ -71,8 +70,7 @@ public class OpponentLogic {
 				// proceeds only if ship on square has been hit more than
 				// once and if ship health not 0
 				boolean otherEnd = true;
-				if (PlayerController.getHitMiss(i, j) == PlayerController.fleet[5] && currentSquare.getHitCount() > 1
-						&& currentSquare.getHealth() > 0) {
+				if (PlayerController.getHitMiss(i, j) == PlayerController.fleet[5] && currentSquare.getHitCount() > 1 && currentSquare.getHealth() > 0) {
 					if (currentSquare.getShipVertical() == true) {
 						// boolean otherEnd = true;
 						if (j - 1 >= 0) {
@@ -135,8 +133,7 @@ public class OpponentLogic {
 				takeShot(xAxis, yAxis);
 				anotherShot = false;
 			}
-			// } while (tryAgain == PlayerController.fleet[5] || tryAgain ==
-			// PlayerController.fleet[6]);
+			// } while (tryAgain == PlayerController.fleet[5] || tryAgain == PlayerController.fleet[6]);
 		} while (anotherShot == true);
 		// return tryAgain;
 	}
@@ -194,9 +191,10 @@ public class OpponentLogic {
             if (PlayerController.getShipsRemaining() == 0) {
 				PlayerController.setAllShipsSunk(true);
 				Stats.showLose();
-			} else {
-				computerStart();
-			}
+            }
+            if ((currentSquare.getHitCount() > 0) && (currentSquare.getHealth() > 0)) {
+            	computerStart();
+            }
             
             
 //            for (int i = 0; i < PlayerController.fleet.length; i++) {
