@@ -180,7 +180,6 @@ public class PlayerController extends BoardOverviewController {
 	}
 
 	public static void setBattleship() {
-		//BoardOverviewController.setStatus("Place your Battleship: LMB Horizontal RMB Vertical");	
 		for (int yAxis = 0; yAxis < BoardOverviewController.player.length; yAxis++) {
 			for (int xAxis = 0; xAxis < BoardOverviewController.player.length; xAxis++) {
 				Button button = BoardOverviewController.player[xAxis][yAxis];

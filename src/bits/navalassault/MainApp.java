@@ -5,17 +5,10 @@ import bits.navalassault.model.OpponentController;
 import bits.navalassault.model.PlayerController;
 import bits.navalassault.model.StartTurns;
 import bits.navalassault.view.AboutScreenController;
-import bits.navalassault.view.BattleshipSunkController;
 import bits.navalassault.view.BoardOverviewController;
-import bits.navalassault.view.CarrierSunkController;
-import bits.navalassault.view.CruiserSunkController;
-import bits.navalassault.view.DestroyerSunkController;
-import bits.navalassault.view.LoseScreenController;
 import bits.navalassault.view.RootLayoutController;
 import bits.navalassault.view.RulesScreenController;
 import bits.navalassault.view.StartScreenController;
-import bits.navalassault.view.SubSunkController;
-import bits.navalassault.view.WinScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -136,160 +129,6 @@ public class MainApp extends Application {
 	        controller.setAboutStage(aboutStage);
 	        
 	        aboutStage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void showBattleshipSunk() {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/CarrierSunk.fxml"));
-			AnchorPane battleshipSunk = (AnchorPane) loader.load();
-			
-			Stage battleshipStage = new Stage();
-			battleshipStage.setTitle("Alert");
-			battleshipStage.initModality(Modality.WINDOW_MODAL);
-			battleshipStage.initOwner(primaryStage);
-	        Scene scene = new Scene(battleshipSunk);
-	        battleshipStage.setScene(scene);
-	        
-	        BattleshipSunkController controller = loader.getController();
-	        controller.setBattleshipStage(battleshipStage);
-	        
-	        battleshipStage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void showCarrierSunk() {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/CarrierSunk.fxml"));
-			AnchorPane carrierSunk = (AnchorPane) loader.load();
-			
-			Stage carrierStage = new Stage();
-			carrierStage.setTitle("Alert");
-			carrierStage.initModality(Modality.WINDOW_MODAL);
-			carrierStage.initOwner(primaryStage);
-	        Scene scene = new Scene(carrierSunk);
-	        carrierStage.setScene(scene);
-	        
-	        CarrierSunkController controller = loader.getController();
-	        controller.setCarrierStage(carrierStage);
-	        
-	        carrierStage.showAndWait();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void showCruiserSunk() {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/CarrierSunk.fxml"));
-			AnchorPane cruiserSunk = (AnchorPane) loader.load();
-			
-			Stage cruiserStage = new Stage();
-			cruiserStage.setTitle("Alert");
-			cruiserStage.initModality(Modality.WINDOW_MODAL);
-			cruiserStage.initOwner(primaryStage);
-	        Scene scene = new Scene(cruiserSunk);
-	        cruiserStage.setScene(scene);
-	        
-	        CruiserSunkController controller = loader.getController();
-	        controller.setCruiserStage(cruiserStage);
-	        
-	        cruiserStage.showAndWait();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void showDestroyerSunk() {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/CarrierSunk.fxml"));
-			AnchorPane destroyerSunk = (AnchorPane) loader.load();
-			
-			Stage destroyerStage = new Stage();
-			destroyerStage.setTitle("Alert");
-			destroyerStage.initModality(Modality.WINDOW_MODAL);
-			destroyerStage.initOwner(primaryStage);
-	        Scene scene = new Scene(destroyerSunk);
-	        destroyerStage.setScene(scene);
-	        
-	        DestroyerSunkController controller = loader.getController();
-	        controller.setDestroyerStage(destroyerStage);
-	        
-	        destroyerStage.showAndWait();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void showSubSunk() {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/CarrierSunk.fxml"));
-			AnchorPane subSunk = (AnchorPane) loader.load();
-			
-			Stage subStage = new Stage();
-			subStage.setTitle("Alert");
-			subStage.initModality(Modality.WINDOW_MODAL);
-			subStage.initOwner(primaryStage);
-	        Scene scene = new Scene(subSunk);
-	        subStage.setScene(scene);
-	        
-	        SubSunkController controller = loader.getController();
-	        controller.setSubStage(subStage);
-	        
-	        subStage.showAndWait();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void showWinScreen() {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/WinScreen.fxml"));
-			AnchorPane winScreen = (AnchorPane) loader.load();
-			
-			Stage winStage = new Stage();
-			winStage.setTitle("Alert");
-			winStage.initModality(Modality.WINDOW_MODAL);
-			winStage.initOwner(primaryStage);
-	        Scene scene = new Scene(winScreen);
-	        winStage.setScene(scene);
-	        
-	        WinScreenController controller = loader.getController();
-	        controller.setWinStage(winStage);
-	        
-	        winStage.showAndWait();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void showLoseScreen() {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/WinScreen.fxml"));
-			AnchorPane loseScreen = (AnchorPane) loader.load();
-			
-			Stage loseStage = new Stage();
-			loseStage.setTitle("Alert");
-			loseStage.initModality(Modality.WINDOW_MODAL);
-			loseStage.initOwner(primaryStage);
-	        Scene scene = new Scene(loseScreen);
-	        loseStage.setScene(scene);
-	        
-	        LoseScreenController controller = loader.getController();
-	        controller.setLoseStage(loseStage);
-	        
-	        loseStage.showAndWait();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

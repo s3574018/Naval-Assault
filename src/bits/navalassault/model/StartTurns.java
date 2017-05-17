@@ -36,7 +36,8 @@ public class StartTurns {
 							Stats.increaseShotCount();
 							Stats.addHitValue();
 
-							// test code
+							// Determines which ship was sunk and displays
+							// appropriate message
 							if (currentSquare != null) {
 								if (currentSquare.getHealth() == 0) {
 									if (currentSquare.getShipID() == "destroyer") {
@@ -74,7 +75,8 @@ public class StartTurns {
 										alert.setContentText("Take another shot!");
 										alert.showAndWait();
 									}
-									System.out.println("Ship sunk is: " + currentSquare.getShipID());
+									// System.out.println("Ship sunk is: " +
+									// currentSquare.getShipID());
 									currentSquare.setSinkStatusSent(true);
 								}
 							}
@@ -88,34 +90,18 @@ public class StartTurns {
 								Stats.showWin();
 							}
 
-							/*
-							 * try { FXMLLoader loader = new FXMLLoader();
-							 * loader.setLocation(MainApp.class.getResource(
-							 * "view/WinScreen.fxml")); AnchorPane winScreen =
-							 * (AnchorPane) loader.load();
-							 * 
-							 * Stage winStage = new Stage();
-							 * winStage.setTitle("Alert");
-							 * winStage.initModality(Modality.WINDOW_MODAL);
-							 * winStage.initOwner(MainApp.primaryStage); Scene
-							 * scene = new Scene(winScreen);
-							 * winStage.setScene(scene);
-							 * 
-							 * WinScreenController controller =
-							 * loader.getController();
-							 * controller.setWinStage(winStage);
-							 * 
-							 * winStage.showAndWait(); } catch (IOException e) {
-							 * e.printStackTrace(); } }
+							/* Testing Code
+							 * System.out.println("getShipID: " +
+							 * currentSquare.getShipID()); System.out.println(
+							 * "getHealth: " + currentSquare.getHealth());
+							 * System.out.println("getHitCount: " +
+							 * currentSquare.getHitCount()); System.out.println(
+							 * "getShipsRemaining: " +
+							 * OpponentController.getShipsRemaining());
+							 * System.out.println("allShipsSunk: " +
+							 * OpponentController.isAllShipsSunk());
+							 * System.out.println();
 							 */
-
-							System.out.println("getShipID: " + currentSquare.getShipID());
-							System.out.println("getHealth: " + currentSquare.getHealth());
-							System.out.println("getHitCount: " + currentSquare.getHitCount());
-							System.out.println("getShipsRemaining: " + OpponentController.getShipsRemaining());
-							System.out.println("allShipsSunk: " + OpponentController.isAllShipsSunk());
-							System.out.println();
-
 							// test code only. to be removed before final
 							// System.out.println("Hit Count: " +
 							// Stats.getHitCount());

@@ -70,7 +70,8 @@ public class OpponentLogic {
 				// proceeds only if ship on square has been hit more than
 				// once and if ship health not 0
 				boolean otherEnd = true;
-				if (PlayerController.getHitMiss(i, j) == PlayerController.fleet[5] && currentSquare.getHitCount() > 1 && currentSquare.getHealth() > 0) {
+				if (PlayerController.getHitMiss(i, j) == PlayerController.fleet[5] && currentSquare.getHitCount() > 1
+						&& currentSquare.getHealth() > 0) {
 					if (currentSquare.getShipVertical() == true) {
 						// boolean otherEnd = true;
 						if (j - 1 >= 0) {
@@ -133,101 +134,99 @@ public class OpponentLogic {
 				takeShot(xAxis, yAxis);
 				anotherShot = false;
 			}
-			// } while (tryAgain == PlayerController.fleet[5] || tryAgain == PlayerController.fleet[6]);
+			// } while (tryAgain == PlayerController.fleet[5] || tryAgain ==
+			// PlayerController.fleet[6]);
 		} while (anotherShot == true);
 		// return tryAgain;
 	}
 
 	public static Ship takeShot(int xAxis, int yAxis) {
-        Ship currentSquare = PlayerController.getState(xAxis, yAxis);
-        if (PlayerController.getState(xAxis, yAxis) == PlayerController.fleet[0]
-                || PlayerController.getState(xAxis,yAxis) == PlayerController.fleet[1]
-                || PlayerController.getState(xAxis,yAxis) == PlayerController.fleet[2]
-                || PlayerController.getState(xAxis,yAxis) == PlayerController.fleet[3]
-                || PlayerController.getState(xAxis,yAxis) == PlayerController.fleet[4]) {
-            PlayerController.setHit(xAxis, yAxis);
-            
-            currentSquare.decreaseHealth();
-            currentSquare.increaseHitCount();
-            
-         // remove stats call for computer after testing
-//            Stats.increaseHitCount();
-//            Stats.increaseShotCount();
-//            Stats.addHitValue();
-            
-//            //test code only. to be removed before final
-            System.out.println(currentSquare.getShipID());
-            System.out.println("HitCount: " + currentSquare.getHitCount());
-            System.out.println("Health: " + currentSquare.getHealth());
-            
-            BoardOverviewController.player[xAxis][yAxis].setGraphic(new ImageView(BoardOverviewController.explosionImg));
-            
-            
-             //test code
-//            if (currentSquare.getHealth() == 0) {
-//                if (currentSquare.getShipID() == "destroyer") {
-//                    
-//                }
-//                if (currentSquare.getShipID() == "submarine") {
-//                    
-//                }
-//                if (currentSquare.getShipID() == "cruiser") {
-//                    
-//                }
-//                if (currentSquare.getShipID() == "battleship") {
-//                    
-//                }
-//                if (currentSquare.getShipID() == "carrier") {
-//                    
-//                }
-//                System.out.println("Ship sunk is: " + currentSquare.getShipID());
-//                currentSquare.setSinkStatusSent(true);
-//            }
-            if (currentSquare != null) {
+		Ship currentSquare = PlayerController.getState(xAxis, yAxis);
+		if (PlayerController.getState(xAxis, yAxis) == PlayerController.fleet[0]
+				|| PlayerController.getState(xAxis, yAxis) == PlayerController.fleet[1]
+				|| PlayerController.getState(xAxis, yAxis) == PlayerController.fleet[2]
+				|| PlayerController.getState(xAxis, yAxis) == PlayerController.fleet[3]
+				|| PlayerController.getState(xAxis, yAxis) == PlayerController.fleet[4]) {
+			PlayerController.setHit(xAxis, yAxis);
+
+			currentSquare.decreaseHealth();
+			currentSquare.increaseHitCount();
+
+			// remove stats call for computer after testing
+			// Stats.increaseHitCount();
+			// Stats.increaseShotCount();
+			// Stats.addHitValue();
+
+			/* Used for testing
+			 * System.out.println(currentSquare.getShipID());
+			 * System.out.println("HitCount: " + currentSquare.getHitCount());
+			 * System.out.println("Health: " + currentSquare.getHealth());
+			 */
+			BoardOverviewController.player[xAxis][yAxis]
+					.setGraphic(new ImageView(BoardOverviewController.explosionImg));
+
+			// test code
+			// if (currentSquare.getHealth() == 0) {
+			// if (currentSquare.getShipID() == "destroyer") {
+			//
+			// }
+			// if (currentSquare.getShipID() == "submarine") {
+			//
+			// }
+			// if (currentSquare.getShipID() == "cruiser") {
+			//
+			// }
+			// if (currentSquare.getShipID() == "battleship") {
+			//
+			// }
+			// if (currentSquare.getShipID() == "carrier") {
+			//
+			// }
+			// System.out.println("Ship sunk is: " + currentSquare.getShipID());
+			// currentSquare.setSinkStatusSent(true);
+			// }
+			if (currentSquare != null) {
 				if (currentSquare.getHealth() == 0 && currentSquare.getIsAShip()) {
 					PlayerController.decreaseShipsRemaining();
 				}
-            }
-            if (PlayerController.getShipsRemaining() == 0) {
+			}
+			if (PlayerController.getShipsRemaining() == 0) {
 				PlayerController.setAllShipsSunk(true);
 				Stats.showLose();
-            }
-            if (currentSquare.getHitCount() > 0) {
-            	computerStart();
-            }
-            
-            
-//            for (int i = 0; i < PlayerController.fleet.length; i++) {
-//                if (PlayerController.fleet[i].getHealth() != 0 && PlayerController.fleet[i].getIsAShip()) {
-//                    PlayerController.setAllShipsSunk(true);
-//                }
-//            }
-//            System.out.println("allShipsSunk: " + PlayerController.isAllShipsSunk());
-//            System.out.println();
-            
-            
+			}
+			if (currentSquare.getHitCount() > 0) {
+				computerStart();
+			}
 
-            
+			// for (int i = 0; i < PlayerController.fleet.length; i++) {
+			// if (PlayerController.fleet[i].getHealth() != 0 &&
+			// PlayerController.fleet[i].getIsAShip()) {
+			// PlayerController.setAllShipsSunk(true);
+			// }
+			// }
+			// System.out.println("allShipsSunk: " +
+			// PlayerController.isAllShipsSunk());
+			// System.out.println();
 
-//            pause(400);
+			// pause(400);
 
-            return PlayerController.getState(xAxis, yAxis);
-        } else if (PlayerController.getState(xAxis, yAxis) == null) {
-            PlayerController.setMiss(xAxis, yAxis);
-            BoardOverviewController.player[xAxis][yAxis].setGraphic(new ImageView(BoardOverviewController.waterImg));
+			return PlayerController.getState(xAxis, yAxis);
+		} else if (PlayerController.getState(xAxis, yAxis) == null) {
+			PlayerController.setMiss(xAxis, yAxis);
+			BoardOverviewController.player[xAxis][yAxis].setGraphic(new ImageView(BoardOverviewController.waterImg));
 
-            // remove stats call for computer after testing
-//            Stats.increaseMissCount();
-//            Stats.increaseShotCount();
-//            Stats.addMissValue();
+			// remove stats call for computer after testing
+			// Stats.increaseMissCount();
+			// Stats.increaseShotCount();
+			// Stats.addMissValue();
 
-//            pause(400);
+			// pause(400);
 
-            return PlayerController.getState(xAxis, yAxis);
-        } else {
-            return PlayerController.getState(xAxis, yAxis);
-        }
-    }
+			return PlayerController.getState(xAxis, yAxis);
+		} else {
+			return PlayerController.getState(xAxis, yAxis);
+		}
+	}
 
 	// adds delay
 	public static void pause(int time) {

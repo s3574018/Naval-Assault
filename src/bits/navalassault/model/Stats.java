@@ -111,7 +111,8 @@ public class Stats {
 			}
 		}
 	}
-
+	
+	//displays win screen
 	public static void showWin() {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Game Over");
@@ -122,7 +123,7 @@ public class Stats {
 				+ "\nUse the game menu to restart or quit the game" + "\nThanks for playing!");
 		alert.showAndWait();
 	}
-
+	//displays lose screen
 	public static void showLose() {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Game Over");
@@ -133,7 +134,7 @@ public class Stats {
 				+ "\nUse the game menu to restart or quit the game" + "\nThanks for playing!");
 		alert.showAndWait();
 	}
-
+	// resets stats for new game
 	public static void resetStats() {
 		hitCount = 0;
 		missCount = 0;
