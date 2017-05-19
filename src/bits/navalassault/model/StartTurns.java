@@ -12,9 +12,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 
 public class StartTurns {
-
+	
 	public static void takeTurns() {
-
+		
 		for (int yAxis = 0; yAxis < BoardOverviewController.computer.length; yAxis++) {
 			for (int xAxis = 0; xAxis < BoardOverviewController.computer.length; xAxis++) {
 				Ship currentSquare = OpponentController.getState(yAxis, xAxis);
@@ -87,6 +87,7 @@ public class StartTurns {
 							}
 							if (OpponentController.getShipsRemaining() == 0) {
 								OpponentController.setAllShipsSunk(true);
+								System.out.println("Player Wins");
 								Stats.showWin();
 							}
 
@@ -153,6 +154,7 @@ public class StartTurns {
 							// Stats.printArray();
 
 							// starts the computers turn
+							System.out.println("New Turn:");
 							OpponentLogic.computerStart();
 						}
 					});
