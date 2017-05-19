@@ -160,7 +160,7 @@ public class OpponentLogic {
 		// return tryAgain;
 	}
 
-	public static Ship takeShot(int xAxis, int yAxis) {
+	public static void takeShot(int xAxis, int yAxis) {
 		Ship currentSquare = PlayerController.getState(xAxis, yAxis);
 		if (PlayerController.getState(xAxis, yAxis) == PlayerController.fleet[0]
 				|| PlayerController.getState(xAxis, yAxis) == PlayerController.fleet[1]
@@ -231,7 +231,7 @@ public class OpponentLogic {
 
 			// pause(400);
 
-			return PlayerController.getState(xAxis, yAxis);
+//			return PlayerController.getState(xAxis, yAxis);
 		} else if (PlayerController.getState(xAxis, yAxis) == null) {
 			PlayerController.setMiss(xAxis, yAxis);
 			System.out.println("MISS");
@@ -244,11 +244,12 @@ public class OpponentLogic {
 
 			// pause(400);
 			computerTurn = false;
-			return PlayerController.getState(xAxis, yAxis);
-		} else {
-			System.out.println("ELSE");
-			return PlayerController.getState(xAxis, yAxis);
-		}
+//			return PlayerController.getState(xAxis, yAxis);
+		} 
+//		else {
+//			System.out.println("ELSE");
+//			return PlayerController.getState(xAxis, yAxis);
+//		}
 	}
 
 	// adds delay
