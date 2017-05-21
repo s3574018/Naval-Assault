@@ -87,6 +87,7 @@ public class BoardOverviewController {
 		button.setGraphic(new ImageView(explosionImg));
 		SoundPlayer.getSoundEnabled();
 		if (SoundPlayer.getSoundEnabled() == true) {
+			hit.setVolume(0.3);
 			hit.play();
 		}
 	}
@@ -96,6 +97,7 @@ public class BoardOverviewController {
 		button.setGraphic(new ImageView(waterImg));
 		SoundPlayer.getSoundEnabled();
 		if (SoundPlayer.getSoundEnabled() == true) {
+			miss.setVolume(0.3);
 			miss.play();
 		}
 	}

@@ -17,13 +17,13 @@
    <children>
       <Text layoutX="174.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ABOUT" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="174.802734375" AnchorPane.topAnchor="14.0" />
       <Button layoutX="300.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleOkayClicked" prefHeight="30.0" prefWidth="73.0" text="OK" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-      <TextArea editable="false" layoutX="5.0" layoutY="108.0" prefHeight="176.0" prefWidth="377.0" text="Naval Assault is a tactical turn based guessing game &#10;involving 2 fleets of warships set out on a 2D game board.  &#10;&#10;The goal is to destroy your opponent's hidden fleet &#10;before yours is destroyed." wrapText="true" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="108.0">
+      <TextArea editable="false" layoutX="5.0" layoutY="108.0" prefHeight="176.0" prefWidth="377.0" text="Naval Assault v1.0&#10;&#10;Owners: CrayonDownTown (BITS) RMIT&#10;&#10;Any borrowed artefacts have been used in accordance with the appropriate licensing laws." wrapText="true" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="108.0">
          <font>
             <Font size="14.0" />
          </font></TextArea>
       <ImageView fitHeight="140.0" fitWidth="255.0" layoutX="88.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../application/Logo.png" />
+            <Image url="@../resources/Logo.png" />
          </image>
       </ImageView>
    </children>

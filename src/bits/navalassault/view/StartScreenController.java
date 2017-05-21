@@ -21,6 +21,7 @@ public class StartScreenController {
 	private void handleStartClicked() {
 		SoundPlayer.getSoundEnabled();
 		if (SoundPlayer.getSoundEnabled() == true) {
+			startClick.setVolume(0.2);
 			startClick.play();
 		}
 		mainApp.showBoardOverview();

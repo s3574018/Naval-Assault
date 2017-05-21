@@ -26,6 +26,7 @@ public class RootLayoutController {
 	@FXML
 	private void initialize() {
 		playBGM.setCycleCount(AudioClip.INDEFINITE);
+		playBGM.setVolume(0.2);
 		playBGM.play();
 	}
 
@@ -45,6 +46,7 @@ public class RootLayoutController {
 			soundToggle.setText("Sound On (toggle)");
 		} else {
 			playBGM.setCycleCount(AudioClip.INDEFINITE);
+			playBGM.setVolume(0.2);
 			playBGM.play();
 			SoundPlayer.setSoundEnabled(true);
 			soundToggle.setText("Sound Off (toggle)");

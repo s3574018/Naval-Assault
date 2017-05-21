@@ -87,7 +87,7 @@ public class StartTurns {
 							}
 							if (OpponentController.getShipsRemaining() == 0) {
 								OpponentController.setAllShipsSunk(true);
-								System.out.println("Player Wins");
+								//System.out.println("Player Wins");
 								Stats.showWin();
 							}
 
@@ -154,7 +154,7 @@ public class StartTurns {
 							// Stats.printArray();
 
 							// starts the computers turn
-							System.out.println("New Turn:");
+							//System.out.println("New Turn:");
 							OpponentLogic.computerStart();
 						}
 					});

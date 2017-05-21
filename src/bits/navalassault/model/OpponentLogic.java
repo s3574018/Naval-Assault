@@ -63,7 +63,7 @@ public class OpponentLogic {
 					Random randomNum = new Random();
 					if (shotOptionsCount != 0 && computerTurn == true) {
 						Point chosenShot = shotOptions[randomNum.nextInt(shotOptionsCount)];
-						System.out.println("Inputting shot from shotOptions");
+						//System.out.println("Inputting shot from shotOptions");
 						takeShot((int) chosenShot.getX(), (int) chosenShot.getY());
 						takeRandomShot = false;
 					}
@@ -80,14 +80,14 @@ public class OpponentLogic {
 						// boolean otherEnd = true;
 						if (j - 1 >= 0) {
 							if (PlayerController.getHitMiss(i, j - 1) == PlayerController.fleet[7]) {
-								System.out.println("Vertical True, otherEnd False");
+								//System.out.println("Vertical True, otherEnd False");
 								otherEnd = false;
 								takeShot(i, j - 1);
 							}
 						}
 						if (j + 1 <= 9 && otherEnd == true) {
 							if (PlayerController.getHitMiss(i, j + 1) == PlayerController.fleet[7]) {
-								System.out.println("Vertical True, otherEnd True");
+								//System.out.println("Vertical True, otherEnd True");
 								takeShot(i, j + 1);
 							}
 						}
@@ -97,7 +97,7 @@ public class OpponentLogic {
 						// boolean otherEnd = true;
 						if (i - 1 >= 0) {
 							if (PlayerController.getHitMiss(i - 1, j) == PlayerController.fleet[7]) {
-								System.out.println("Vertical False, otherEnd True");
+								//System.out.println("Vertical False, otherEnd True");
 								otherEnd = false;
 								takeShot(i - 1, j);
 
@@ -105,7 +105,7 @@ public class OpponentLogic {
 						}
 						if (i + 1 <= 9 && otherEnd == true) {
 							if (PlayerController.getHitMiss(i + 1, j) == PlayerController.fleet[7]) {
-								System.out.println("Vertical False, otherEnd True");
+								//System.out.println("Vertical False, otherEnd True");
 								takeShot(i + 1, j);
 							}
 						}
@@ -116,7 +116,7 @@ public class OpponentLogic {
 		}
 
 		if (takeRandomShot == true) {
-			System.out.println("RandomShot Initiated");
+			//System.out.println("RandomShot Initiated");
 			randomShot();
 		}
 	}
@@ -130,11 +130,11 @@ public class OpponentLogic {
 		yAxis = randomNum.nextInt(10);
 		xAxis = randomNum.nextInt(10);
 		if (PlayerController.getHitMiss(xAxis, yAxis) == PlayerController.fleet[7]) {
-			System.out.println("Shooting");
+			//System.out.println("Shooting");
 			takeShot(xAxis, yAxis);
 
 		} else {
-			System.out.println("Selected Previously... Reloading");
+			//System.out.println("Selected Previously... Reloading");
 			randomShot();
 
 		}
@@ -168,7 +168,7 @@ public class OpponentLogic {
 				|| PlayerController.getState(xAxis, yAxis) == PlayerController.fleet[3]
 				|| PlayerController.getState(xAxis, yAxis) == PlayerController.fleet[4]) {
 			PlayerController.setHit(xAxis, yAxis);
-			System.out.println("HIT");
+			//System.out.println("HIT");
 			currentSquare.decreaseHealth();
 			currentSquare.increaseHitCount();
 
@@ -212,7 +212,7 @@ public class OpponentLogic {
 			}
 			if (PlayerController.getShipsRemaining() == 0) {
 				PlayerController.setAllShipsSunk(true);
-				System.out.println("Computer Wins");
+				//System.out.println("Computer Wins");
 				Stats.showLose();
 			}
 			if (currentSquare.getHitCount() > 0) {
@@ -234,7 +234,7 @@ public class OpponentLogic {
 //			return PlayerController.getState(xAxis, yAxis);
 		} else if (PlayerController.getState(xAxis, yAxis) == null) {
 			PlayerController.setMiss(xAxis, yAxis);
-			System.out.println("MISS");
+			//System.out.println("MISS");
 			BoardOverviewController.player[xAxis][yAxis].setGraphic(new ImageView(BoardOverviewController.waterImg));
 
 			// remove stats call for computer after testing
