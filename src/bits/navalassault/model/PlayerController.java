@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 
 public class PlayerController extends BoardOverviewController {
 
-	private static final Ship[][] gameBoard = new Ship[10][10];
+	private static Ship[][] gameBoard = new Ship[10][10];
 	public static final Ship fleet[] = new Ship[8];
 	private static final Ship[][] hitMissBoard = new Ship[10][10];
 	private static boolean allShipsSunk = false;
@@ -22,6 +22,7 @@ public class PlayerController extends BoardOverviewController {
     public static void resetGame() {
     	allShipsSunk = false;
     	shipsRemaining = 5;
+    	gameBoard = new Ship[10][10];
     }
 
     public static int getShipsRemaining() {
@@ -146,6 +147,7 @@ public class PlayerController extends BoardOverviewController {
         fleet[5] = new Ship("hit");
         fleet[6] = new Ship("miss");
         fleet[7] = new Ship("empty");
+        setHitGridEmpty();
         
         Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Welcome to Naval Assault");
